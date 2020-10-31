@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --blue-main-color: rgb(0, 0, 100);
+  --blue-support-color:  rgb(200, 230, 255);
+}
+
+/* OVERRIDE ANGULAR */
+.mat-button-toggle-checked {
+  color: white !important;
+  background-color: var(--blue-main-color) !important;
+}
+.mat-expansion-panel {
+  border-radius: 0px !important;
+}
+.mat-menu-content:not(:empty) {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-radius: 0px !important;
+}
+.mat-menu-panel {
+  max-width: none !important;
+  border-radius: 0px !important;
+}
+
+/* FLEX */
+.blue-row, .blue-column {
+  display: flex;
+}
+.blue-row {
+  flex-direction: row;
+}
+.blue-column {
+  flex-direction: column;
+}
+
+/* SPAZIATORI */
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+.yena-main-color {
+  color: rgb(255, 51, 27);
+}
+.yena-main-background-color {
+  background-color: rgb(255, 51, 27);
+}

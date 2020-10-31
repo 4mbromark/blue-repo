@@ -1,0 +1,21 @@
+<mat-toolbar class="blue-topbar mat-elevation-z5">
+  <img src="assets/outblue-logo.png" alt="STOT"
+    style="height: 75px; margin-top: auto; margin-bottom: auto; margin-left: 10px;">
+  <div style="font-size: 50px; color: white;">
+    OUT BLUE
+  </div>
+  <span style="flex: 1 1 auto;"></span>
+  <div class="blue-row" style="height: 70px; width: 60%; border-radius: 50px; background-color: white;"
+    (click)="search = !search">
+    <app-blue-project-switch *ngIf="!search"></app-blue-project-switch>
+    <span *ngIf="!search" class="spacer">
+      <span class="search-text">
+        <fa-icon icon="search" size="lg"></fa-icon>
+        &nbsp;&nbsp;&nbsp;{{gbl('search-button')}}
+      </span>
+    </span>
+    <app-blue-modules-selector *ngIf="!search"></app-blue-modules-selector>
+    <app-blue-search-bar *ngIf="search" style="min-width: 100% !important"></app-blue-search-bar>
+  </div>
+  <app-blue-user-actions></app-blue-user-actions>
+</mat-toolbar>

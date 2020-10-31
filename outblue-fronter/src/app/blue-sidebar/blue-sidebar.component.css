@@ -1,0 +1,54 @@
+.leftbar-button {
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.leftbar-button:hover {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+
+.leftbar-selected-outbox {
+  border-right: 2px solid var(--blue-main-color);
+  background-color: rgb(200, 230, 255);
+  /*border-radius: 5px;*/
+}
+
+.leftbar-icon {
+  padding-right:20px;
+  padding-left:15px;
+}
+.leftbar-icon-not-extended {
+  padding-left:14px;
+}
+.leftbar-selected-icon {
+  background-color: var(--blue-main-color);
+  color:white;
+}
+
+.leftbar-selected-thing {
+  padding:5px;
+}
+
+.leftbar-bottom-tools {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  color: dimgrey;
+  background-color: rgb(200, 230, 255);
+  border-bottom: 2px solid var(--stot-main-color);
+}
+.leftbar-bottom-line {
+  width: 100%;
+  border-radius: 0px;
+}
+.leftbar-bottom-line:hover {
+  color: black;
+  background-color: white;
+}

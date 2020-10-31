@@ -1,0 +1,9 @@
+.switch-round-opened, .switch-round-closed {
+  border-radius: 35px !important;
+}
+.switch-round-opened {
+  width: 500px !important;
+}
+.switch-round-closed {
+  width: 300px !important;
+}

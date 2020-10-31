@@ -1,0 +1,13 @@
+.blue-topbar {
+  height: 90px;
+  background-color: var(--blue-main-color);
+}
+
+.search-text {
+  display: block;
+  padding: 20px;
+  color: gray;
+  font-size: medium;
+  text-align: center;
+}
+

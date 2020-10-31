@@ -1,0 +1,51 @@
+<mat-sidenav-container style="height: 100%;" autosize>
+
+  <mat-sidenav #sidenav mode="side" *ngIf="getSidebarStatus().enabled" [opened]="getSidebarStatus().opened" class="mat-elevation-z2" [style]="getSidebarStatus().extended ? 'width: 300px' : 'width: 80px'"
+    >
+
+    <!--<div style="padding-top: 5px;">-->
+
+    <div *ngFor="let button of getSidebarButtons()">
+
+      <div [class]="getSidebarSelectedButton() === button ? 'leftbar-selected-outbox' : ''" >
+        <button mat-button *ngIf="button.type === 'main'" class="leftbar-button" (click)="setSidebarSelectedButton(button);"
+          [title]="gbl(button.title)">
+          <span
+            *ngIf="getSidebarStatus().extended && getSidebarSelectedButton() === button"
+            [class]="getSidebarStatus().extended ? 'leftbar-selected-thing' : ''">
+            <fa-icon icon="angle-right" size="lg"></fa-icon>
+          </span>
+          <span [class]="getSidebarStatus().extended ? 'leftbar-icon' : 'leftbar-icon-not-extended'">
+            <button mat-icon-button
+              [class]="getSidebarSelectedButton() === button ? 'mat-elevation-z2 leftbar-selected-icon' : ''">
+              <!--cornflowerblue-->
+              <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+            </button>
+          </span>
+          <span *ngIf="getSidebarStatus().extended">{{gbl(button.name)}}</span>
+        </button>
+
+        <mat-divider *ngIf="button.type === 'line'" class="leftbar-divider"></mat-divider>
+
+      </div>
+    </div>
+
+    <div class="leftbar-bottom-tools">
+      <button mat-button class="leftbar-bottom-line"
+        [style]="getSidebarStatus().extended ? 'text-align: right; padding-right: 20px;' : 'padding-left: 20px;'" (click)="setSidebarExtended()" [title]="gbl('sidebar-extend')">
+        <span *ngIf="getSidebarStatus().extended">{{gbl('sidebar-extend')}}</span>
+        <button mat-icon-button>
+          <fa-icon  [icon]="getSidebarStatus().extended ? 'angle-double-left' : 'angle-double-right'" size="lg">
+          </fa-icon>
+        </button>
+      </button>
+
+    </div>
+
+
+
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

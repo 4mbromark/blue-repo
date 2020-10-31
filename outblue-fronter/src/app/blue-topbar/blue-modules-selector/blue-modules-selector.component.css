@@ -1,0 +1,13 @@
+.selector, .selector-group {
+  border: 0px !important;
+}
+.selector {
+  color: dimgrey;
+}
+.selector-group {
+  height: 70px;
+  border-radius: 00px !important;
+}
+.selector:hover {
+  background-color: var(--blue-support-color) !important;
+}
