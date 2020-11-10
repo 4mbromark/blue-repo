@@ -10,6 +10,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -22,7 +27,12 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSidenavModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AngularModules { }

@@ -82,7 +82,7 @@ export class LanguageService {
   public static ENGLISH = 'eng';
 
   labels = LABELS;
-  language = 'eng';
+  language = 'ita';
 
   constructor() {
   }

@@ -1,4 +1,4 @@
-.leftbar-button {
+.button, .selected-button {
   width: 100%;
   text-align: left;
   padding: 5px;
@@ -6,33 +6,38 @@
   color: dimgrey;
   border-radius: 0px !important;
 }
-.leftbar-button:hover {
+.button:hover {
   color: black;
   background-color: var(--blue-support-color);
 }
+.selected-button {
+  color: var(--blue-main-color);
+}
 
-.leftbar-selected-outbox {
+.selected-outbox {
   border-right: 2px solid var(--blue-main-color);
   background-color: rgb(200, 230, 255);
   /*border-radius: 5px;*/
 }
 
-.leftbar-icon {
+.icon {
   padding-right:20px;
   padding-left:15px;
 }
-.leftbar-icon-not-extended {
+.icon-not-extended {
   padding-left:14px;
 }
-.leftbar-selected-icon {
+.selected-icon {
   background-color: var(--blue-main-color);
   color:white;
 }
 
-.leftbar-selected-thing {
+.selected-thing {
   padding:5px;
 }
 
+
+/**/
 .leftbar-bottom-tools {
   position: absolute;
   bottom: 25px;
