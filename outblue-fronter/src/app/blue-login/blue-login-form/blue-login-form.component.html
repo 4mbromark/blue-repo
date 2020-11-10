@@ -1,0 +1,29 @@
+<div class="blue-column">
+  <h1 style="text-align: center;">
+    Accedi a <b>Outblue</b>
+  </h1>
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput type="text" [(formControl)]="username" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" required>
+    <button mat-icon-button matSuffix class="suffix-button" (click)="hide = !hide">
+      <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [title]="hide ? 'Mostra Password' : 'Nascondi Password'">
+      </fa-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="blue-row">
+  <button mat-button style="width: 10%;" title="Crea un account">
+    <fa-icon class="button-icon" icon="plus" size="lg"></fa-icon>
+  </button>
+  <button mat-button style="width: 90%;" title="Esegui il login">
+    Login
+    <fa-icon class="button-icon" icon="sign-in-alt" size="lg"></fa-icon>
+  </button>
+</div>
+</div>

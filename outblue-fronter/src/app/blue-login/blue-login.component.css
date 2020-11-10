@@ -1,0 +1,38 @@
+.background-image {
+  height: auto;
+  width: 100%;
+}
+.background-image::after {
+  content: "";
+  background: url("../../assets/login/wallpaper-1-2.jpg");
+  background-size: cover;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.login-square {
+  background-color: var(--blue-main-color);
+  height: 350px;
+  width: 100%;
+  z-index: 1;
+  opacity: 95%;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15%;
+}
+.login-circle {
+  background-color: white;
+  padding: 60px 200px;
+  padding-right: 400px;
+  margin-left: 150px;
+  border-top-left-radius: 300px;
+  border-bottom-left-radius: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

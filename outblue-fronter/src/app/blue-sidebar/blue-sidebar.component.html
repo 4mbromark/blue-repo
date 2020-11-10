@@ -7,17 +7,17 @@
 
     <div *ngFor="let button of getSidebarButtons()">
 
-      <div [class]="getSidebarSelectedButton() === button ? 'leftbar-selected-outbox' : ''" >
-        <button mat-button *ngIf="button.type === 'main'" class="leftbar-button" (click)="setSidebarSelectedButton(button);"
+      <div [class]="getSidebarSelectedButton() === button ? 'selected-outbox' : ''" >
+        <button mat-button *ngIf="button.type === 'main'" [class]="getSidebarSelectedButton() === button ? 'selected-button' : 'button'" (click)="setSidebarSelectedButton(button);"
           [title]="gbl(button.title)">
           <span
             *ngIf="getSidebarStatus().extended && getSidebarSelectedButton() === button"
-            [class]="getSidebarStatus().extended ? 'leftbar-selected-thing' : ''">
+            [class]="getSidebarStatus().extended ? 'selected-thing' : ''">
             <fa-icon icon="angle-right" size="lg"></fa-icon>
           </span>
-          <span [class]="getSidebarStatus().extended ? 'leftbar-icon' : 'leftbar-icon-not-extended'">
+          <span [class]="getSidebarStatus().extended ? 'icon' : 'icon-not-extended'">
             <button mat-icon-button
-              [class]="getSidebarSelectedButton() === button ? 'mat-elevation-z2 leftbar-selected-icon' : ''">
+              [class]="getSidebarSelectedButton() === button ? 'mat-elevation-z2 selected-icon' : ''">
               <!--cornflowerblue-->
               <fa-icon [icon]="button.icon" size="lg"></fa-icon>
             </button>
@@ -25,7 +25,7 @@
           <span *ngIf="getSidebarStatus().extended">{{gbl(button.name)}}</span>
         </button>
 
-        <mat-divider *ngIf="button.type === 'line'" class="leftbar-divider"></mat-divider>
+        <mat-divider *ngIf="button.type === 'line'" class="divider"></mat-divider>
 
       </div>
     </div>

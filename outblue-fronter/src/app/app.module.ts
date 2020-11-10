@@ -13,6 +13,9 @@ import { ProjectSwitchComponent } from './blue-topbar/blue-project-switch/blue-p
 import { UserActionsComponent } from './blue-topbar/blue-user-actions/blue-user-actions.component';
 import { SearchBarComponent } from './blue-topbar/blue-search-bar/blue-search-bar.component';
 import { SidebarComponent } from './blue-sidebar/blue-sidebar.component';
+import { BlueLoginComponent } from './blue-login/blue-login.component';
+import { BlueLoginFormComponent } from './blue-login/blue-login-form/blue-login-form.component';
+import { BlueLoginContactsComponent } from './blue-login/blue-login-contacts/blue-login-contacts.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { SidebarComponent } from './blue-sidebar/blue-sidebar.component';
     ProjectSwitchComponent,
     UserActionsComponent,
     SearchBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    BlueLoginComponent,
+    BlueLoginFormComponent,
+    BlueLoginContactsComponent
   ],
   imports: [
     AngularModules,

@@ -6,8 +6,9 @@
 }
 .selector-group {
   height: 70px;
-  border-radius: 00px !important;
+  border-radius: 0px !important;
 }
 .selector:hover {
+  font-size: large;
   background-color: var(--blue-support-color) !important;
 }
