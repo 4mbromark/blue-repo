@@ -1,0 +1,23 @@
+<button mat-button class="user-icon" (click)="openMessagingDialog()">
+  <fa-icon icon="exclamation" size="lg"></fa-icon>
+  <fa-icon icon="envelope" size="lg" style="margin-left:10px;"></fa-icon>
+</button>
+
+<button mat-button [matMenuTriggerFor]="user" class="user-icon">
+  Marco Ambrosi
+  <fa-icon icon="user-circle" size="lg" style="margin-left:10px;"></fa-icon>
+</button>
+
+<mat-menu #user="matMenu">
+  <div style="width: 250px;" *ngFor="let button of menuButtons">
+    <button mat-button *ngIf="button.type === 'main'" class="menu-button" (click)="openWindow(button)">
+      <span class="menu-icon">
+        <button mat-icon-button>
+          <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+        </button>
+      </span>
+      <span>{{gbl(button.title)}}</span>
+    </button>
+    <mat-divider *ngIf="button.type === 'line'"></mat-divider>
+  </div>
+</mat-menu>

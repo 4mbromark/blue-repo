@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blue-login-contacts',
+  selector: 'app-login-contacts',
   templateUrl: './blue-login-contacts.component.html',
   styleUrls: ['./blue-login-contacts.component.css']
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-blue-login-form',
+  selector: 'app-login-form',
   templateUrl: './blue-login-form.component.html',
   styleUrls: ['./blue-login-form.component.css']
 })

@@ -1,0 +1,4 @@
+.blue-topbar {
+  height: 50px;
+  background-color: var(--blue-main-color);
+}

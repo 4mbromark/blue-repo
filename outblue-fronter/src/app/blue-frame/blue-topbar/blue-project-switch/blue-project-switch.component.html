@@ -1,0 +1,43 @@
+<div class="blue-row" (contextmenu)="projectsTrigger.openMenu();" #projectsTrigger="matMenuTrigger"
+  [matMenuTriggerFor]="projectsContext">
+  <mat-expansion-panel #projectBar [class]="opened ? 'switch-opened' : 'switch-closed mat-elevation-z0'"
+    (opened)="opened = true" (closed)="opened = false" (click)="$event.stopPropagation()" hideToggle>
+    <mat-expansion-panel-header [collapsedHeight]="'40px'" [expandedHeight]="'100px'"
+      style="background-color:var(--blue-main-color);">
+      <mat-panel-title class="blue-row">
+        <span [class]="opened ? 'switch-title-opened' : 'switch-title'">HIGH FIVE LIFE PROJECT</span>
+        <span mat-button class="switch-icon" [matMenuTriggerFor]="projectsContext" (click)="$event.stopPropagation();">
+          <fa-icon icon="bars" size="lg"></fa-icon>
+        </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</div>
+
+<mat-menu #projectsContext="matMenu">
+  <div style="width: 300px;">
+    <div *ngFor="let button of contextButton">
+      <button mat-button *ngIf="button.type === 'main'" class="project-button"
+        (click)="getContextAction(button, $event, projectList);"
+        [disabled]="button.tag === tags.CONTEXT_TOGGLEPANEL && subProjects.length === 0"
+        [matTooltip]="getContextTooltip(button)" matTooltipPosition="right">
+        <span class="project-icon">
+          <button mat-icon-button>
+            <fa-icon [icon]="getContextIcon(button)" size="lg">
+            </fa-icon>
+          </button>
+        </span>
+        <span>{{getContextTitle(button)}}</span>
+        <span *ngIf="button.tag === tags.CONTEXT_TOGGLEPANEL"
+          style="float: right; margin: 2px;">{{subProjects.length}}</span>
+      </button>
+      <mat-expansion-panel #projectList="matExpansionPanel" style="width: 100%;" hideToggle>
+        <button mat-button *ngFor="let project of subProjects" class="project-button"
+          [matTooltip]="getContextProjectTooltip(project)" matTooltipPosition="right">
+          <span>{{project.title}}</span>
+        </button>
+      </mat-expansion-panel>
+      <mat-divider *ngIf="button.type === 'line'"></mat-divider>
+    </div>
+  </div>
+</mat-menu>

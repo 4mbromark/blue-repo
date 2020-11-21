@@ -7,21 +7,31 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { TopbarComponent } from './blue-topbar/blue-topbar.component';
-import { ModulesSelectorComponent } from './blue-topbar/blue-modules-selector/blue-modules-selector.component';
-import { ProjectSwitchComponent } from './blue-topbar/blue-project-switch/blue-project-switch.component';
-import { UserActionsComponent } from './blue-topbar/blue-user-actions/blue-user-actions.component';
-import { SearchBarComponent } from './blue-topbar/blue-search-bar/blue-search-bar.component';
-import { SidebarComponent } from './blue-sidebar/blue-sidebar.component';
+import { ToolbarComponent } from './blue-frame/blue-toolbar/blue-toolbar.component';
+import { ModulesSelectorComponent } from './blue-frame/blue-toolbar/blue-modules-selector/blue-modules-selector.component';
+import { ProjectSwitchComponent } from './blue-frame/blue-topbar/blue-project-switch/blue-project-switch.component';
+import { UserActionsComponent } from './blue-frame/blue-topbar/blue-user-actions/blue-user-actions.component';
+import { SearchBarComponent } from './blue-frame/blue-toolbar/blue-search-bar/blue-search-bar.component';
+import { SidebarComponent } from './blue-frame/blue-sidebar/blue-sidebar.component';
 import { BlueLoginComponent } from './blue-login/blue-login.component';
 import { BlueLoginFormComponent } from './blue-login/blue-login-form/blue-login-form.component';
 import { BlueLoginContactsComponent } from './blue-login/blue-login-contacts/blue-login-contacts.component';
+import { BlueTopbarComponent } from './blue-frame/blue-topbar/blue-topbar.component';
+import { TasklistComponent } from './blue-modules/tasklist/tasklist.component';
+import { PaletteComponent } from './blue-utils/blue-context/palette/palette.component';
+import { LanguageComponent } from './blue-frame/blue-window/language/language.component';
+import { PreferenceComponent } from './blue-frame/blue-window/preference/preference.component';
+import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging.component';
+import { BaseWindowComponent } from './blue-utils/blue-base/base-window/base-window.component';
+import { StandardToolbarComponent } from './blue-utils/blue-standard/standard-toolbar/standard-toolbar.component';
+import { CommunicationsComponent } from './blue-frame/blue-window/messaging/communications/communications.component';
+import { ProjectsComponent } from './blue-frame/blue-window/preference/projects/projects.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent,
+    ToolbarComponent,
     ModulesSelectorComponent,
     ProjectSwitchComponent,
     UserActionsComponent,
@@ -29,7 +39,17 @@ import { BlueLoginContactsComponent } from './blue-login/blue-login-contacts/blu
     SidebarComponent,
     BlueLoginComponent,
     BlueLoginFormComponent,
-    BlueLoginContactsComponent
+    BlueLoginContactsComponent,
+    BlueTopbarComponent,
+    TasklistComponent,
+    PaletteComponent,
+    MessagingComponent,
+    LanguageComponent,
+    PreferenceComponent,
+    BaseWindowComponent,
+    StandardToolbarComponent,
+    CommunicationsComponent,
+    ProjectsComponent
   ],
   imports: [
     AngularModules,
