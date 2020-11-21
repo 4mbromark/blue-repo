@@ -1,0 +1,11 @@
+<div>
+
+  <div *ngFor="let r of rs" class="blue-row">
+    <div *ngFor="let g of gs"  class="blue-row">
+      <div *ngFor="let b of bs" class="blue-row">
+        <button [style]="'height: 25px; width: 25px; margin: 1px; background-color: rgb(' + r + ',' + g + ',' + b + ')'" [title]="r + '/' + g + '/' + b"></button>
+      </div>
+    </div>
+  </div>
+
+</div>

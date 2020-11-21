@@ -1,0 +1,28 @@
+.user-icon {
+  color: white;
+  border-radius: 20px;
+  font-weight: 400;
+}
+.user-icon:hover {
+  color: var(--blue-main-color);
+  background-color: white;
+  font-weight: 500;
+  transition: var(--blue-base-transition);
+}
+
+.menu-button {
+  width: 100%;
+  text-align: left;
+  padding: 5px 15px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.menu-button:hover {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+
+.menu-icon {
+  margin-right: 10px;
+}

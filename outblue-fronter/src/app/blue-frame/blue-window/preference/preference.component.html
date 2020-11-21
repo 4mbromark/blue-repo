@@ -1,0 +1,23 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<div class="blue-row">
+  <div class="blue-column" style="align-items: center;">
+    <div style="width: 200px;" *ngFor="let button of preferenceButtons">
+      <button mat-button class="preference-button">
+        <span class="preference-icon">
+          <button mat-icon-button>
+            <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+          </button>
+        </span>
+        <span>{{gbl(button.title)}}</span>
+      </button>
+    </div>
+
+  </div>
+  <div style="margin: 10px;">
+    <section>
+    <app-projects></app-projects>
+  </section>
+  </div>
+
+</div>

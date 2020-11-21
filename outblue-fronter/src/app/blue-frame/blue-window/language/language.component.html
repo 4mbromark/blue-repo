@@ -1,0 +1,9 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<div style="margin: 10px;">
+  <button mat-button [class]="button.language === getSelectedLanguage() ? 'language-button-selected' : 'language-button'" *ngFor="let button of languageButtons"
+    (click)="setLanguage(button.language)">
+    <span class="language-code">{{button.code}}</span>
+    <span class="language-title">{{gbl(button.title)}}</span>
+  </button>
+</div>

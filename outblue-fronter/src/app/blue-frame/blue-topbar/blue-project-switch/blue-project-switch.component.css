@@ -1,0 +1,48 @@
+.switch-opened {
+  width: 700px !important;
+}
+.switch-closed {
+  width: 100% !important;
+}
+
+.switch-title, .switch-title-opened {
+  user-select: none;
+  font-size: 25px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: white;
+}
+.switch-title-opened {
+  font-size: 30px;
+  margin-right: 200px;
+  transition: var(--blue-base-transition);
+}
+
+.switch-icon {
+  border-radius: 0px;
+  padding: 0px 20px;
+  margin-left: 10px;
+  color: white;
+}
+.switch-icon:hover {
+  transform: rotate(180deg);
+  transition: var(--blue-base-transition);
+}
+
+.project-button {
+  width: 100% !important;
+  text-align: left;
+  padding: 5px 15px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.project-button:hover:enabled {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+
+.project-icon {
+  margin-right: 10px;
+}
