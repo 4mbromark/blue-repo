@@ -46,10 +46,14 @@ export class LanguageMatchList {
     { label: LanguageLabels.SELECTOR_PROJECTS, italian: 'Sottoprogetti', english: 'Subprojects' },
 
     // SIDEBAR OF TASKS
-    { label: LanguageLabels.SIDEBAR_ALL_SHORT, italian: 'Attività', english: 'Tasks' },
-    { label: LanguageLabels.SIDEBAR_ALL_COMPLETE, italian: 'Tutte le Attività', english: 'All tasks' },
-    { label: LanguageLabels.SIDEBAR_CALENDAR_SHORT, italian: 'Programmate', english: 'Scheduled' },
-    { label: LanguageLabels.SIDEBAR_CALENDAR_COMPLETE, italian: 'Attività Programmate', english: 'Scheduled tasks' },
+    { label: LanguageLabels.SIDEBAR_MAIN_SHORT, italian: 'Amministrazione', english: 'Administration' },
+    { label: LanguageLabels.SIDEBAR_MAIN_COMPLETE, italian: 'Amministrazione di Outblue', english: 'Outblue Administration' },
+    { label: LanguageLabels.SIDEBAR_PROJECTS_SHORT, italian: 'Progetti', english: 'Projects' },
+    { label: LanguageLabels.SIDEBAR_PROJECTS_COMPLETE, italian: 'Registro dei progetti', english: 'Projects Register' },
+    { label: LanguageLabels.SIDEBAR_TASKS_SHORT, italian: 'Attività', english: 'Tasklist' },
+    { label: LanguageLabels.SIDEBAR_TASKS_COMPLETE, italian: 'Elenco delle Attività', english: 'List of Tasks' },
+    { label: LanguageLabels.SIDEBAR_VERSIONS_SHORT, italian: 'Versioni', english: 'Versions' },
+    { label: LanguageLabels.SIDEBAR_VERSIONS_COMPLETE, italian: 'Gestione delle Versioni', english: 'Version Management' },
 
     { label: LanguageLabels.SIDEBAR_EXTEND, italian: 'Estendi / Riduci', english: 'Extend / Reduce' },
 

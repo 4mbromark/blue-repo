@@ -1,3 +1,4 @@
+import { ProjectsPreferenceComponent } from './blue-frame/blue-window/preference/projects-preference/projects-preference.component';
 import { IconsModules } from './e-icons-modules';
 import { AngularModules } from './e-angular-modules';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,6 +7,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { ToolbarComponent } from './blue-frame/blue-toolbar/blue-toolbar.component';
 import { ModulesSelectorComponent } from './blue-frame/blue-toolbar/blue-modules-selector/blue-modules-selector.component';
@@ -25,7 +28,7 @@ import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging
 import { BaseWindowComponent } from './blue-utils/blue-base/base-window/base-window.component';
 import { StandardToolbarComponent } from './blue-utils/blue-standard/standard-toolbar/standard-toolbar.component';
 import { CommunicationsComponent } from './blue-frame/blue-window/messaging/communications/communications.component';
-import { ProjectsComponent } from './blue-frame/blue-window/preference/projects/projects.component';
+import { ProjectsComponent } from './blue-modules/projects/projects.component';
 
 
 @NgModule({
@@ -49,13 +52,15 @@ import { ProjectsComponent } from './blue-frame/blue-window/preference/projects/
     BaseWindowComponent,
     StandardToolbarComponent,
     CommunicationsComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectsPreferenceComponent
   ],
   imports: [
     AngularModules,
     IconsModules,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [],

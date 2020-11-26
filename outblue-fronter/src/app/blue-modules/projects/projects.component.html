@@ -1,0 +1,19 @@
+<div class="standard-container">
+
+  <as-split class="standard-split mat-elevation-z8" useTransition="true" (gutterClick)="openInformationsFull()" [direction]="'orizontal'">
+
+    <as-split-area [size]="getTableSize()" class="standard-container-table">
+
+      <ag-grid-angular #agGrid class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
+        [gridOptions]="gridOptions" (rowClicked)="openInformations();" rowSelection="single">
+      </ag-grid-angular>
+    </as-split-area>
+
+    <as-split-area *ngIf="getInfoSize() > 0" [size]="getInfoSize()" class="standard-container-info mat-elevation-z8">
+
+    </as-split-area>
+
+  </as-split>
+
+</div>
+
