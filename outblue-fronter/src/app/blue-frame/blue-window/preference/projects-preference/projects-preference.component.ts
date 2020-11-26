@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-projects-preference',
+  templateUrl: './projects-preference.component.html',
+  styleUrls: ['./projects-preference.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsPreferenceComponent {
 
   main = {
     name: 'High Five',

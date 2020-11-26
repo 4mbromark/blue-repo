@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LightningService } from '../../blue-service/lightning.service';
 import { BaseTableService } from './base-table.service';
 
 @Component({
@@ -17,7 +18,9 @@ export class BaseTableComponent {
     rowHeight: 50
   };
 
-  constructor(private service: BaseTableService) {
+  constructor(protected lightning: LightningService, protected service: BaseTableService) {
+    this.lightning.setTableService(this.service);
+    this.rowData = this.service.getAll();
   }
 
   openInformations(): void {

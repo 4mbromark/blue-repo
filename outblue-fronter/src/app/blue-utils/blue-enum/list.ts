@@ -18,8 +18,11 @@ export class List {
   ];
 
   public static SIDEBAR_BUTTONS: SidebarButton[] = [
-    { type: 'main', icon: 'tasks', title: LanguageLabels.SIDEBAR_ALL_SHORT, name: LanguageLabels.SIDEBAR_ALL_COMPLETE },
-    { type: 'main', icon: 'calendar', title: LanguageLabels.SIDEBAR_CALENDAR_SHORT, name: LanguageLabels.SIDEBAR_CALENDAR_COMPLETE },
+    { type: 'main', icon: 'book', title: LanguageLabels.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabels.SIDEBAR_MAIN_COMPLETE },
+    { type: 'main', icon: 'bolt', title: LanguageLabels.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabels.SIDEBAR_PROJECTS_COMPLETE },
+    { type: 'main', icon: 'check', title: LanguageLabels.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabels.SIDEBAR_TASKS_COMPLETE },
+    { type: 'main', icon: 'stream', title: LanguageLabels.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabels.SIDEBAR_VERSIONS_COMPLETE },
+    /*{ type: 'main', icon: 'calendar', title: LanguageLabels.SIDEBAR_CALENDAR_SHORT, name: LanguageLabels.SIDEBAR_CALENDAR_COMPLETE },*/
   ];
 
   public static MESSAGING_BUTTONS: MessagingButton[] = [

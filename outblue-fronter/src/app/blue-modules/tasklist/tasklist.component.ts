@@ -13,10 +13,7 @@ export class TasklistComponent extends BaseTableComponent {
 
   columnDefs = Table.TASKLIST_TABLE;
 
-  constructor(private lightning: LightningService, private tasklistService: TasklistService) {
-    super(tasklistService);
-    this.lightning.setTableService(this.tasklistService);
-    this.rowData = this.tasklistService.getAll();
+  constructor(protected lightning: LightningService, protected tasklistService: TasklistService) {
+    super(lightning, tasklistService);
   }
-
 }

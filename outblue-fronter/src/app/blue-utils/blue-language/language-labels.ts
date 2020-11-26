@@ -40,10 +40,14 @@ export class LanguageLabels {
   public static PREFERENCE_PROJECTS = 'preference-projects';
 
   // SIDEBAR of TASKS
-  public static SIDEBAR_ALL_SHORT = 'sidebar-all-short';
-  public static SIDEBAR_ALL_COMPLETE = 'sidebar-all-complete';
-  public static SIDEBAR_CALENDAR_SHORT = 'sidebar-calendar-short';
-  public static SIDEBAR_CALENDAR_COMPLETE = 'sidebar-calendar-complete';
+  public static SIDEBAR_MAIN_SHORT = 'sidebar-main-short';
+  public static SIDEBAR_MAIN_COMPLETE = 'sidebar-main-complete';
+  public static SIDEBAR_PROJECTS_SHORT = 'sidebar-projects-short';
+  public static SIDEBAR_PROJECTS_COMPLETE = 'sidebar-projects-complete';
+  public static SIDEBAR_TASKS_SHORT = 'sidebar-tasks-short';
+  public static SIDEBAR_TASKS_COMPLETE = 'sidebar-tasks-complete';
+  public static SIDEBAR_VERSIONS_SHORT = 'sidebar-versions-short';
+  public static SIDEBAR_VERSIONS_COMPLETE = 'sidebar-versions-complete';
 
   public static SIDEBAR_EXTEND = 'sidebar-extend'; // not linked
 
