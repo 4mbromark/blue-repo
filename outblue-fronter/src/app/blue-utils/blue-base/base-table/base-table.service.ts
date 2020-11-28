@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Project } from '../../blue-object/record/Project';
+import { Task } from '../../blue-object/record/Task';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +15,11 @@ export class BaseTableService {
 
   constructor(protected http: HttpClient) { }
 
-  getAll(): any {
-    this.getAllOnRest().then((data: any) => {
-      return data;
-    });
-  }
-  getAllOnRest(): Promise<any> {
+  getAllOnRest(): Promise<Project[] | Task[]> {
     return new Promise((resolve, reject) => {
       this.http.get(this.httpBaseUrl).subscribe(
-        (data: any) => {
-          resolve(data);
+        (records: Project[] | Task[]) => {
+          resolve(records);
         },
         (error: any) => {
           reject(error);

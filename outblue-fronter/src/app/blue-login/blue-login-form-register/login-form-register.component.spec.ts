@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchBarComponent } from './blue-search-bar.component';
+import { LoginFormRegisterComponent } from './login-form-register.component';
 
-describe('SearchBarComponent', () => {
-  let component: SearchBarComponent;
-  let fixture: ComponentFixture<SearchBarComponent>;
+describe('LoginFormRegisterComponent', () => {
+  let component: LoginFormRegisterComponent;
+  let fixture: ComponentFixture<LoginFormRegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
+      declarations: [ LoginFormRegisterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchBarComponent);
+    fixture = TestBed.createComponent(LoginFormRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

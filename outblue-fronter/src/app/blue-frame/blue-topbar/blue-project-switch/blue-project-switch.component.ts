@@ -2,9 +2,9 @@
 import { ContextButton } from './../../../blue-utils/blue-object/button/ContextButton';
 import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
 import { List } from './../../../blue-utils/blue-enum/list';
-import { Component, ViewChild, ViewChildren } from '@angular/core';
-import { Tag } from 'src/app/blue-utils/blue-enum/tag';
-import { LanguageService } from 'src/app/blue-utils/blue-language/language.service';
+import { Component, ViewChild } from '@angular/core';
+import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
+import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({

@@ -1,0 +1,22 @@
+.info-button, .contract-button {
+  padding: 2px;
+  border-radius: 50px;
+  background-color: transparent;
+  margin: 20px;
+}
+.info-button:hover, .contract-button:hover {
+  background-color: white;
+  transition: var(--blue-base-transition);
+}
+.info-button {
+  width: 50px;
+  margin-right: 0px;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.contract-button {
+  width: 150px;
+  margin-left: 0px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}

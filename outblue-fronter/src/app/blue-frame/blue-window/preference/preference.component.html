@@ -5,7 +5,7 @@
     <div style="width: 200px;" *ngFor="let button of preferenceButtons">
       <button mat-button class="preference-button">
         <span class="preference-icon">
-          <button mat-icon-button>
+          <button mat-icon-button [disableRipple]="true">
             <fa-icon [icon]="button.icon" size="lg"></fa-icon>
           </button>
         </span>

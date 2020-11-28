@@ -3,10 +3,19 @@
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-material.css";
 
+/*
+  BLUE CLASSES ORDER
+  row / column
+  blue directives
+  local css
+  mat-elevation
+*/
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
+  --blue-hf-color: rgb(0, 9, 111);
   --blue-main-color: rgb(0, 0, 100);
   --blue-support-color:  rgb(200, 230, 255);
   --blue-base-transition: all 0.3s ease-in-out 0s;
@@ -89,6 +98,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: column;
 }
 
+.blue-flex-center, .blue-flex-left, .blue-flex-right {
+  display: flex;
+  align-items: center;
+}
+.blue-flex-center {
+  justify-content: space-around;
+}
+.blue-flex-left {
+  justify-content: flex-start;
+}
+.blue-flex-right {
+  justify-content: flex-end;
+}
+
+.blue-no-select {
+  user-select: none;
+}
+
 /* SPAZIATORI */
 .blue-spacer {
   flex: 1 1 auto;
@@ -120,7 +147,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 50px !important;
   color: white;
   background-color: var(--blue-main-color);
-  user-select: none;
   font-weight: 400;
 }
 .dialog-standard-titlebar-icon {

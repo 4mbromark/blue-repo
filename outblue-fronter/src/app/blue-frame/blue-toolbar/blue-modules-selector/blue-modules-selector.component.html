@@ -1,9 +1,0 @@
-<mat-button-toggle-group class="selector-group" value="tasks" style="margin-right: 40px;" #group="matButtonToggleGroup">
-  <mat-button-toggle *ngFor="let selector of topbarSelectors" [class]="group.value === selector.code ? 'selected-selector' : 'selector'" [value]="selector.code" (click)="$event.stopPropagation()">
-    <div class="blue-column">
-      <fa-icon [style]="group.value === selector.code ? 'margin: -5px' : ''" [icon]="selector.icon" size="lg"></fa-icon>
-      <span style="margin-top: -20px; font-size: medium;">{{gbl(selector.title)}}</span>
-      <fa-icon *ngIf="group.value === selector.code" icon="chevron-down" size="sm" style="margin-top: -30px;"></fa-icon>
-    </div>
-  </mat-button-toggle>
-</mat-button-toggle-group>

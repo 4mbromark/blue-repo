@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LanguageService } from 'src/app/blue-utils/blue-language/language.service';
+import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
 import { SidebarService, LeftbarStatus } from './blue-sidebar.service';
 
@@ -12,7 +12,7 @@ export class SidebarComponent {
 
   constructor(private sidebarService: SidebarService, private languageService: LanguageService) { }
 
-  gbl(label: string) {
+  gbl(label: string): string {
     return this.languageService.getByLanguage(label);
   }
 

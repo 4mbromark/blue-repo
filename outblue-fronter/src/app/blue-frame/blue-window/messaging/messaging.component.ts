@@ -1,11 +1,11 @@
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
 import { BaseWindowService } from './../../../blue-utils/blue-base/base-window/base-window.service';
-import { Tag } from './../../../blue-utils/blue-enum/tag';
+import { Tag } from '../../../blue-utils/blue-enum/word/tag';
 import { List } from '../../../blue-utils/blue-enum/list';
 import { BaseWindowComponent } from '../../../blue-utils/blue-base/base-window/base-window.component';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { LanguageService } from 'src/app/blue-utils/blue-language/language.service';
+import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 
 @Component({
   selector: 'app-messaging',
@@ -27,7 +27,7 @@ export class MessagingComponent extends BaseWindowComponent {
     this.lightningService.setDialogService(service);
   }
 
-  gbl(label: string) {
+  gbl(label: string): string {
     return this.languageService.getByLanguage(label);
   }
 

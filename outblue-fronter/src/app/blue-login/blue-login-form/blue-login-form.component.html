@@ -1,22 +1,37 @@
-<div class="blue-column">
+<div class="blue-row">
   <h1 style="text-align: center;">
-    Accedi a <b>Outblue</b>
+    <span [innerHTML]="customWelcomeMessage"></span>
+    <!--Accedi a <b>Outblue</b>-->
   </h1>
+</div>
 
-  <mat-form-field>
-    <mat-label>Username</mat-label>
-    <input matInput type="text" [(formControl)]="username" required>
+<div class="blue-row">
+  <mat-form-field style="margin-right: 15px;" floatLabel="never">
+    <input matInput type="text" [(formControl)]="username" (input)="checkIfUserExists()" placeholder="Username / email">
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" required>
+  <mat-form-field floatLabel="never">
+    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password"  placeholder="Password">
     <button mat-icon-button matSuffix class="suffix-button" (click)="hide = !hide">
       <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [title]="hide ? 'Mostra Password' : 'Nascondi Password'">
       </fa-icon>
     </button>
   </mat-form-field>
+</div>
 
+<div class="blue-row blue-flex-right" style="text-align: right;">
+  <button mat-raised-button style="border-radius: 0px; background-color: transparent;" matTooltip="Accedi">
+    <fa-icon icon="sign-in-alt" size="lg"></fa-icon>
+  </button>
+  <button mat-raised-button
+    style="border-radius: 0px; background-color: transparent; margin-left: 10px; margin-right: 10px;"
+    (click)="openRegisterWindow()">
+    Registrati
+  </button>
+
+</div>
+
+<!--
   <div class="blue-row">
   <button mat-button style="width: 10%;" title="Crea un account">
     <fa-icon class="button-icon" icon="plus" size="lg"></fa-icon>
@@ -25,5 +40,4 @@
     Login
     <fa-icon class="button-icon" icon="sign-in-alt" size="lg"></fa-icon>
   </button>
-</div>
-</div>
+</div>-->

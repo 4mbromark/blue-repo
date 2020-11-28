@@ -1,0 +1,63 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<div style="margin: 20px; margin-bottom: 100px;">
+  <div class="blue-row">
+    <div class="blue-column blue-flex-center">
+      <fa-icon class="register-icon" icon="user-circle" size="2x"></fa-icon>
+    </div>
+    <div class="blue-column">
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Nome" type="text" required>
+        </mat-form-field>
+      </div>
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Cognome" type="text" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="blue-row">
+    <div class="blue-column blue-flex-center">
+      <fa-icon class="register-icon" icon="envelope" size="2x"></fa-icon>
+    </div>
+    <div class="blue-column">
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Indirizzo email" type="text" required>
+        </mat-form-field>
+      </div>
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Nome account" type="text" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="blue-column blue-flex-center" style="margin-left: 100px;">
+      <fa-icon class="register-icon" icon="key" size="2x"></fa-icon>
+    </div>
+    <div class="blue-column">
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Password" type="password" required>
+        </mat-form-field>
+      </div>
+      <div class="blue-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput placeholder="Conferma password" type="password" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-standard-licence-bar></app-standard-licence-bar>
+
+<div class="blue-flex-right">
+  <button mat-raised-button style="padding: 5px 15px !important; margin: 20px; border-radius: 0px;">
+    Invia email di conferma
+    <fa-icon style="margin-left: 5px;" icon="paper-plane" size="lg"></fa-icon>
+  </button>
+</div>
+

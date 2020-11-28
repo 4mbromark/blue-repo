@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Project } from '../../blue-object/record/Project';
+import { Task } from '../../blue-object/record/Task';
 import { LightningService } from '../../blue-service/lightning.service';
 import { BaseTableService } from './base-table.service';
 
@@ -7,7 +9,7 @@ import { BaseTableService } from './base-table.service';
   templateUrl: './base-table.component.html',
   styleUrls: ['./base-table.component.css']
 })
-export class BaseTableComponent {
+export class BaseTableComponent implements OnInit {
 
   rowData = [];
   columnDefs = [];
@@ -20,7 +22,12 @@ export class BaseTableComponent {
 
   constructor(protected lightning: LightningService, protected service: BaseTableService) {
     this.lightning.setTableService(this.service);
-    this.rowData = this.service.getAll();
+  }
+
+  ngOnInit(): void {
+    this.service.getAllOnRest().then((records: Project[] | Task[]) => {
+      this.rowData = records;
+    });
   }
 
   openInformations(): void {

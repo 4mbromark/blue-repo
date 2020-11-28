@@ -1,6 +1,6 @@
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
 import { BaseWindowService } from './../../../blue-utils/blue-base/base-window/base-window.service';
-import { LanguageService } from 'src/app/blue-utils/blue-language/language.service';
+import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BaseWindowComponent } from '../../../blue-utils/blue-base/base-window/base-window.component';
 import { Component, Inject } from '@angular/core';
@@ -25,7 +25,7 @@ export class LanguageComponent extends BaseWindowComponent {
     this.lightningService.setDialogService(service);
   }
 
-  gbl(label: string) {
+  gbl(label: string): string {
     return this.languageService.getByLanguage(label);
   }
 
