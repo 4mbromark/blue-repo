@@ -12,7 +12,7 @@
   <div style="width: 250px;" *ngFor="let button of menuButtons">
     <button mat-button *ngIf="button.type === 'main'" class="menu-button" (click)="openWindow(button)">
       <span class="menu-icon">
-        <button mat-icon-button>
+        <button mat-icon-button disableRipple>
           <fa-icon [icon]="button.icon" size="lg"></fa-icon>
         </button>
       </span>

@@ -5,18 +5,10 @@ import { LanguageTag } from '../blue-language/language-tag';
 import { LanguageLabels } from '../blue-language/language-labels';
 import { LanguageButton } from '../blue-object/button/LanguageButton';
 import { MessagingButton } from '../blue-object/button/MessagingButton';
-import { SelectorButton } from '../blue-object/button/SelectorButton';
 import { SidebarButton } from '../blue-object/button/SidebarButton';
-import { Tag } from './tag';
+import { Tag } from './word/tag';
 
 export class List {
-  public static TOPBAR_SELECTORS: SelectorButton[] = [
-    /*{ code: 'tasks', title: LanguageLabels.SELECTOR_TASKS, icon: 'check-circle' },
-    { code: 'wallet', title: LanguageLabels.SELECTOR_WALLET, icon: 'wallet' },
-    { code: 'people', title: LanguageLabels.SELECTOR_PEOPLE, icon: 'users' },
-    { code: 'projects', title: LanguageLabels.SELECTOR_PROJECTS, icon: 'stream' }*/
-  ];
-
   public static SIDEBAR_BUTTONS: SidebarButton[] = [
     { type: 'main', icon: 'book', title: LanguageLabels.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabels.SIDEBAR_MAIN_COMPLETE },
     { type: 'main', icon: 'bolt', title: LanguageLabels.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabels.SIDEBAR_PROJECTS_COMPLETE },

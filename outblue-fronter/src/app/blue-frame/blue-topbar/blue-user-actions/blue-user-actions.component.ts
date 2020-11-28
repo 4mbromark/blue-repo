@@ -1,8 +1,8 @@
 // tslint:disable: max-line-length
-import { Tag } from './../../../blue-utils/blue-enum/tag';
+import { Tag } from '../../../blue-utils/blue-enum/word/tag';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LanguageService } from 'src/app/blue-utils/blue-language/language.service';
+import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MenuButton } from 'src/app/blue-utils/blue-object/button/MenuButton';
 import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
 import { LanguageComponent } from '../../blue-window/language/language.component';
@@ -53,7 +53,7 @@ export class UserActionsComponent {
   }
 
   openWindow(button: MenuButton): void {
-    const dialogRef = this.dialog.open(button.action.component, {
+    this.dialog.open(button.action.component, {
       width: button.action.width ? button.action.width : '50%',
       height: button.action.height ? button.action.height : '80%',
       data: {

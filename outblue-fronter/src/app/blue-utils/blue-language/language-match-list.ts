@@ -1,13 +1,36 @@
+import { Config } from './../blue-enum/word/config';
+import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
 // tslint:disable: max-line-length
 import { LanguageMatch } from '../blue-object/language/LanguageMatch';
-import { LanguageLabels } from './language-labels';
+import { Name } from '../blue-enum/word/name';
 
 export class LanguageMatchList {
   public static MATCHS: LanguageMatch[] = [
     { label: LanguageLabels.NULL, italian: 'errore di traduzione', english: 'translation error' },
 
-    // TOPBAR
-    { label: LanguageLabels.SEARCH_BUTTON, italian: 'Ricerca Globale', english: 'Global Search' },
+    // LOGIN PAGE
+    { label: LanguageLabels.WELCOME_MESSAGE_STANDARD, italian: 'Accedi a <b>' + Name.OUTBLUE + '</b>', english: 'Sign in to <b>' + Name.OUTBLUE + '</b>' },
+    { label: LanguageLabels.WELCOME_MESSAGE_ALICE, italian: 'Che bello rivederti, <b>' + Name.ALICE + '</b>!', english: 'Happy to see you again, <b>' + Name.ALICE + '</b>!' },
+    { label: LanguageLabels.WELCOME_MESSAGE_SIMPLE_M, italian: 'Bentornato, <b>' + Config.USERNAME + '</b>!', english: 'Welcome back, <b>' + Config.USERNAME + '</b>!' },
+    { label: LanguageLabels.WELCOME_MESSAGE_SIMPLE_F, italian: 'Bentornata, <b>' + Config.USERNAME + '</b>!', english: 'Welcome back, <b>' + Config.USERNAME + '</b>!' },
+
+    // LICENCE
+    { label: LanguageLabels.LICENCE_LIMITED_TRIAL, italian: 'Licenza di prova gratuita a durata limitata', english: 'Free limited-term trial license'},
+    { label: LanguageLabels.LICENCE_EXTENDED_TRIAL, italian: 'Licenza di prova gratuita a durata estesa', english: 'Free extended-term trial license'},
+    { label: LanguageLabels.LICENCE_LIMITED_BETA, italian: 'Licenza per beta tester gratuita a durata limitata', english: 'Free limited-term beta tester license'},
+    { label: LanguageLabels.LICENCE_EXTENDED_BETA, italian: 'Licenza per beta tester gratuita a durata estesa', english: 'Free extended-term beta tester license'},
+    { label: LanguageLabels.LICENCE_UNLIMITED_BETA, italian: 'Licenza per beta tester gratuita a durata indeterminata', english: 'Free indefinite-term beta tester license'},
+    { label: LanguageLabels.LICENCE_MONTHLY_RENEWAL, italian: 'Licenza completa a rinnovo mensile', english: 'Monthly-renewal full license'},
+    { label: LanguageLabels.LICENCE_ANNUAL_RENEWAL, italian: 'Licenza completa a rinnovo annuale', english: 'Annual-renewal full license'},
+    { label: LanguageLabels.LICENCE_PROMOTIONAL_RENEWAL, italian: 'Licenza completa a rinnovo personalizzato', english: 'Customized-renewal full license'},
+    { label: LanguageLabels.LICENCE_LIFETIME, italian: 'Licenza completa a vita', english: 'Lifetime full license'},
+    { label: LanguageLabels.LICENCE_LIFETIME_PROMOTIONAL, italian: 'Licenza completa a vita personalizzata', english: 'Customized lifetime full license'},
+    { label: LanguageLabels.LICENCE_LIFETIME_FREE, italian: 'Licenza completa a vita gratuita', english: 'Free lifetime full license'},
+
+    // LICENCE BAR
+    { label: LanguageLabels.LICENCE_CONTRACT, italian: 'Contratto', english: 'Contract'},
+    { label: LanguageLabels.LICENCE_CONTRACT_TOOLTIP, italian: 'Scarica il contratto di utilizzo', english: 'Download the usage agreement'},
+    { label: LanguageLabels.LICENCE_INFO_TOOLTIP, italian: 'Maggiori informazioni sulla licenza in uso', english: 'More informations about the current license'},
 
     // USER MENU
     { label: LanguageLabels.MENU_ACCOUNT, italian: 'Account', english: 'Account' },
@@ -22,7 +45,7 @@ export class LanguageMatchList {
     { label: LanguageLabels.MENU_SETTINGS, italian: 'Opzioni', english: 'Settings' },
     { label: LanguageLabels.MENU_INFO, italian: 'Informazioni', english: 'Informations' },
     { label: LanguageLabels.MENU_STORE, italian: 'Negozio', english: 'Store' },
-    { label: LanguageLabels.MENU_YENA, italian: 'Apri Yena', english: 'Open Yena' },
+    { label: LanguageLabels.MENU_YENA, italian: 'Apri ' + Name.YENA, english: 'Open ' + Name.YENA },
     { label: LanguageLabels.MENU_LOGOUT, italian: 'Esci', english: 'Logout' },
 
     // WINDOW of MESSAGING
@@ -39,15 +62,9 @@ export class LanguageMatchList {
     // WINDOW of PREFERENCE
     { label: LanguageLabels.PREFERENCE_PROJECTS, italian: 'Progetti', english: 'Projects' },
 
-    // MODULE SELECTOR
-    { label: LanguageLabels.SELECTOR_TASKS, italian: 'Attività', english: 'Tasks' },
-    { label: LanguageLabels.SELECTOR_WALLET, italian: 'Portafoglio', english: 'Wallet' },
-    { label: LanguageLabels.SELECTOR_PEOPLE, italian: 'Persone', english: 'People' },
-    { label: LanguageLabels.SELECTOR_PROJECTS, italian: 'Sottoprogetti', english: 'Subprojects' },
-
     // SIDEBAR OF TASKS
     { label: LanguageLabels.SIDEBAR_MAIN_SHORT, italian: 'Amministrazione', english: 'Administration' },
-    { label: LanguageLabels.SIDEBAR_MAIN_COMPLETE, italian: 'Amministrazione di Outblue', english: 'Outblue Administration' },
+    { label: LanguageLabels.SIDEBAR_MAIN_COMPLETE, italian: 'Amministrazione di ' + Name.OUTBLUE, english: Name.OUTBLUE + ' Administration' },
     { label: LanguageLabels.SIDEBAR_PROJECTS_SHORT, italian: 'Progetti', english: 'Projects' },
     { label: LanguageLabels.SIDEBAR_PROJECTS_COMPLETE, italian: 'Registro dei progetti', english: 'Projects Register' },
     { label: LanguageLabels.SIDEBAR_TASKS_SHORT, italian: 'Attività', english: 'Tasklist' },

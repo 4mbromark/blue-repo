@@ -10,11 +10,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { ToolbarComponent } from './blue-frame/blue-toolbar/blue-toolbar.component';
-import { ModulesSelectorComponent } from './blue-frame/blue-toolbar/blue-modules-selector/blue-modules-selector.component';
 import { ProjectSwitchComponent } from './blue-frame/blue-topbar/blue-project-switch/blue-project-switch.component';
 import { UserActionsComponent } from './blue-frame/blue-topbar/blue-user-actions/blue-user-actions.component';
-import { SearchBarComponent } from './blue-frame/blue-toolbar/blue-search-bar/blue-search-bar.component';
 import { SidebarComponent } from './blue-frame/blue-sidebar/blue-sidebar.component';
 import { BlueLoginComponent } from './blue-login/blue-login.component';
 import { BlueLoginFormComponent } from './blue-login/blue-login-form/blue-login-form.component';
@@ -29,16 +26,15 @@ import { BaseWindowComponent } from './blue-utils/blue-base/base-window/base-win
 import { StandardToolbarComponent } from './blue-utils/blue-standard/standard-toolbar/standard-toolbar.component';
 import { CommunicationsComponent } from './blue-frame/blue-window/messaging/communications/communications.component';
 import { ProjectsComponent } from './blue-modules/projects/projects.component';
+import { LoginFormRegisterComponent } from './blue-login/blue-login-form-register/login-form-register.component';
+import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard-licence-bar/standard-licence-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    ModulesSelectorComponent,
     ProjectSwitchComponent,
     UserActionsComponent,
-    SearchBarComponent,
     SidebarComponent,
     BlueLoginComponent,
     BlueLoginFormComponent,
@@ -53,7 +49,9 @@ import { ProjectsComponent } from './blue-modules/projects/projects.component';
     StandardToolbarComponent,
     CommunicationsComponent,
     ProjectsComponent,
-    ProjectsPreferenceComponent
+    ProjectsPreferenceComponent,
+    LoginFormRegisterComponent,
+    StandardLicenceBarComponent
   ],
   imports: [
     AngularModules,
