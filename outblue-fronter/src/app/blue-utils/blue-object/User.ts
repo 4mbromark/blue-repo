@@ -1,8 +1,10 @@
 export class User {
   id: number;
+  username: string;
+  mail: string;
+  password: string;
   name: string;
   surname: string;
-  chatname: string;
-  mail: string;
-  gender: 'm' | 'f';
+
+  gender?: 'm' | 'f';
 }

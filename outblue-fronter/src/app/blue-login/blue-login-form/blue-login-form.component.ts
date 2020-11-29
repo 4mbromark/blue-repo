@@ -6,8 +6,6 @@ import { UserService } from './../../blue-utils/blue-service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { User } from 'src/app/blue-utils/blue-object/User';
-import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
-import { Name } from 'src/app/blue-utils/blue-enum/word/name';
 import { LoginFormRegisterComponent } from '../blue-login-form-register/login-form-register.component';
 
 @Component({
