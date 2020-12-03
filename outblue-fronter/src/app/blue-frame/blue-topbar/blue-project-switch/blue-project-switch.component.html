@@ -22,7 +22,7 @@
         [disabled]="button.tag === tags.CONTEXT_TOGGLEPANEL && subProjects.length === 0"
         [matTooltip]="getContextTooltip(button)" matTooltipPosition="right">
         <span class="project-icon">
-          <button mat-icon-button disableRipple="true">
+          <button mat-icon-button>
             <fa-icon [icon]="getContextIcon(button)" size="lg">
             </fa-icon>
           </button>

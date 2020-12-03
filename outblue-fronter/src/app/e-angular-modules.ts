@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -39,6 +40,7 @@ import {AgGridModule} from 'ag-grid-angular';
     MatDialogModule,
     MatTabsModule,
     MatTooltipModule,
+    MatCardModule,
 
     FormsModule,
     ReactiveFormsModule,

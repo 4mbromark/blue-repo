@@ -1,6 +1,6 @@
 import { List } from '../../blue-utils/blue-enum/list';
 import { Injectable } from '@angular/core';
-import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
+import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
 import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
 

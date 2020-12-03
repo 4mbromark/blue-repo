@@ -17,7 +17,7 @@ export class StandardToolbarComponent {
     this.service = lightningService.getDialogService();
   }
 
-  close() {
+  close(): void {
     this.service.close();
   }
 

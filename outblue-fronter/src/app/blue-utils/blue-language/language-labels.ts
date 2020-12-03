@@ -1,7 +1,7 @@
 import { LicenceTag } from '../blue-licence/licence-tag';
 import { Config } from './../blue-enum/word/config';
-import { Tag } from './../blue-enum/word/tag';
-export class LanguageLabels {
+
+export class LanguageLabel {
   public static NULL = 'null';
 
   // LOGIN PAGE
@@ -9,6 +9,17 @@ export class LanguageLabels {
   public static WELCOME_MESSAGE_ALICE = 'welcome-message-' + Config.ALICE;
   public static WELCOME_MESSAGE_SIMPLE_M = 'welcome-message-simple-' + Config.MALE;
   public static WELCOME_MESSAGE_SIMPLE_F = 'welcome-message-simple-' + Config.FEMALE;
+
+  public static LOGIN_TOOLTIP = 'login' + Config.TOOLTIP;
+  public static LOGIN_USERNAME = 'login-username';
+  public static LOGIN_PASSWORD = 'login-password';
+  public static LOGIN_PASSWORD_SHOW = 'login-password-show';
+  public static LOGIN_PASSWORD_HIDE = 'login-password-hide';
+  public static LOGIN_ERROR = 'login-error';
+  public static REGISTRATION = 'registration';
+  public static REGISTRATION_TOOLTIP = 'registration' + Config.TOOLTIP;
+
+  public static REGISTRATION_TITLE = 'registration-title';
 
   // LICENCE
   public static NO_LICENCE = LicenceTag.NO_LICENCE;
@@ -41,6 +52,16 @@ export class LanguageLabels {
   public static LICENCE_CONTRACT = 'licence-contract';
   public static LICENCE_CONTRACT_TOOLTIP = 'licence-contract' + Config.TOOLTIP;
   public static LICENCE_INFO_TOOLTIP = 'licence-info' + Config.TOOLTIP;
+  public static LICENCE_NEWTRIAL = 'licence-new-trial';
+  public static LICENCE_NEWTRIAL_TOOLTIP = 'licence-new-trial' + Config.TOOLTIP;
+
+  public static LICENCE_STATUS_NONE = 'licence-status-none';
+  public static LICENCE_STATUS_WAITING = 'licence-status-waiting';
+  public static LICENCE_STATUS_ACTIVE = 'licence-status-active';
+  public static LICENCE_STATUS_EXPIRING = 'licence-status-expiring';
+  public static LICENCE_STATUS_EXPIRED = 'licence-status-expired';
+
+  public static LICENCE_STATUS_TOOLTIP = 'licence-status' + Config.TOOLTIP;
 
   // USER MENU
   public static MENU_ACCOUNT = 'menu-account';

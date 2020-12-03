@@ -55,7 +55,7 @@
 <app-standard-licence-bar></app-standard-licence-bar>
 
 <div class="blue-flex-right">
-  <button mat-raised-button style="padding: 5px 15px !important; margin: 20px; border-radius: 0px;">
+  <button mat-raised-button class="register-send" [disabled]="!canRegister()" mat-dialog-close>
     Invia email di conferma
     <fa-icon style="margin-left: 5px;" icon="paper-plane" size="lg"></fa-icon>
   </button>

@@ -1,6 +1,6 @@
 // tslint:disable: max-line-length
 import { ContextButton } from './../../../blue-utils/blue-object/button/ContextButton';
-import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
+import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { List } from './../../../blue-utils/blue-enum/list';
 import { Component, ViewChild } from '@angular/core';
 import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
@@ -49,6 +49,6 @@ export class ProjectSwitchComponent {
     }
   }
   getContextProjectTooltip(project: ContextButton) {
-    return this.gbl(LanguageLabels.CONTEXT_GOTOPROJECT_TOOLTIP) + project.title.toUpperCase();
+    return this.gbl(LanguageLabel.CONTEXT_GOTOPROJECT_TOOLTIP) + project.title.toUpperCase();
   }
 }
