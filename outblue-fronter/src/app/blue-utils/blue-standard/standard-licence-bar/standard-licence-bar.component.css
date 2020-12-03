@@ -1,10 +1,31 @@
+.licence-bar {
+  height: 130px;
+  width: 100%;
+  transition: var(--blue-long-transition);
+}
+
+.licence-button {
+  height: 40px;
+  margin: 10px;
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+.licence-status {
+  width: 195px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  margin-right: 50px;
+  text-align: right;
+}
+
 .info-button, .contract-button {
   padding: 2px;
   border-radius: 50px;
   background-color: transparent;
   margin: 20px;
 }
-.info-button:hover, .contract-button:hover {
+.info-button:hover:enabled, .contract-button:hover:enabled {
   background-color: white;
   transition: var(--blue-base-transition);
 }
@@ -19,4 +40,8 @@
   margin-left: 0px;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
+}
+
+.status-icon {
+  margin: 20px;
 }

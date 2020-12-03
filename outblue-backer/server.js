@@ -1,12 +1,13 @@
 const express = require ('express');
+const session = require("express-session");
 const http = require('http');
-const path = require('path');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 const user = require('./src/app/routes/users-route');
+const licence = require('./src/app/routes/licence-route');
 
 app.use(express.static('../outblue-fronter/dist/outblue-fronter'));
 
@@ -18,7 +19,27 @@ app.use(function(req, res, next) {
     next();
   });
   
-app.use(user);
+app.use(user, licence);
+
+app.use(session({
+  secret: 'a4f8071f-c873-4447-8ee2',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { 
+    secure: true,
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24
+  }
+  /*store: new (require('express-sessions'))({
+      storage: 'mongodb',
+      instance: mongoose, // optional
+      host: 'localhost', // optional
+      port: 27017, // optional
+      db: 'test', // optional
+      collection: 'sessions', // optional
+      expire: 86400 // optional
+  })*/
+}));
 
 const server = http.createServer(app);
 

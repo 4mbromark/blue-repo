@@ -2,7 +2,7 @@ import { ContextButton } from './../blue-object/button/ContextButton';
 import { WindowLeftButton } from '../blue-object/button/WindowLeftButton';
 import { LanguageTag } from '../blue-language/language-tag';
 // tslint:disable: max-line-length
-import { LanguageLabels } from '../blue-language/language-labels';
+import { LanguageLabel } from '../blue-language/language-labels';
 import { LanguageButton } from '../blue-object/button/LanguageButton';
 import { MessagingButton } from '../blue-object/button/MessagingButton';
 import { SidebarButton } from '../blue-object/button/SidebarButton';
@@ -10,43 +10,43 @@ import { Tag } from './word/tag';
 
 export class List {
   public static SIDEBAR_BUTTONS: SidebarButton[] = [
-    { type: 'main', icon: 'book', title: LanguageLabels.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabels.SIDEBAR_MAIN_COMPLETE },
-    { type: 'main', icon: 'bolt', title: LanguageLabels.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabels.SIDEBAR_PROJECTS_COMPLETE },
-    { type: 'main', icon: 'check', title: LanguageLabels.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabels.SIDEBAR_TASKS_COMPLETE },
-    { type: 'main', icon: 'stream', title: LanguageLabels.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabels.SIDEBAR_VERSIONS_COMPLETE },
-    /*{ type: 'main', icon: 'calendar', title: LanguageLabels.SIDEBAR_CALENDAR_SHORT, name: LanguageLabels.SIDEBAR_CALENDAR_COMPLETE },*/
+    { type: 'main', icon: 'book', title: LanguageLabel.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabel.SIDEBAR_MAIN_COMPLETE },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE },
+    { type: 'main', icon: 'check', title: LanguageLabel.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabel.SIDEBAR_TASKS_COMPLETE },
+    { type: 'main', icon: 'stream', title: LanguageLabel.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE },
+    /*{ type: 'main', icon: 'calendar', title: LanguageLabel.SIDEBAR_CALENDAR_SHORT, name: LanguageLabel.SIDEBAR_CALENDAR_COMPLETE },*/
   ];
 
   public static MESSAGING_BUTTONS: MessagingButton[] = [
-    { type: 'main', icon: 'bell', title: LanguageLabels.MESSAGING_NOTIFICATIONS },
-    { type: 'main', icon: 'bullhorn', title: LanguageLabels.MESSAGING_COMMUNICATIONS, tag: Tag.MESSAGING_COMMUNICATIONS },
-    { type: 'main', icon: 'user-shield', title: LanguageLabels.MESSAGING_ASSISTANCE },
-    { type: 'main', icon: 'comments', title: LanguageLabels.MESSAGING_CHAT },
-    { type: 'main', icon: 'dice', title: LanguageLabels.MESSAGING_CASUAL },
+    { type: 'main', icon: 'bell', title: LanguageLabel.MESSAGING_NOTIFICATIONS },
+    { type: 'main', icon: 'bullhorn', title: LanguageLabel.MESSAGING_COMMUNICATIONS, tag: Tag.MESSAGING_COMMUNICATIONS },
+    { type: 'main', icon: 'user-shield', title: LanguageLabel.MESSAGING_ASSISTANCE },
+    { type: 'main', icon: 'comments', title: LanguageLabel.MESSAGING_CHAT },
+    { type: 'main', icon: 'dice', title: LanguageLabel.MESSAGING_CASUAL },
   ];
 
   public static LANGUAGE_BUTTONS: LanguageButton[] = [
-    { type: 'main', title: LanguageLabels.LANGUAGE_ITALIAN, language: LanguageTag.ITALIAN, code: 'IT'},
-    { type: 'main', title: LanguageLabels.LANGUAGE_ENGLISH, language: LanguageTag.ENGLISH, code: 'EN'},
+    { type: 'main', title: LanguageLabel.LANGUAGE_ITALIAN, language: LanguageTag.ITALIAN, code: 'IT'},
+    { type: 'main', title: LanguageLabel.LANGUAGE_ENGLISH, language: LanguageTag.ENGLISH, code: 'EN'},
   ];
 
   public static PREFERENCE_BUTTONS: WindowLeftButton[] = [
-    { type: 'main', icon: 'bolt', title: LanguageLabels.PREFERENCE_PROJECTS, tag: Tag.PREFERENCE_PROJECTS },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.PREFERENCE_PROJECTS, tag: Tag.PREFERENCE_PROJECTS },
   ];
 
   public static PROJECTBAR_CONTEXT_BUTTONS: ContextButton[] = [
-    { type: 'main', icon: 'mouse-pointer', title: LanguageLabels.CONTEXT_OPENPANEL, tooltip: LanguageLabels.CONTEXT_OPENPANEL_TOOLTIP,
-      alt: { icon: 'times', title: LanguageLabels.CONTEXT_CLOSEPANEL, tooltip: LanguageLabels.CONTEXT_CLOSEPANEL_TOOLTIP}, tag: Tag.CONTEXT_TOGGLE },
+    { type: 'main', icon: 'mouse-pointer', title: LanguageLabel.CONTEXT_OPENPANEL, tooltip: LanguageLabel.CONTEXT_OPENPANEL_TOOLTIP,
+      alt: { icon: 'times', title: LanguageLabel.CONTEXT_CLOSEPANEL, tooltip: LanguageLabel.CONTEXT_CLOSEPANEL_TOOLTIP}, tag: Tag.CONTEXT_TOGGLE },
     { type: 'line' },
-    { type: 'main', icon: 'copy', title: LanguageLabels.CONTEXT_COPYNAME, tooltip: LanguageLabels.CONTEXT_COPYNAME_TOOLTIP },
+    { type: 'main', icon: 'copy', title: LanguageLabel.CONTEXT_COPYNAME, tooltip: LanguageLabel.CONTEXT_COPYNAME_TOOLTIP },
     { type: 'line' },
-    { type: 'main', icon: 'arrow-up', title: LanguageLabels.CONTEXT_SUPERPROJECTS, tooltip: LanguageLabels.CONTEXT_SUPERPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
-    { type: 'main', icon: 'arrow-down', title: LanguageLabels.CONTEXT_SUBPROJECTS, tooltip: LanguageLabels.CONTEXT_SUBPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
-    { type: 'main', icon: 'history', title: LanguageLabels.CONTEXT_RECENTS, tooltip: LanguageLabels.CONTEXT_RECENTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL_NOCOUNT },
+    { type: 'main', icon: 'arrow-up', title: LanguageLabel.CONTEXT_SUPERPROJECTS, tooltip: LanguageLabel.CONTEXT_SUPERPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
+    { type: 'main', icon: 'arrow-down', title: LanguageLabel.CONTEXT_SUBPROJECTS, tooltip: LanguageLabel.CONTEXT_SUBPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
+    { type: 'main', icon: 'history', title: LanguageLabel.CONTEXT_RECENTS, tooltip: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL_NOCOUNT },
     { type: 'line' },
-    { type: 'main', icon: 'cog', title: LanguageLabels.CONTEXT_SETTINGS, tooltip: LanguageLabels.CONTEXT_SETTINGS_TOOLTIP },
-    { type: 'main', icon: 'plus', title: LanguageLabels.CONTEXT_NEWPROJECT, tooltip: LanguageLabels.CONTEXT_NEWPROJECT_TOOLTIP },
-    { type: 'main', icon: 'bolt', title: LanguageLabels.CONTEXT_MANAGEPROJECTS, tooltip: LanguageLabels.CONTEXT_MANAGEPROJECTS_TOOLTIP },
+    { type: 'main', icon: 'cog', title: LanguageLabel.CONTEXT_SETTINGS, tooltip: LanguageLabel.CONTEXT_SETTINGS_TOOLTIP },
+    { type: 'main', icon: 'plus', title: LanguageLabel.CONTEXT_NEWPROJECT, tooltip: LanguageLabel.CONTEXT_NEWPROJECT_TOOLTIP },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.CONTEXT_MANAGEPROJECTS, tooltip: LanguageLabel.CONTEXT_MANAGEPROJECTS_TOOLTIP },
   ];
 
 }

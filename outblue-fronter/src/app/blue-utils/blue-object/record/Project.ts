@@ -1,5 +1,6 @@
-export class Project {
-  id: number;
+import { RowData } from '../RowData';
+
+export class Project extends RowData {
   idUser: number;
   type: string;
   name: string;

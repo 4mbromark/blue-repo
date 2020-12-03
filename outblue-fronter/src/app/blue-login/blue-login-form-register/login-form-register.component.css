@@ -6,3 +6,9 @@
   width: 250px;
   font-size: medium;
 }
+
+.register-send {
+  margin: 20px;
+  border-radius: 0px;
+  padding: 5px 15px !important;
+}

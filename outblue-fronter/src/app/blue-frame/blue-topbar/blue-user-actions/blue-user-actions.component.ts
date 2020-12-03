@@ -4,28 +4,28 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MenuButton } from 'src/app/blue-utils/blue-object/button/MenuButton';
-import { LanguageLabels } from 'src/app/blue-utils/blue-language/language-labels';
+import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { LanguageComponent } from '../../blue-window/language/language.component';
 import { MessagingComponent } from '../../blue-window/messaging/messaging.component';
 import { PreferenceComponent } from '../../blue-window/preference/preference.component';
 
 const MENU_BUTTONS: MenuButton[] = [
-  { type: 'main', icon: 'user', title: LanguageLabels.MENU_ACCOUNT },
-  { type: 'main', icon: 'envelope', title: LanguageLabels.MENU_MESSAGING, action: {type: 'dialog', component: MessagingComponent}, alt: { icon: 'mail-bulk', title: LanguageLabels.MENU_MESSAGING_EXTENDED}, tag: Tag.MESSAGING },
+  { type: 'main', icon: 'user', title: LanguageLabel.MENU_ACCOUNT },
+  { type: 'main', icon: 'envelope', title: LanguageLabel.MENU_MESSAGING, action: {type: 'dialog', component: MessagingComponent}, alt: { icon: 'mail-bulk', title: LanguageLabel.MENU_MESSAGING_EXTENDED}, tag: Tag.MESSAGING },
   { type: 'line' },
-  { type: 'main', icon: 'language', title: LanguageLabels.MENU_LANGUAGE, action: {type: 'dialog', component: LanguageComponent, width: '30%', height: '40%'} },
-  /*{ type: 'main', icon: 'database', title: LanguageLabels.MENU_SPACE },*/
-  { type: 'main', icon: 'palette', title: LanguageLabels.MENU_PREFERENCES, action: {type: 'dialog', component: PreferenceComponent} },
-  { type: 'main', icon: 'paper-plane', title: LanguageLabels.MENU_SERVICES },
+  { type: 'main', icon: 'language', title: LanguageLabel.MENU_LANGUAGE, action: {type: 'dialog', component: LanguageComponent, width: '30%', height: '40%'} },
+  /*{ type: 'main', icon: 'database', title: LanguageLabel.MENU_SPACE },*/
+  { type: 'main', icon: 'palette', title: LanguageLabel.MENU_PREFERENCES, action: {type: 'dialog', component: PreferenceComponent} },
+  { type: 'main', icon: 'paper-plane', title: LanguageLabel.MENU_SERVICES },
   { type: 'line' },
-  { type: 'main', icon: 'book-open', title: LanguageLabels.MENU_GUIDE },
-  { type: 'main', icon: 'receipt', title: LanguageLabels.MENU_LICENCE },
-  { type: 'main', icon: 'cog', title: LanguageLabels.MENU_SETTINGS },
-  { type: 'main', icon: 'info-circle', title: LanguageLabels.MENU_INFO },
+  { type: 'main', icon: 'book-open', title: LanguageLabel.MENU_GUIDE },
+  { type: 'main', icon: 'receipt', title: LanguageLabel.MENU_LICENCE },
+  { type: 'main', icon: 'cog', title: LanguageLabel.MENU_SETTINGS },
+  { type: 'main', icon: 'info-circle', title: LanguageLabel.MENU_INFO },
   { type: 'line' },
-  { type: 'main', icon: 'shopping-cart', title: LanguageLabels.MENU_STORE },
-  /* { type: 'main', icon: 'asterisk', title: LanguageLabels.MENU_YENA }, */
-  { type: 'main', icon: 'times', title: LanguageLabels.MENU_LOGOUT }
+  { type: 'main', icon: 'shopping-cart', title: LanguageLabel.MENU_STORE },
+  /* { type: 'main', icon: 'asterisk', title: LanguageLabel.MENU_YENA }, */
+  { type: 'main', icon: 'times', title: LanguageLabel.MENU_LOGOUT }
 ];
 
 @Component({

@@ -1,0 +1,12 @@
+.login-button, .registration-button {
+  color: black;
+  border-radius: 0px;
+  background-color: rgba(255,255,255,.7);
+}
+.login-button:hover, .registration-button:hover {
+  background-color: rgba(255,255,255,1);
+}
+.registration-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}

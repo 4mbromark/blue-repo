@@ -28,6 +28,7 @@ import { CommunicationsComponent } from './blue-frame/blue-window/messaging/comm
 import { ProjectsComponent } from './blue-modules/projects/projects.component';
 import { LoginFormRegisterComponent } from './blue-login/blue-login-form-register/login-form-register.component';
 import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard-licence-bar/standard-licence-bar.component';
+import { LoginResultComponent } from './blue-login/blue-login-result/login-result.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard
     ProjectsComponent,
     ProjectsPreferenceComponent,
     LoginFormRegisterComponent,
-    StandardLicenceBarComponent
+    StandardLicenceBarComponent,
+    LoginResultComponent
   ],
   imports: [
     AngularModules,

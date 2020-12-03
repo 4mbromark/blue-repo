@@ -10,6 +10,8 @@ export class Config {
   public static MALE = 'm';
   public static FEMALE = 'f';
 
+  public static YEAR = 'year';
+
   // LANGUAGE LABELS
   public static TOOLTIP = '-tooltip';
   public static DESCRIPTION = '-description';

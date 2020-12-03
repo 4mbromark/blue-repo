@@ -5,28 +5,28 @@
   </h1>
 </div>
 
+<!--<mat-error>Impossibile fare il login</mat-error>-->
+
 <div class="blue-row">
   <mat-form-field style="margin-right: 15px;" floatLabel="never">
-    <input matInput type="text" [(formControl)]="username" (input)="checkIfUserExists()" placeholder="Username / email">
+    <input matInput type="text" [(formControl)]="username" [placeholder]="gbl(labels.LOGIN_USERNAME)" (input)="checkIfUserExists();">
   </mat-form-field>
 
   <mat-form-field floatLabel="never">
-    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password"  placeholder="Password">
+    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" [placeholder]="gbl(labels.LOGIN_PASSWORD)">
     <button mat-icon-button matSuffix class="suffix-button" (click)="hide = !hide">
-      <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [title]="hide ? 'Mostra Password' : 'Nascondi Password'">
+      <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [matTooltip]="hide ? gbl(labels.LOGIN_PASSWORD_SHOW) : gbl(labels.LOGIN_PASSWORD_HIDE)" matTooltipPosition="right">
       </fa-icon>
     </button>
   </mat-form-field>
 </div>
 
 <div class="blue-row blue-flex-right" style="text-align: right;">
-  <button mat-raised-button style="border-radius: 0px; background-color: transparent;" matTooltip="Accedi">
+  <button mat-raised-button class="login-button" [matTooltip]="gbl(labels.LOGIN_TOOLTIP)" (click)="login();">
     <fa-icon icon="sign-in-alt" size="lg"></fa-icon>
   </button>
-  <button mat-raised-button
-    style="border-radius: 0px; background-color: transparent; margin-left: 10px; margin-right: 10px;"
-    (click)="openRegisterWindow()">
-    Registrati
+  <button mat-raised-button class="registration-button" [matTooltip]="gbl(labels.REGISTRATION_TOOLTIP)" (click)="openRegisterWindow();">
+    {{gbl(labels.REGISTRATION)}}
   </button>
 
 </div>

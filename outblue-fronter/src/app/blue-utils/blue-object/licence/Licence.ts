@@ -1,5 +1,9 @@
-export class Licence {
+import { RowData } from '../RowData';
+
+export class Licence extends RowData {
   code: string;
-  title: string;
-  description: string;
+  serial: string;
+
+  title?: string;
+  description?: string;
 }

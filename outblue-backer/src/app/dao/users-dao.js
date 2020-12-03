@@ -1,14 +1,4 @@
-var hibernate = require('js-hibernate');
-
-let dbconfig = {
-    host: "localhost",
-    user: "root",
-    password: "stotcncl",
-    database: "blue-data"
-};
-
-const { session: _session } = hibernate;
-var session = _session(dbconfig);
+var session = require('./config/dbsession');
 
 var userMap = session.tableMap('blue_reguser')
     // columnMap(object-name-property, table-name-property, optional-property-config)

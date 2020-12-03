@@ -1,6 +1,5 @@
 var AuthService = require('./auth-service');
 var UsersDao = require('../dao/users-dao');
-var LoggerService = require('../services/logger-service');
 
 class UsersService {
 
@@ -17,27 +16,16 @@ class UsersService {
         // const user = await UsersService.getById(id);
         // AuthService.sign(user); 
 
-        LoggerService.log('authenticate() - Received value: ' + id, LoggerService.LOG_SERVICE);
         return new Promise((resolve, reject) => {
-            LoggerService.log('authenticate() - Passing value to DAO: ' + id, LoggerService.LOG_SERVICE);
             const users = UsersDao.getByIdAndPassword(id, password);
-            LoggerService.log('authenticate() - Passed value to DAO: ' + id, LoggerService.LOG_SERVICE);
             users.then((users) => {
-                LoggerService.log('authenticate() - DAO response received for value: ' + id, LoggerService.LOG_SERVICE);
-                LoggerService.log('authenticate() - DAO response is: ' + users, LoggerService.LOG_SERVICE);
                 if (users && users.length > 0) {
-                    LoggerService.log('authenticate() - Sending response to ROUTE: ' + true, LoggerService.LOG_SERVICE);
                     resolve(true);
                 } else {
-                    LoggerService.log('authenticate() - Sending response to ROUTE: ' + false, LoggerService.LOG_SERVICE);
                     resolve(false);
                 }
             });
         });
-
-
-
-
     }
 
     static async checkIfExistsByMailOrName(mailOrName) {

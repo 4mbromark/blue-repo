@@ -1,31 +1,39 @@
-<mat-toolbar class="blue-no-select mat-elevation-z3" style="height: 130px; background-color: lightgoldenrodyellow; width: 100%;">
-  <div class="blue-column" style="margin: 20px; color: green">
-    <fa-icon icon="check-circle" size="2x"></fa-icon>
+<mat-toolbar class="blue-no-select licence-bar mat-elevation-z3"
+  [style]="'background-color: ' + status.backcolor + ';'">
+  <div class="blue-column status-icon" [style]="'color: ' + status.color + ';'">
+    <fa-icon [icon]="status.icon" size="2x"></fa-icon>
   </div>
+
   <div class="blue-column" style="margin: 20px; margin-top:30px;">
-    <span style="font-size: small; margin-bottom: -10px;">LIMITED-TRIAL-LICENCE</span>
-    <span style="font-size: larger;">Licenza di prova gratuita a durata limitata</span>
+    <span style="font-size: small; margin-bottom: -10px;">{{licence[0].code.toUpperCase()}}</span>
+    <span style="font-size: larger;">{{gbl(licence[0].title)}}</span>
     <div class="blue-row">
       <mat-form-field style="margin-right: 15px; font-size: medium; width: 250px;">
-        <input matInput type="text">
+        <input matInput type="text" [(formControl)]="form" (input)="setStatusToWaiting();">
       </mat-form-field>
-      <button mat-raised-button class="mat-elevation-z0" style="height: 40px; margin: 10px; background-color: transparent; border-radius: 0px;" matTooltip="Richiedi una licenza di prova gratuita">
-        Nuova licenza
+      <button mat-raised-button class="licence-button mat-elevation-z0"
+        [matTooltip]="gbl(labels.LICENCE_NEWTRIAL_TOOLTIP)" [disabled]="licence[0].code && licence[0].serial"
+        (click)="generateTrialLicence();">
+        {{gbl(labels.LICENCE_NEWTRIAL)}}
         <fa-icon style="margin-left: 5px" icon="receipt" size="lg"></fa-icon>
       </button>
     </div>
   </div>
-  <div class="blue-flex-right blue-column" style="width: 100%; align-items: flex-end;">
 
-      <span style="width: 195px; margin-top: 20px; margin-bottom: -10px; margin-right: 50px; text-align: right;" matTooltip="Stato licenza: ATTIVA">
-        Attiva
+  <div class="blue-flex-right blue-column" style="width: 100%; align-items: flex-end;">
+    <span class="licence-status">
+      <span [matTooltip]="gbl(labels.LICENCE_STATUS_TOOLTIP) + gbl(status.title).toUpperCase()"
+        matTooltipPosition="left">
+        {{gbl(status.title)}}
       </span>
+    </span>
     <div class="blue-row">
-      <button mat-raised-button class="info-button mat-elevation-z0" matTooltip="Maggiori informazioni sulla licenza in uso">
-      <fa-icon icon="info-circle" size="lg"></fa-icon>
+      <button mat-raised-button class="info-button mat-elevation-z0" [disabled]="isLicenceMissing()" [matTooltip]="gbl(labels.LICENCE_INFO_TOOLTIP)">
+        <fa-icon icon="info-circle" size="lg"></fa-icon>
       </button>
-      <button mat-raised-button class="contract-button mat-elevation-z0" matTooltip="Scarica il contratto di utilizzo">
-        Contratto
+      <button mat-raised-button class="contract-button mat-elevation-z0" [disabled]="isLicenceMissing()"
+        [matTooltip]="gbl(labels.LICENCE_CONTRACT_TOOLTIP)">
+        {{gbl(labels.LICENCE_CONTRACT)}}
         <fa-icon style="margin-left: 5px;" icon="download" size="lg"></fa-icon>
       </button>
     </div>

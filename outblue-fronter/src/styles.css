@@ -19,6 +19,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --blue-main-color: rgb(0, 0, 100);
   --blue-support-color:  rgb(200, 230, 255);
   --blue-base-transition: all 0.3s ease-in-out 0s;
+  --blue-long-transition: all 0.7s ease-in-out 0s;
   --blue-border-bottom: 2px solid var(--blue-main-color);
 }
 

@@ -1,3 +1,5 @@
+import { Config } from '../blue-enum/word/config';
+
 export class LicenceTag {
   public static NO_LICENCE = 'no-licence';
 
@@ -17,4 +19,6 @@ export class LicenceTag {
   public static LICENCE_LIFETIME = 'lifetime-licence';
   public static LICENCE_LIFETIME_PROMOTIONAL = 'lifetime-promotional-licence';
   public static LICENCE_LIFETIME_FREE = 'lifetime-free-licence';
+
+  public static LICENCE_SERIAL_BASE = 'HF-' + Config.YEAR + '-';
 }
