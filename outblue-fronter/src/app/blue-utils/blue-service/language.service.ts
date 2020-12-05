@@ -1,3 +1,4 @@
+import { Config } from './../blue-enum/word/config';
 import { LanguageTag } from './../blue-language/language-tag';
 import { Injectable } from '@angular/core';
 import { LanguageMatchList } from '../blue-language/language-match-list';
@@ -12,7 +13,11 @@ export class LanguageService {
   language: string;
 
   constructor() {
-    this.setLanguageByBrowserLanguage();
+    if (localStorage.getItem(Config.LOCAL_STORAGE_LANGUAGE)) {
+      this.setLanguageByStorageLanguage();
+    } else {
+      this.setLanguageByBrowserLanguage();
+    }
   }
 
   getByLanguage(label: string): string {
@@ -35,6 +40,10 @@ export class LanguageService {
 
   setLanguage(language: string): void {
     this.language = language;
+    localStorage.setItem(Config.LOCAL_STORAGE_LANGUAGE, language);
+  }
+  setLanguageByStorageLanguage(): void {
+    this.language = localStorage.getItem(Config.LOCAL_STORAGE_LANGUAGE);
   }
   setLanguageByBrowserLanguage(): void {
     const bl = navigator.language.toLowerCase();

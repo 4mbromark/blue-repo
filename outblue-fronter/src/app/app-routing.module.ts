@@ -1,8 +1,42 @@
+import { Communication } from './blue-utils/blue-object/messaging/Communication';
+import { AuthGuardService as AuthGuard } from './blue-utils/blue-service/auth/auth-guard.service';
+import { BlueLoginComponent } from './blue-login/blue-login.component';
+import { TasklistComponent } from './blue-modules/tasklist/tasklist.component';
+import { RoutingUrl } from './blue-utils/blue-routing/routing-url';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page-not-found.component';
+import { LoginGuardService as LoginGuard } from './blue-utils/blue-service/auth/login-guard.service';
 
+const routes: Routes = [
+  { path: RoutingUrl.LOGIN_PAGE, component: BlueLoginComponent, canActivate: [LoginGuard] },
 
-const routes: Routes = [];
+  { path: ':username', children: [
+    { path: RoutingUrl.TASKLIST_MODULE, component: TasklistComponent }
+  ], canActivate: [AuthGuard]},
+
+  /*{ path: RoutingUrl.TASKLIST_MODULE, redirectTo: RoutingUrl.TASKLIST_MODULE_USR, pathMatch: 'full' },*/
+
+  { path: '', redirectTo: RoutingUrl.LOGIN_PAGE, pathMatch: 'full' }, // redirect to `first-component`
+  { path: '**', component: PageNotFoundComponent },
+
+];
+
+const oldRoutes: Routes = [
+  { path: RoutingUrl.LOGIN_PAGE, component: BlueLoginComponent, canActivate: [LoginGuard] },
+
+  /*{ path: ':username', children: [
+    { path: RoutingUrl.TASKLIST_MODULE_USR, component: TasklistComponent }
+  ], canActivate: [AuthGuard]},*/
+
+  { path: RoutingUrl.TASKLIST_MODULE, component: TasklistComponent, canActivate: [AuthGuard] },
+
+  /*{ path: RoutingUrl.TASKLIST_MODULE, redirectTo: RoutingUrl.TASKLIST_MODULE_USR, pathMatch: 'full' },*/
+
+  { path: '', redirectTo: RoutingUrl.LOGIN_PAGE, pathMatch: 'full' }, // redirect to `first-component`
+  { path: '**', component: PageNotFoundComponent },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

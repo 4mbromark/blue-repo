@@ -14,18 +14,17 @@
 }
 .switch-title-opened {
   font-size: 30px;
-  margin-right: 200px;
+  /* margin-right: 200px; */
   transition: var(--blue-base-transition);
 }
 
 .switch-icon {
   border-radius: 0px;
   padding: 0px 20px;
-  margin-left: 10px;
   color: white;
 }
 .switch-icon:hover {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
   transition: var(--blue-base-transition);
 }
 

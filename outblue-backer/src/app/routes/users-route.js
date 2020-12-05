@@ -1,16 +1,19 @@
 var express = require('express');
 var session = require('express-session');
 
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
+
 var UsersService = require('../services/users-service');
 
 var router = express.Router();
 
-router.head('/outblue/users/login/:id/:pwd', (req, res) => {
-    const result = UsersService.authenticate(req.params.id, req.params.pwd);
+router.post('/outblue/users/login/:id', jsonParser, (req, res) => {
+    const result = UsersService.authenticate(req.params.id, req.body.pwd);
     result.then((result) => {
         if (result) {
             session.id = req.params.id;
-            res.sendStatus(200);
+            res.status(200).send(result);
         } else {
             res.sendStatus(403);
         }

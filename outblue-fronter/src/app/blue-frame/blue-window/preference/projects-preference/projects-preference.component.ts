@@ -1,4 +1,7 @@
+import { PreferenceService } from './../preference.service';
+import { Preference } from './../../../../blue-utils/blue-object/preference/Preference';
 import { Component } from '@angular/core';
+import { ProjectNamePreference } from 'src/app/blue-utils/blue-object/preference/ProjectNamePreference';
 
 @Component({
   selector: 'app-projects-preference',
@@ -6,6 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects-preference.component.css']
 })
 export class ProjectsPreferenceComponent {
+
+  lp: {
+    switch: ProjectNamePreference,
+    context: ProjectNamePreference,
+    table: ProjectNamePreference,
+    chip: ProjectNamePreference
+  };
 
   main = {
     name: 'High Five',
@@ -36,13 +46,34 @@ export class ProjectsPreferenceComponent {
   subNamePersonalized = true;
   subNameUppercase = true;
 
-  constructor() { }
+  constructor(private preferenceService: PreferenceService) {
+    this.preferenceService.getUserPreferences().subscribe((preference: Preference) => {
+      this.lp = preference.projects.name;
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   getSubNameExample() {
     let name = '';
-    if (this.addMainName) {
-      name += this.getSubMainNameExample();
-      if (this.addDash) {
+
+    if (this.lp.switch.showFather) {
+      name += this.getFatherExample();
+      if (this.lp.switch.fatherSeparator === 'DASH') {
         name += ' -';
       } else {
         name += ' ';
@@ -60,7 +91,7 @@ export class ProjectsPreferenceComponent {
       } else if (this.addOf) {
         name += 'of ';
       }
-      name += this.getSubMainNameExample();
+      name += this.getFatherExample();
       if (this.addBrackets) {
         name += ')';
       }
@@ -69,7 +100,7 @@ export class ProjectsPreferenceComponent {
     return name;
   }
 
-  getSubMainNameExample() {
+  getFatherExample() {
     let name = '';
 
     if (this.addMainNameReduced) {

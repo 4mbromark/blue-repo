@@ -3,12 +3,12 @@
   <fa-icon icon="envelope" size="lg" style="margin-left:10px;"></fa-icon>
 </button>
 
-<button mat-button [matMenuTriggerFor]="user" class="user-icon">
-  Marco Ambrosi
+<button mat-button [matMenuTriggerFor]="userMenu" class="user-icon">
+  {{user.name + ' ' + user.surname}}
   <fa-icon icon="user-circle" size="lg" style="margin-left:10px;"></fa-icon>
 </button>
 
-<mat-menu #user="matMenu">
+<mat-menu #userMenu="matMenu">
   <div style="width: 250px;" *ngFor="let button of menuButtons">
     <button mat-button *ngIf="button.type === 'main'" class="menu-button" (click)="openWindow(button)">
       <span class="menu-icon">
