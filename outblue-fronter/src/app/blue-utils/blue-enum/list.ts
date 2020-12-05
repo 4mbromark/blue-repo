@@ -10,8 +10,8 @@ import { Tag } from './word/tag';
 
 export class List {
   public static SIDEBAR_BUTTONS: SidebarButton[] = [
-    { type: 'main', icon: 'book', title: LanguageLabel.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabel.SIDEBAR_MAIN_COMPLETE },
-    { type: 'main', icon: 'bolt', title: LanguageLabel.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE },
+    /*{ type: 'main', icon: 'book', title: LanguageLabel.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabel.SIDEBAR_MAIN_COMPLETE },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE },*/
     { type: 'main', icon: 'check', title: LanguageLabel.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabel.SIDEBAR_TASKS_COMPLETE },
     { type: 'main', icon: 'stream', title: LanguageLabel.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE },
     /*{ type: 'main', icon: 'calendar', title: LanguageLabel.SIDEBAR_CALENDAR_SHORT, name: LanguageLabel.SIDEBAR_CALENDAR_COMPLETE },*/
@@ -38,15 +38,18 @@ export class List {
     { type: 'main', icon: 'mouse-pointer', title: LanguageLabel.CONTEXT_OPENPANEL, tooltip: LanguageLabel.CONTEXT_OPENPANEL_TOOLTIP,
       alt: { icon: 'times', title: LanguageLabel.CONTEXT_CLOSEPANEL, tooltip: LanguageLabel.CONTEXT_CLOSEPANEL_TOOLTIP}, tag: Tag.CONTEXT_TOGGLE },
     { type: 'line' },
+    { type: 'main', icon: 'shield-alt', title: LanguageLabel.CONTEXT_ADMINISTRATION, tooltip: LanguageLabel.CONTEXT_ADMINISTRATION_TOOLTIP },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.CONTEXT_PROJECTLIST, tooltip: LanguageLabel.CONTEXT_PROJECTLIST_TOOLTIP },
+    { type: 'line' },
     { type: 'main', icon: 'copy', title: LanguageLabel.CONTEXT_COPYNAME, tooltip: LanguageLabel.CONTEXT_COPYNAME_TOOLTIP },
     { type: 'line' },
     { type: 'main', icon: 'arrow-up', title: LanguageLabel.CONTEXT_SUPERPROJECTS, tooltip: LanguageLabel.CONTEXT_SUPERPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
     { type: 'main', icon: 'arrow-down', title: LanguageLabel.CONTEXT_SUBPROJECTS, tooltip: LanguageLabel.CONTEXT_SUBPROJECTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL },
     { type: 'main', icon: 'history', title: LanguageLabel.CONTEXT_RECENTS, tooltip: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL_NOCOUNT },
     { type: 'line' },
-    { type: 'main', icon: 'cog', title: LanguageLabel.CONTEXT_SETTINGS, tooltip: LanguageLabel.CONTEXT_SETTINGS_TOOLTIP },
+    /*{ type: 'main', icon: 'cog', title: LanguageLabel.CONTEXT_SETTINGS, tooltip: LanguageLabel.CONTEXT_SETTINGS_TOOLTIP },*/
     { type: 'main', icon: 'plus', title: LanguageLabel.CONTEXT_NEWPROJECT, tooltip: LanguageLabel.CONTEXT_NEWPROJECT_TOOLTIP },
-    { type: 'main', icon: 'bolt', title: LanguageLabel.CONTEXT_MANAGEPROJECTS, tooltip: LanguageLabel.CONTEXT_MANAGEPROJECTS_TOOLTIP },
+    /*{ type: 'main', icon: 'bolt', title: LanguageLabel.CONTEXT_MANAGEPROJECTS, tooltip: LanguageLabel.CONTEXT_MANAGEPROJECTS_TOOLTIP },*/
   ];
 
 }

@@ -29,6 +29,8 @@ import { ProjectsComponent } from './blue-modules/projects/projects.component';
 import { LoginFormRegisterComponent } from './blue-login/blue-login-form-register/login-form-register.component';
 import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard-licence-bar/standard-licence-bar.component';
 import { LoginResultComponent } from './blue-login/blue-login-result/login-result.component';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { LoginResultComponent } from './blue-login/blue-login-result/login-resul
     ProjectsPreferenceComponent,
     LoginFormRegisterComponent,
     StandardLicenceBarComponent,
-    LoginResultComponent
+    LoginResultComponent,
+    PageNotFoundComponent
   ],
   imports: [
     AngularModules,
@@ -62,6 +65,15 @@ import { LoginResultComponent } from './blue-login/blue-login-result/login-resul
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        }
+       // allowedDomains: ['example.com'],
+       // disallowedRoutes: ['http://example.com/examplebadroute/'],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

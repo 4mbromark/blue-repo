@@ -1,0 +1,17 @@
+.topbar, .content, .content-fullpage {
+  position: absolute;
+  width: 100%;
+}
+.topbar {
+  top: 0px;
+  z-index: 10;
+}
+.content, .content-fullpage {
+  bottom: 0px;
+}
+.content {
+  top: 50px;
+}
+.content-fullpage {
+  top: 0px;
+}

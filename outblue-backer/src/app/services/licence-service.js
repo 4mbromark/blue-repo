@@ -4,8 +4,7 @@ class LicenceService {
 
     static async getByUserId(userId) {
         return new Promise((resolve, reject) => {
-            const users = LicenceDao.getByUserId(userId);
-            users.then((licence) => {
+            LicenceDao.getByUserId(userId).then((licence) => {
                 resolve(licence);
             });
         });

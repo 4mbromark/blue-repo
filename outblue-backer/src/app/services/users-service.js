@@ -20,9 +20,11 @@ class UsersService {
             const users = UsersDao.getByIdAndPassword(id, password);
             users.then((users) => {
                 if (users && users.length > 0) {
-                    resolve(true);
+                    AuthService.sign(users[0]).then((token) => {
+                        resolve (token);
+                    });
                 } else {
-                    resolve(false);
+                    reject();
                 }
             });
         });

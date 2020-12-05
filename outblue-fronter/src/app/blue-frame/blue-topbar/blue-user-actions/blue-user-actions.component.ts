@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 // tslint:disable: max-line-length
 import { Tag } from '../../../blue-utils/blue-enum/word/tag';
 import { Component } from '@angular/core';
@@ -8,10 +9,13 @@ import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels'
 import { LanguageComponent } from '../../blue-window/language/language.component';
 import { MessagingComponent } from '../../blue-window/messaging/messaging.component';
 import { PreferenceComponent } from '../../blue-window/preference/preference.component';
+import { UserService } from 'src/app/blue-utils/blue-service/user.service';
+import { User } from 'src/app/blue-utils/blue-object/User';
 
 const MENU_BUTTONS: MenuButton[] = [
   { type: 'main', icon: 'user', title: LanguageLabel.MENU_ACCOUNT },
-  { type: 'main', icon: 'envelope', title: LanguageLabel.MENU_MESSAGING, action: {type: 'dialog', component: MessagingComponent}, alt: { icon: 'mail-bulk', title: LanguageLabel.MENU_MESSAGING_EXTENDED}, tag: Tag.MESSAGING },
+  { type: 'main', icon: 'envelope', title: LanguageLabel.MENU_MESSAGING, action: {type: 'dialog', component: MessagingComponent},
+  alt: { icon: 'mail-bulk', title: LanguageLabel.MENU_MESSAGING_EXTENDED}, tag: Tag.MESSAGING },
   { type: 'line' },
   { type: 'main', icon: 'language', title: LanguageLabel.MENU_LANGUAGE, action: {type: 'dialog', component: LanguageComponent, width: '30%', height: '40%'} },
   /*{ type: 'main', icon: 'database', title: LanguageLabel.MENU_SPACE },*/
@@ -25,7 +29,7 @@ const MENU_BUTTONS: MenuButton[] = [
   { type: 'line' },
   { type: 'main', icon: 'shopping-cart', title: LanguageLabel.MENU_STORE },
   /* { type: 'main', icon: 'asterisk', title: LanguageLabel.MENU_YENA }, */
-  { type: 'main', icon: 'times', title: LanguageLabel.MENU_LOGOUT }
+  { type: 'main', icon: 'times', title: LanguageLabel.MENU_LOGOUT, tag: Tag.LOGOUT }
 ];
 
 @Component({
@@ -33,11 +37,19 @@ const MENU_BUTTONS: MenuButton[] = [
   templateUrl: './blue-user-actions.component.html',
   styleUrls: ['./blue-user-actions.component.css']
 })
-export class UserActionsComponent {
+export class UserActionsComponent implements OnInit {
 
   menuButtons = MENU_BUTTONS;
 
-  constructor(private languageService: LanguageService, private dialog: MatDialog) {
+  user: User;
+
+  constructor(private userService: UserService, private languageService: LanguageService, private dialog: MatDialog) {
+  }
+
+  ngOnInit(): void {
+    this.userService.getUser().subscribe((user: User) => {
+      this.user = user;
+    });
   }
 
   gbl(label: string): string {
@@ -53,6 +65,9 @@ export class UserActionsComponent {
   }
 
   openWindow(button: MenuButton): void {
+    if (button.tag === Tag.LOGOUT) {
+      return this.logout();
+    }
     this.dialog.open(button.action.component, {
       width: button.action.width ? button.action.width : '50%',
       height: button.action.height ? button.action.height : '80%',
@@ -61,6 +76,10 @@ export class UserActionsComponent {
         title: button.alt ? this.gbl(button.alt.title) : this.gbl(button.title)
       }
     });
+  }
+
+  logout(): void {
+    this.userService.logout();
   }
 
 }

@@ -8,6 +8,9 @@ export class LanguageMatchList {
   public static MATCHS: LanguageMatch[] = [
     { label: LanguageLabel.NULL, italian: 'errore di traduzione', english: 'translation error' },
 
+    { label: LanguageLabel.TITLE_STANDARD, italian: Name.HIGH_FIVE_OUTBLUE, english: Name.HIGH_FIVE_OUTBLUE },
+    { label: LanguageLabel.TITLE_CUSTOMIZED, italian: Name.OUTBLUE + ' di ' + Config.NAME, english: Config.NAME + '\'s ' + Name.OUTBLUE },
+
     // LOGIN PAGE
     { label: LanguageLabel.WELCOME_MESSAGE_STANDARD, italian: 'Accedi a <b>' + Name.OUTBLUE + '</b>', english: 'Sign in to <b>' + Name.OUTBLUE + '</b>' },
     { label: LanguageLabel.WELCOME_MESSAGE_ALICE, italian: 'Che bello rivederti, <b>' + Name.ALICE + '</b>!', english: 'Happy to see you again, <b>' + Name.ALICE + '</b>!' },
@@ -88,7 +91,7 @@ export class LanguageMatchList {
     { label: LanguageLabel.SIDEBAR_MAIN_SHORT, italian: 'Amministrazione', english: 'Administration' },
     { label: LanguageLabel.SIDEBAR_MAIN_COMPLETE, italian: 'Amministrazione di ' + Name.OUTBLUE, english: Name.OUTBLUE + ' Administration' },
     { label: LanguageLabel.SIDEBAR_PROJECTS_SHORT, italian: 'Progetti', english: 'Projects' },
-    { label: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE, italian: 'Registro dei progetti', english: 'Projects Register' },
+    { label: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE, italian: 'Registro dei Progetti', english: 'Projects Register' },
     { label: LanguageLabel.SIDEBAR_TASKS_SHORT, italian: 'Attività', english: 'Tasklist' },
     { label: LanguageLabel.SIDEBAR_TASKS_COMPLETE, italian: 'Elenco delle Attività', english: 'List of Tasks' },
     { label: LanguageLabel.SIDEBAR_VERSIONS_SHORT, italian: 'Versioni', english: 'Versions' },
@@ -98,20 +101,24 @@ export class LanguageMatchList {
 
     // CONTEXT MENU of PROJECTBAR
     { label: LanguageLabel.CONTEXT_OPENPANEL, italian: 'Apri pannello', english: 'Open panel' },
-    { label: LanguageLabel.CONTEXT_OPENPANEL_TOOLTIP, italian: 'Apri il pannello del progetto ', english: 'Open the panel of Project ' },
+    { label: LanguageLabel.CONTEXT_OPENPANEL_TOOLTIP, italian: 'Apri il pannello del Progetto ', english: 'Open the panel of Project ' },
     { label: LanguageLabel.CONTEXT_CLOSEPANEL, italian: 'Chiudi pannello', english: 'Close panel' },
     { label: LanguageLabel.CONTEXT_CLOSEPANEL_TOOLTIP, italian: 'Chiudi il pannello del Progetto', english: 'Close the Project panel' },
+    { label: LanguageLabel.CONTEXT_ADMINISTRATION, italian: 'Amministrazione', english: 'Administration' },
+    { label: LanguageLabel.CONTEXT_ADMINISTRATION_TOOLTIP, italian: 'Amministrazione di ' + Name.OUTBLUE, english: Name.OUTBLUE + ' Administration' },
+    { label: LanguageLabel.CONTEXT_PROJECTLIST, italian: 'Progetti', english: 'Projects' },
+    { label: LanguageLabel.CONTEXT_PROJECTLIST_TOOLTIP, italian: 'Registro dei Progetti', english: 'Projects register' },
     { label: LanguageLabel.CONTEXT_COPYNAME, italian: 'Copia nome', english: 'Copy name' },
-    { label: LanguageLabel.CONTEXT_COPYNAME_TOOLTIP, italian: 'Copia il nome del progetto negli appunti', english: 'Copy the Project name to the clipboard' },
+    { label: LanguageLabel.CONTEXT_COPYNAME_TOOLTIP, italian: 'Copia il nome del Progetto negli appunti', english: 'Copy the Project name to the clipboard' },
     { label: LanguageLabel.CONTEXT_SUPERPROJECTS, italian: 'Superprogetti', english: 'Superprojects' },
     { label: LanguageLabel.CONTEXT_SUPERPROJECTS_TOOLTIP, italian: 'Visualizza i Superprogetti di ', english: 'View Superprojects of ' },
     { label: LanguageLabel.CONTEXT_SUBPROJECTS, italian: 'Sottoprogetti', english: 'Subprojects' },
     { label: LanguageLabel.CONTEXT_SUBPROJECTS_TOOLTIP, italian: 'Visualizza i Sottoprogetti di ', english: 'View Subprojects of ' },
     { label: LanguageLabel.CONTEXT_RECENTS, italian: 'Progetti recenti', english: 'Recent Projects' },
-    { label: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, italian: 'Visualizza i progetti aperti di recente', english: 'View recently opened Projects' },
+    { label: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, italian: 'Visualizza i Progetti aperti di recente', english: 'View recently opened Projects' },
     { label: LanguageLabel.CONTEXT_SETTINGS, italian: 'Impostazioni', english: 'Settings' },
     { label: LanguageLabel.CONTEXT_SETTINGS_TOOLTIP, italian: 'Impostazioni del Progetto ', english: 'Settings of Project ' },
-    { label: LanguageLabel.CONTEXT_NEWPROJECT, italian: 'Nuovo progetto', english: 'New Project' },
+    { label: LanguageLabel.CONTEXT_NEWPROJECT, italian: 'Nuovo Progetto', english: 'New Project' },
     { label: LanguageLabel.CONTEXT_NEWPROJECT_TOOLTIP, italian: 'Crea un nuovo Progetto', english: 'Create a new Project' },
     { label: LanguageLabel.CONTEXT_MANAGEPROJECTS, italian: 'Gestisci Progetti', english: 'Manage Projects' },
     { label: LanguageLabel.CONTEXT_MANAGEPROJECTS_TOOLTIP, italian: 'Gestisci tutti i Proegtti', english: 'Manage all Projects' },

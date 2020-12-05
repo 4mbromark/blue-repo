@@ -5,12 +5,27 @@
     <mat-expansion-panel-header [collapsedHeight]="'40px'" [expandedHeight]="'100px'"
       style="background-color:var(--blue-main-color);">
       <mat-panel-title class="blue-row">
-        <span [class]="opened ? 'switch-title-opened' : 'switch-title'">HIGH FIVE LIFE PROJECT</span>
         <span mat-button class="switch-icon" [matMenuTriggerFor]="projectsContext" (click)="$event.stopPropagation();">
+          <fa-icon icon="shield-alt" size="lg"></fa-icon>
+        </span>
+        <span mat-button class="switch-icon" style="margin-left: -20px;" [matMenuTriggerFor]="projectsContext" (click)="$event.stopPropagation();">
+          <fa-icon icon="bolt" size="lg"></fa-icon>
+        </span>
+
+        <span [class]="opened ? 'switch-title-opened' : 'switch-title'">HIGH FIVE DAXEVATE</span>
+
+        <span mat-button class="switch-icon" style="margin-left: 5px;" [matMenuTriggerFor]="projectsContext" (click)="$event.stopPropagation();">
           <fa-icon icon="bars" size="lg"></fa-icon>
         </span>
       </mat-panel-title>
     </mat-expansion-panel-header>
+
+    <div style="margin: 30px; text-align: end;">
+      <span style="font-size: 30px;"><b>Daxevate</b></span>
+      <br><br><span>sottoprogetto di <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+      <br><span>capoprogetto: <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+    </div>
+
   </mat-expansion-panel>
 </div>
 

@@ -41,7 +41,13 @@ app.use(session({
   })*/
 }));
 
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
-server.listen(port, () => console.log('Server Avviato...'));
+var path = require('path');
+app.all('/*', function(req, res, next) {
+  // Just send the index.html for other files to support HTML5Mode
+  res.sendFile(path.resolve('../outblue-fronter/dist/outblue-fronter/index.html'));
+});
+
+app.listen(port, () => console.log('Server Avviato...'));
 

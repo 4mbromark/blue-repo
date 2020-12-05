@@ -1,6 +1,6 @@
 <div class="blue-row">
   <h1 style="text-align: center;">
-    <span [innerHTML]="customWelcomeMessage"></span>
+    <span [innerHTML]="customWelcomeMessage">asas</span>
     <!--Accedi a <b>Outblue</b>-->
   </h1>
 </div>
@@ -13,8 +13,8 @@
   </mat-form-field>
 
   <mat-form-field floatLabel="never">
-    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" [placeholder]="gbl(labels.LOGIN_PASSWORD)">
-    <button mat-icon-button matSuffix class="suffix-button" (click)="hide = !hide">
+    <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" [placeholder]="gbl(labels.LOGIN_PASSWORD)" (keyup.enter)="login();">
+    <button mat-icon-button matSuffix (click)="hide = !hide">
       <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [matTooltip]="hide ? gbl(labels.LOGIN_PASSWORD_SHOW) : gbl(labels.LOGIN_PASSWORD_HIDE)" matTooltipPosition="right">
       </fa-icon>
     </button>

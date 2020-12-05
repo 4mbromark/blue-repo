@@ -4,6 +4,9 @@ import { Config } from './../blue-enum/word/config';
 export class LanguageLabel {
   public static NULL = 'null';
 
+  public static TITLE_STANDARD = 'title-standard';
+  public static TITLE_CUSTOMIZED = 'title-customized';
+
   // LOGIN PAGE
   public static WELCOME_MESSAGE_STANDARD = 'welcome-message-standard';
   public static WELCOME_MESSAGE_ALICE = 'welcome-message-' + Config.ALICE;
@@ -110,6 +113,10 @@ export class LanguageLabel {
   public static CONTEXT_OPENPANEL_TOOLTIP = 'context-openpanel' + Config.TOOLTIP;
   public static CONTEXT_CLOSEPANEL = 'context-closepanel';
   public static CONTEXT_CLOSEPANEL_TOOLTIP = 'context-closepanel' + Config.TOOLTIP;
+  public static CONTEXT_ADMINISTRATION = 'context-administration';
+  public static CONTEXT_ADMINISTRATION_TOOLTIP = 'context-administration' + Config.TOOLTIP;
+  public static CONTEXT_PROJECTLIST = 'context-projectlist';
+  public static CONTEXT_PROJECTLIST_TOOLTIP = 'context-projectlist' + Config.TOOLTIP;
   public static CONTEXT_COPYNAME = 'context-copyname';
   public static CONTEXT_COPYNAME_TOOLTIP = 'context-copyname' + Config.TOOLTIP;
   public static CONTEXT_SUPERPROJECTS = 'context-superprojects';

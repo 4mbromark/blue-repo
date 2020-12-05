@@ -1,8 +1,7 @@
+import { PermitService } from './../../blue-utils/blue-service/permit.service';
 import { List } from '../../blue-utils/blue-enum/list';
 import { Injectable } from '@angular/core';
-import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
-import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
-import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
+import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';;
 
 export class LeftbarStatus {
   enabled: boolean;
@@ -21,9 +20,11 @@ export class SidebarService {
 
   selectedButton = this.buttons[0];
 
-  constructor() {
+  constructor(private permitService: PermitService) {
     this.leftbarStatus = new LeftbarStatus();
-    this.leftbarStatus.enabled = true;
+    this.permitService.getSidebarPermit().subscribe((permit: boolean) => {
+      this.leftbarStatus.enabled = permit;
+    });
     this.setLeftbarOpened();
     this.setLeftbarExtended();
   }

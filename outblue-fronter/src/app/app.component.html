@@ -1,11 +1,6 @@
-<!--<div style="position: absolute; top: 0px; width: 100%; z-index: 10;">
+<div *ngIf="topbarEnabled" class="topbar">
   <app-topbar></app-topbar>
 </div>
-
-<div style="position: absolute; top: 50px; bottom: 0px; width: 100%;">
+<div [class]="topbarEnabled ? 'content' : 'content-fullpage'">
   <app-sidebar></app-sidebar>
 </div>
-
--->
-
-<app-login style="position: absolute; top: 0px; bottom: 0px; width: 100%;"></app-login>

@@ -5,9 +5,10 @@ class AuthService {
     static key = 'a1Blu3-1c3ss0r1';
 
     static async sign(user) {
-        jwt.sign({user}, AuthService.key, (err, token) => {
-            console.log(token);
-            return token;
+        return new Promise((resolve, reject) => {
+            jwt.sign({user}, AuthService.key, (err, token) => {
+                resolve(token);
+            });
         });
     }
 

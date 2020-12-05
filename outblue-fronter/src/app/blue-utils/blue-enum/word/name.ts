@@ -3,6 +3,7 @@ export class Name {
 
   public static HIGH_FIVE = 'High Five Life Project';
   public static HIGH_FIVE_YEARS = '2018-2020';
+  public static HIGH_FIVE_OUTBLUE = 'High Five Outblue';
 
   public static MARCO_AMBROSI = 'Marco Ambrosi';
 
