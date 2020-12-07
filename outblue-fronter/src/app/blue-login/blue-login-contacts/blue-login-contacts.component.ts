@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faFacebookSquare, faInstagram, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 import { Name } from 'src/app/blue-utils/blue-enum/word/name';
 
 @Component({
@@ -9,8 +9,8 @@ import { Name } from 'src/app/blue-utils/blue-enum/word/name';
 })
 export class BlueLoginContactsComponent implements OnInit {
 
-  fb = faFacebookSquare;
-  ig = faInstagramSquare;
+  fb = faFacebook;
+  ig = faInstagram;
 
   names = Name;
 

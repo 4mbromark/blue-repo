@@ -1,3 +1,5 @@
+import { StorageService } from './storage.service';
+// tslint:disable: object-literal-shorthand
 import { LanguageService } from './language.service';
 import { LanguageLabel } from './../blue-language/language-labels';
 import { RoutingUrl } from './../blue-routing/routing-url';
@@ -23,7 +25,8 @@ export class UserService {
     private http: HttpClient,
     private routingService: RoutingService,
     private authService: AuthenticationService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private storage: StorageService
   ) {
     this.getUserFromStore();
     this.setTitle();
@@ -37,11 +40,13 @@ export class UserService {
     return this.user.asObservable();
   }
 
-  getUserByMailOrName(mailOrName: string): Promise<User> {
+  getUserByMailOrName(mailOrName: string, saveUser?: boolean): Promise<User> {
     return new Promise((resolve, reject) => {
       this.http.get(Url.USERS_EXISTS_REST + mailOrName).subscribe(
         (user: User) => {
-          this.user.next(user);
+          if (saveUser) {
+            this.user.next(user);
+          }
           resolve(user);
         },
         (error) => {
@@ -57,7 +62,7 @@ export class UserService {
         (token: string) => {
           this.authService.authenticate(token);
           this.storeUser();
-          this.routingService.goToLastPage();
+          this.routingService.reload();
           this.setTitle();
           resolve();
         },
@@ -71,24 +76,22 @@ export class UserService {
   logout(): void {
     this.authService.invalidate();
     this.user.next(null);
-    this.routingService.goTo(RoutingUrl.LOGIN_PAGE);
+    this.routingService.reload();
     this.setDefaultTitle();
     this.unstoreUser();
   }
 
   storeUser(): void  {
-    localStorage.setItem(Config.LOCAL_STORAGE_USER, JSON.stringify(this.user.value));
-    localStorage.setItem(Config.LOCAL_STORAGE_USERNAME, this.user.value.username);
+    this.storage.setUser(this.user.value);
+    this.storage.set(Config.LOCAL_STORAGE_USERNAME, this.user.value.username);
   }
-
   unstoreUser(): void {
-    localStorage.setItem(Config.LOCAL_STORAGE_USER, '');
-    localStorage.setItem(Config.LOCAL_STORAGE_USERNAME, '');
+    this.storage.removeUser();
+    this.storage.remove(Config.LOCAL_STORAGE_USERNAME);
   }
-
   getUserFromStore(): void {
-    if (localStorage.getItem(Config.LOCAL_STORAGE_USER)) {
-      this.user.next(JSON.parse(localStorage.getItem(Config.LOCAL_STORAGE_USER)));
+    if (this.storage.getUser()) {
+      this.user.next(this.storage.getUser());
     }
   }
 

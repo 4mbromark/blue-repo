@@ -1,29 +1,34 @@
-<div class="blue-row">
+<div class="blue-row blue-flex-center">
 
-  <div class="blue-column">
-    <img src="assets/hf-logo-no-border.png" alt="outblue" style="height: 130px;" title="Outblue">
+  <img src="assets/hf-logo.png" style="height: 120px;">
+
+
+  <div class="blue-column blue-flex-center" style="margin-left: 30px;">
+    <mat-divider style="width: 200px; margin-bottom: 15px; background-color: black;"></mat-divider>
+
+    <span style="font-size: 25px;"><b>{{names.HIGH_FIVE}}</b></span>
+    <span style="height: 5px;"></span>
+    <span style="font-size: 15px;">{{'©' + names.HIGH_FIVE_YEARS}}</span>
+
+    <span style="font-size: 15px; margin: 5px;">
+      <b>Marco Ambrosi</b>
+      <fa-icon icon="user-tie" size="lg" style="margin: 0px 5px 0pc 10px;"></fa-icon>
+      @4mbromark
+    </span>
+
+    <mat-divider style="width: 200px; margin-top: 10px; background-color: black;"></mat-divider>
   </div>
-
-  <div class="blue-column blue-flex-center" style="display: none; margin-left: 20px;">
-
-      <button mat-icon-button>
-        <fa-icon [icon]="fb" size="2x"></fa-icon>
-      </button>
-      <button mat-icon-button>
-        <fa-icon [icon]="ig" size="2x"></fa-icon>
-      </button>
-
-    <!--<img src="assets/hf-text-wede-2.png" alt="outblue" style="height: 80px;" title="Outblue">-->
-
-    <!-- <br><br>
-
-    <fa-icon icon="user-tie" size="lg" title="Marco Ambrosi"></fa-icon>
-    <b>Marco Ambrosi</b>
-    @4mbromark
-    <em>clsupproject@gmail.com</em>-->
-
-  </div>
-
 
 
 </div>
+
+<mat-menu #socials>
+  <div style="background-color: var(--blue-main-color);">
+    <button mat-raised-button class="social-button">
+    <fa-icon [icon]="fb" size="lg"></fa-icon>
+  </button>
+  <button mat-raised-button class="social-button" style="margin-left: 0px;">
+    <fa-icon [icon]="ig" size="lg"></fa-icon>
+  </button>
+  </div>
+</mat-menu>

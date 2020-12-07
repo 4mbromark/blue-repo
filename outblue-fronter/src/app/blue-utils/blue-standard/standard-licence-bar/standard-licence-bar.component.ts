@@ -52,7 +52,7 @@ export class StandardLicenceBarComponent implements OnInit {
   }
 
   isLicenceMissing(): boolean {
-    return this.licenceService.getActualLicence().code === LicenceType.NO_LICENCE;
+    return this.licence[0].code === LicenceType.NO_LICENCE;
   }
 
 }

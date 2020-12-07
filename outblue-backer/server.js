@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 
 const user = require('./src/app/routes/users-route');
 const licence = require('./src/app/routes/licence-route');
+const projects = require('./src/app/routes/projects-route');
 
 app.use(express.static('../outblue-fronter/dist/outblue-fronter'));
 
@@ -19,7 +20,7 @@ app.use(function(req, res, next) {
     next();
   });
   
-app.use(user, licence);
+app.use(user, licence, projects);
 
 app.use(session({
   secret: 'a4f8071f-c873-4447-8ee2',
