@@ -25,26 +25,12 @@ export class LicenceService {
 
   getLicence(): Observable<Licence[]> {
     if (this.licence.value.length === 0) {
-      this.licence.value.unshift(this.licenceDetails[0]);
+      this.addTempLicence(this.licenceDetails[0]);
     }
     return this.licence.asObservable();
   }
-
-  getActualLicence(): Licence {
-    return this.licence.value[0];
-  }
-
-  getLicenceOnRest(): Promise<Licence[]> {
-    return new Promise((resolve, reject) => {
-      this.http.get(Url.LICENCE_FETCH_REST).subscribe(
-        (licence: Licence[]) => {
-          resolve(licence);
-        },
-        (error: any) => {
-          reject(error);
-        }
-      );
-    });
+  getLicenceStatus(): Observable<LicenceStatus> {
+    return this.licenceStatus.asObservable();
   }
 
   getLicenceWithDetailByCode(code: string, serial?: string): Licence {
@@ -57,13 +43,49 @@ export class LicenceService {
     return this.licenceDetails[0];
   }
 
-  getLicenceStatus(): Observable<LicenceStatus> {
-    return this.licenceStatus.asObservable();
+  loadLicence(): Promise<Licence[]> {
+    return new Promise((resolve, reject) => {
+      this.http.get(Url.LICENCE_LOAD_REST).subscribe(
+        (licence: Licence[]) => {
+          this.updateLicence(licence);
+          resolve();
+        },
+        (error: any) => {
+          reject(error);
+        }
+      );
+    });
+  }
+  saveLicence(): Promise<Licence[]> {
+    return new Promise((resolve, reject) => {
+      this.http.post(Url.LICENCE_SAVE_REST, this.licence.value).subscribe(
+        (licence: Licence[]) => {
+          this.updateLicence(licence);
+          resolve();
+        },
+        (error: any) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  updateLicence(licence: Licence[]): void {
+    this.licence.next(licence);
+    this.updateLicenceStatus();
+  }
+  updateLicenceStatus(): void {
+
+  }
+
+  addTempLicence(licence: Licence) {
+    this.licence.value.unshift(licence);
+    this.licence.next(this.licence.value);
   }
 
   generateTrialLicence(): void {
     this.removeNoLicence();
-    this.licence.value.unshift(this.getLicenceWithDetailByCode(LicenceType.LICENCE_LIMITED_TRIAL, this.generateSerial()));
+    this.addTempLicence(this.getLicenceWithDetailByCode(LicenceType.LICENCE_LIMITED_TRIAL, this.generateSerial()));
   }
 
   generateSerial(): string {

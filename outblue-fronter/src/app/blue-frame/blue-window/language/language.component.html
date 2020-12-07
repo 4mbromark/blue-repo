@@ -1,9 +1,16 @@
 <app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
 
-<div class="blue-flex-center" style="margin: 10px;">
-  <button mat-button [class]="button.language === getSelectedLanguage() ? 'language-button-selected' : 'language-button'" *ngFor="let button of languageButtons"
-    (click)="setLanguage(button.language)">
-    <span class="language-code">{{button.code}}</span>
-    <span class="language-title">{{gbl(button.title)}}</span>
+<div class="blue-column blue-flex-center" style="margin: 10px;">
+  <div class="blue-row">
+    <button mat-button [class]="button.language === languageSelected ? 'language-button-selected' : 'language-button'"
+      *ngFor="let button of languageButtons" (click)="languageSelected = button.language">
+      <span class="language-code">{{button.code}}</span>
+      <span class="language-title">{{gbl(button.title)}}</span>
+    </button>
+  </div>
+
+  <button mat-raised-button class="blue-green-button" [disabled]="language === languageSelected" (click)="setLanguage(languageSelected)" mat-dialog-close>
+    {{gbl(labels.LANGUAGE_UPDATE, languageSelected)}}
+    <fa-icon style="margin-left: 5px;" icon="redo-alt" size="lg"></fa-icon>
   </button>
 </div>

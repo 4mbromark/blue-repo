@@ -154,6 +154,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: 20px;
 }
 
+/* BUTTONS */
+.blue-green-button {
+  margin: 20px !important;
+  border-radius: 0px !important;
+  padding: 5px 15px !important;
+  color: white;
+  background-color: darkgreen;
+}
 
 
 

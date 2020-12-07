@@ -4,7 +4,7 @@
 }
 .background-image::after {
   content: "";
-  background: url("../../assets/login/bolt-wall-3.jpg");
+  background: url("../../assets/login/bolt-wall.jpg");
   background-size: cover;
   top: -150px;
   bottom: 0px;

@@ -1,3 +1,5 @@
+import { LanguageLabel } from './../../../blue-utils/blue-language/language-labels';
+import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service';
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
 import { BaseWindowService } from './../../../blue-utils/blue-base/base-window/base-window.service';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
@@ -13,29 +15,35 @@ import { List } from 'src/app/blue-utils/blue-enum/list';
 })
 export class LanguageComponent extends BaseWindowComponent {
 
+  labels = LanguageLabel;
+
   languageButtons = List.LANGUAGE_BUTTONS;
+
+  language: string;
+  languageSelected: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
+    private routingService: RoutingService,
     private lightningService: LightningService,
     private languageService: LanguageService,
     protected service: BaseWindowService
   ) {
     super(data, service);
     this.lightningService.setDialogService(service);
+    this.languageService.getLanguage().subscribe((language: string) => {
+      this.language = language;
+      this.languageSelected = language;
+    });
   }
 
-  gbl(label: string): string {
+  gbl(label: string, force?: string): string {
     return this.languageService.getByLanguage(label);
-  }
-
-  getSelectedLanguage(): string {
-    return this.languageService.getSelectedLanguage();
   }
 
   setLanguage(language: string) {
     this.languageService.setLanguage(language);
-    this.close();
+    this.routingService.reload();
   }
 
 }

@@ -44,7 +44,7 @@ export class BlueLoginFormComponent implements OnInit {
   }
 
   checkIfUserExists() {
-    this.userService.getUserByMailOrName(this.username.value).then((user: User) => {
+    this.userService.getUserByMailOrName(this.username.value, true).then((user: User) => {
       if (user) {
         this.user = user;
         this.setCustomWelcomeMessage();

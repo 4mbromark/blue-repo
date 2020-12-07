@@ -24,6 +24,13 @@ export class LanguageLabel {
 
   public static REGISTRATION_TITLE = 'registration-title';
 
+  public static REGISTRATION_NAME = 'registration-name';
+  public static REGISTRATION_SURNAME = 'registration-surname';
+  public static REGISTRATION_MAIL = 'registration-mail';
+  public static REGISTRATION_USERNAME = 'registration-username';
+  public static REGISTRATION_PASSWORD = 'registration-password';
+  public static REGISTRATION_PASSWORDCONFIRM = 'registration-passwordconfirm';
+
   // LICENCE
   public static NO_LICENCE = LicenceTag.NO_LICENCE;
   public static NO_LICENCE_DESCRIPTION = LicenceTag.NO_LICENCE + Config.DESCRIPTION;
@@ -93,6 +100,8 @@ export class LanguageLabel {
   public static LANGUAGE_ITALIAN = 'italian';
   public static LANGUAGE_ENGLISH = 'english';
 
+  public static LANGUAGE_UPDATE = 'language-update';
+
   // WINDOW of PREFERENCE
   public static PREFERENCE_PROJECTS = 'preference-projects';
 
@@ -133,4 +142,7 @@ export class LanguageLabel {
   public static CONTEXT_MANAGEPROJECTS_TOOLTIP = 'context-manageprojects' + Config.TOOLTIP;
 
   public static CONTEXT_GOTOPROJECT_TOOLTIP = 'context-gotoproject';
+
+  public static WINDOW_ADMINISTRATION = 'window-administration';
+  public static WINDOW_PROJECTS = 'window-projects';
 }

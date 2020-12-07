@@ -25,11 +25,11 @@ import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging
 import { BaseWindowComponent } from './blue-utils/blue-base/base-window/base-window.component';
 import { StandardToolbarComponent } from './blue-utils/blue-standard/standard-toolbar/standard-toolbar.component';
 import { CommunicationsComponent } from './blue-frame/blue-window/messaging/communications/communications.component';
-import { ProjectsComponent } from './blue-modules/projects/projects.component';
+import { ProjectsComponent } from './blue-frame/blue-projects/projects.component';
 import { LoginFormRegisterComponent } from './blue-login/blue-login-form-register/login-form-register.component';
 import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard-licence-bar/standard-licence-bar.component';
 import { LoginResultComponent } from './blue-login/blue-login-result/login-result.component';
-import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
 import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page-not-found.component';
 
 

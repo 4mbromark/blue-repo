@@ -8,12 +8,12 @@
     <div class="blue-column">
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Nome" type="text" required>
+          <input matInput [(formControl)]="name" [placeholder]="gbl(labels.REGISTRATION_NAME)" type="text" required>
         </mat-form-field>
       </div>
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Cognome" type="text" required>
+          <input matInput [(formControl)]="surname" [placeholder]="gbl(labels.REGISTRATION_SURNAME)" type="text" required>
         </mat-form-field>
       </div>
     </div>
@@ -25,12 +25,12 @@
     <div class="blue-column">
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Indirizzo email" type="text" required>
+          <input matInput [(formControl)]="mail" [placeholder]="gbl(labels.REGISTRATION_MAIL)" type="text" required>
         </mat-form-field>
       </div>
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Nome account" type="text" required>
+          <input matInput [(formControl)]="username" [placeholder]="gbl(labels.REGISTRATION_USERNAME)" type="text" required>
         </mat-form-field>
       </div>
     </div>
@@ -40,12 +40,12 @@
     <div class="blue-column">
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Password" type="password" required>
+          <input matInput [(formControl)]="password" [placeholder]="gbl(labels.REGISTRATION_PASSWORD)" type="password" required>
         </mat-form-field>
       </div>
       <div class="blue-row">
         <mat-form-field class="register-form" floatLabel="never">
-          <input matInput placeholder="Conferma password" type="password" required>
+          <input matInput [(formControl)]="passwordConfirm" [placeholder]="gbl(labels.REGISTRATION_PASSWORDCONFIRM)" type="password" required>
         </mat-form-field>
       </div>
     </div>
@@ -55,7 +55,7 @@
 <app-standard-licence-bar></app-standard-licence-bar>
 
 <div class="blue-flex-right">
-  <button mat-raised-button class="register-send" [disabled]="!canRegister()" mat-dialog-close>
+  <button mat-raised-button class="blue-green-button" [disabled]="!canRegister()" mat-dialog-close>
     Invia email di conferma
     <fa-icon style="margin-left: 5px;" icon="paper-plane" size="lg"></fa-icon>
   </button>

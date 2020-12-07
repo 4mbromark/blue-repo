@@ -18,14 +18,21 @@
   transition: var(--blue-base-transition);
 }
 
-.switch-icon {
+.switch-icon, .switch-menu-icon {
   border-radius: 0px;
   padding: 0px 20px;
   color: white;
+  transition: var(--blue-base-transition);
+}
+.switch-menu-icon {
+  margin-left: 5px;
 }
 .switch-icon:hover {
-  transform: rotate(360deg);
-  transition: var(--blue-base-transition);
+  transform: rotateY(360deg);
+}
+.switch-menu-icon:hover {
+  transform: rotateZ(360deg);
+
 }
 
 .project-button {
