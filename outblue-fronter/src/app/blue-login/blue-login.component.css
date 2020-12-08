@@ -24,3 +24,11 @@
 .login-divider {
   margin: 0px 100px;
 }
+
+/**/
+.login-logo {
+  font-family: Outblue;
+  color: var(--blue-main-color);
+  font-size: 80px;
+  margin-left: 10px;
+}

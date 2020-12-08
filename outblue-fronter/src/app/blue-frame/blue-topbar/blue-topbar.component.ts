@@ -1,3 +1,4 @@
+import { Name } from './../../blue-utils/blue-enum/word/name';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blue-topbar.component.css']
 })
 export class BlueTopbarComponent implements OnInit {
+
+  names = Name;
 
   constructor() { }
 

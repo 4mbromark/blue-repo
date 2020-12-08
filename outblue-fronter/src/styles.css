@@ -20,6 +20,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@font-face {
+  font-family: 'Outblue'; /*a name to be used later*/
+  src: url('./assets/fonts/mplus-2c-bold.ttf'); /*URL to font*/
+}
+
 :root {
   --blue-hf-color: rgb(0, 9, 111);
   --blue-main-color: rgb(0, 0, 100);

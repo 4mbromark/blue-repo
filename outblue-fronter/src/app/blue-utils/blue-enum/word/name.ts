@@ -8,6 +8,7 @@ export class Name {
   public static MARCO_AMBROSI = 'Marco Ambrosi';
 
   public static OUTBLUE = 'Outblue';
+  public static OUTBLUE_LOGO = 'outblue';
 
   public static YENA = 'Yena';
 }
