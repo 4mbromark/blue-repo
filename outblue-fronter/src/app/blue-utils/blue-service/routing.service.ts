@@ -27,12 +27,27 @@ export class RoutingService {
   }
 
   manageUrl(url: string): void {
-    this.permitService.setAllFramePermitTo(this.location.path().includes(this.storage.get(Config.LOCAL_STORAGE_USERNAME)));
+    this.permitService.setTopbarPermit(this.location.path().includes(this.storage.get(Config.LOCAL_STORAGE_USERNAME)));
+    this.permitService.setSidebarPermit(
+      this.location.path().includes(this.storage.get(Config.LOCAL_STORAGE_USERNAME)) &&
+      !this.location.path().includes('/w/')
+    );
   }
 
   /* */
   goTo(url: string): void {
     this.router.navigateByUrl(url);
+  }
+
+  navigate(url: string[]): void {
+    url.unshift(this.storage.get(Config.LOCAL_STORAGE_USERNAME));
+    this.router.navigate(url, { relativeTo: this.route });
+  }
+  navigateWindow(url: string): void {
+    this.navigate(['w', url]);
+  }
+  navigateBack(): void {
+    this.router.navigate(['../']);
   }
 
   goToLastPage(): void {

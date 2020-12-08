@@ -1,3 +1,5 @@
+import { RoutingUrl } from './../../../blue-utils/blue-routing/routing-url';
+import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service';
 import { ProjectService } from './../../../blue-utils/blue-service/project.service';
 import { User } from './../../../blue-utils/blue-object/User';
 import { Name } from './../../../blue-utils/blue-enum/word/name';
@@ -40,6 +42,7 @@ export class ProjectSwitchComponent implements OnInit {
   constructor(
     private userService: UserService,
     private projectService: ProjectService,
+    private routingService: RoutingService,
     private languageService: LanguageService,
     private dialog: MatDialog
   ) { }
@@ -128,25 +131,11 @@ export class ProjectSwitchComponent implements OnInit {
 
   openAdministrationWindow() {
     this.projectBar.close();
-    this.dialog.open(ProjectsComponent, {
-      width: '95%',
-      height: '88%',
-      data: {
-        icon: 'shield-alt',
-        title: this.gbl(LanguageLabel.WINDOW_ADMINISTRATION)
-      }
-    });
+    this.routingService.navigateWindow(RoutingUrl.ADMINISTRATION_WINDOW);
   }
 
   openProjectsWindow() {
     this.projectBar.close();
-    this.dialog.open(ProjectsComponent, {
-      width: '95%',
-      height: '88%',
-      data: {
-        icon: 'bolt',
-        title: this.gbl(LanguageLabel.WINDOW_PROJECTS).replace(Config.NAME, this.user.name)
-      }
-    });
+    this.routingService.navigateWindow(RoutingUrl.PROJECTS_WINDOW);
   }
 }

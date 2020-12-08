@@ -19,6 +19,12 @@ export class PermitService {
     return this.sidebarEnabled.asObservable();
   }
 
+  setTopbarPermit(permit: boolean): void {
+    this.topbarEnabled.next(permit);
+  }
+  setSidebarPermit(permit: boolean): void {
+    this.sidebarEnabled.next(permit);
+  }
   setAllFramePermitTo(permit: boolean): void {
     this.topbarEnabled.next(permit);
     this.sidebarEnabled.next(permit);

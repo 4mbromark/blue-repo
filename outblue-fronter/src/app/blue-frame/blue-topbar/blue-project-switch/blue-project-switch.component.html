@@ -1,14 +1,15 @@
 <div class="blue-row" (contextmenu)="projectsTrigger.openMenu();" #projectsTrigger="matMenuTrigger"
   [matMenuTriggerFor]="projectsContext">
-  <mat-expansion-panel #projectBar [class]="opened ? 'switch-opened' : 'switch-closed mat-elevation-z0'"
-    (opened)="opened = true" (closed)="opened = false" (click)="$event.stopPropagation()" hideToggle>
-    <mat-expansion-panel-header [collapsedHeight]="'40px'" [expandedHeight]="'100px'"
-      style="background-color:var(--blue-main-color);">
+  <mat-expansion-panel #projectBar [class]="opened ? 'switch-opened' : 'switch-closed mat-elevation-z0'" (opened)="opened = true"
+    (closed)="opened = false" (click)="$event.stopPropagation()" hideToggle>
+    <mat-expansion-panel-header [class]="opened ? 'switch-header-opened header-image' : 'switch-header-closed'"
+      [collapsedHeight]="'40px'" [expandedHeight]="'100px'">
       <mat-panel-title class="blue-row">
         <span mat-button class="switch-icon" (click)="openAdministrationWindow(); $event.stopPropagation();">
           <fa-icon icon="shield-alt" size="lg"></fa-icon>
         </span>
-        <span mat-button class="switch-icon" style="margin-left: -20px;" (click)="openProjectsWindow(); $event.stopPropagation();">
+        <span mat-button class="switch-icon" style="margin-left: -20px;"
+          (click)="openProjectsWindow(); $event.stopPropagation();">
           <fa-icon icon="bolt" size="lg"></fa-icon>
         </span>
 
@@ -16,20 +17,24 @@
           <mat-progress-bar mode="indeterminate" style="width: 200px;"></mat-progress-bar>
         </span>
 
-        <span *ngIf="loaded" [class]="opened ? 'switch-title-opened' : 'switch-title'">{{project ? project.name : ''}}</span>
+        <span *ngIf="loaded"
+          [class]="opened ? 'switch-title-opened' : 'switch-title'">{{project ? project.name : ''}}</span>
 
-        <span mat-button class="switch-menu-icon" [matMenuTriggerFor]="projectsContext" (click)="$event.stopPropagation();">
+        <span mat-button class="switch-menu-icon" [matMenuTriggerFor]="projectsContext"
+          (click)="$event.stopPropagation();">
           <fa-icon icon="bars" size="lg"></fa-icon>
         </span>
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <div style="margin: 30px;">
-      <span style="font-size: 30px;">Progetto <b>Daxevate</b></span>
-      <div class="blue-row">
-        <div class=blue-column>
-          <br><span>sottoprogetto di <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
-          <span>capoprogetto: <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+    <div *ngIf="opened" style="background-color: white !important; padding: 30px; opacity: 99%;">
+      <div class="switch-image">
+        <span style="font-size: 30px;"><b>{{project.name}}</b></span>
+        <div class="blue-row">
+          <div class=blue-column>
+            <br><span>sottoprogetto di <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+            <span>capoprogetto: <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+          </div>
         </div>
       </div>
     </div>
@@ -39,10 +44,9 @@
 
 <mat-menu #projectsContext="matMenu">
   <div style="width: 300px;">
-    <div *ngFor="let button of contextButton">
+    <div *ngFor="let button of contextButton" style="opacity: 100%;">
       <button mat-button *ngIf="button.type === 'main'" class="project-button"
-        (click)="getContextAction(button, $event, projectList);"
-        [disabled]="getContextDisabled(button)"
+        (click)="getContextAction(button, $event, projectList);" [disabled]="getContextDisabled(button)"
         [matTooltip]="getContextTooltip(button)" matTooltipPosition="right">
         <span class="project-icon">
           <button mat-icon-button>
@@ -56,10 +60,11 @@
       </button>
       <mat-expansion-panel #projectList="matExpansionPanel" style="width: 100%;" hideToggle>
         <button mat-button *ngFor="let project of getContextList(button);" class="project-button"
-          (click)="setProject(project, projectList);" [matTooltip]="getContextProjectTooltip(project)" matTooltipPosition="right">
+          (click)="setProject(project, projectList);" [matTooltip]="getContextProjectTooltip(project)"
+          matTooltipPosition="right">
           <span>{{project.name}}</span>
           <span *ngIf="!project.subprojectOf"
-          style="float: right; margin: 2px; color: var(--blue-main-color)">Capoprogetto</span>
+            style="float: right; margin: 2px; color: var(--blue-main-color)">Capoprogetto</span>
         </button>
       </mat-expansion-panel>
       <mat-divider *ngIf="button.type === 'line'"></mat-divider>

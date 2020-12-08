@@ -11,13 +11,19 @@
   mat-elevation
 */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 :root {
   --blue-hf-color: rgb(0, 9, 111);
   --blue-main-color: rgb(0, 0, 100);
-  --blue-support-color:  rgb(200, 230, 255);
+  --blue-support-color: rgb(200, 230, 255);
   --blue-base-transition: all 0.3s ease-in-out 0s;
   --blue-long-transition: all 0.7s ease-in-out 0s;
   --blue-border-bottom: 2px solid var(--blue-main-color);
@@ -89,7 +95,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* FLEX */
-.blue-row, .blue-column {
+.blue-row,
+.blue-column {
   display: flex;
 }
 .blue-row {
@@ -99,7 +106,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: column;
 }
 
-.blue-flex-center, .blue-flex-left, .blue-flex-right {
+.blue-flex-center,
+.blue-flex-left,
+.blue-flex-right {
   display: flex;
   align-items: center;
 }
@@ -123,21 +132,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* MODULES CONTAINERS AND TABLES */
-.standard-container, .standard-split, .standard-container-table, .standard-container-info, .standard-container-square, .standard-table {
+.standard-container,
+.standard-split,
+.standard-container-table,
+.standard-container-info,
+.standard-container-square,
+.standard-table {
   height: 100%;
 }
 .standard-container {
   display: flex;
   flex-direction: column;
 }
-.standard-container-table, .standard-container-info, .standard-container-square {
+.standard-container-table,
+.standard-container-info,
+.standard-container-square {
   padding: 0px !important;
   background-color: white;
 }
 .standard-table {
   overflow-x: auto;
 }
-.standard-split, .standard-container-square {
+.standard-split,
+.standard-container-square {
   margin: 10px !important;
   width: auto !important;
 }
@@ -163,13 +180,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: darkgreen;
 }
 
-
-
-
-
-
-
-
+.mat-menu-pattern {
+  background: url("./assets/pattern/topbar-pattern-2.jpg");
+  background-size: cover;
+  opacity: 100% !important;
+  z-index: -1;
+}
 
 
 .yena-main-color {

@@ -1,3 +1,5 @@
+import { DialogEntryAdminComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-admin/dialog-entry-admin.component';
+import { DialogEntryProjectsComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-projects/dialog-entry-projects.component';
 import { Config } from './blue-utils/blue-enum/word/config';
 import { AuthGuardService as AuthGuard } from './blue-utils/blue-service/auth/auth-guard.service';
 import { BlueLoginComponent } from './blue-login/blue-login.component';
@@ -14,6 +16,11 @@ const routes: Routes = [
   { path: RoutingUrl.LOGIN_PAGE, component: BlueLoginComponent, canActivate: [LoginGuard] },
 
   { path: username , children: [
+    {path: 'w', children: [
+      { path: RoutingUrl.ADMINISTRATION_WINDOW, component: DialogEntryAdminComponent },
+      { path: RoutingUrl.PROJECTS_WINDOW, component: DialogEntryProjectsComponent },
+      { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' }
+    ]},
     { path: RoutingUrl.TASKLIST_MODULE, component: TasklistComponent },
     { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' }
   ], canActivate: [AuthGuard]},
