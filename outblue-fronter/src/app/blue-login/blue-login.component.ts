@@ -1,3 +1,4 @@
+import { Name } from 'src/app/blue-utils/blue-enum/word/name';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blue-login.component.css']
 })
 export class BlueLoginComponent implements OnInit {
+
+  names = Name;
 
   constructor() { }
 

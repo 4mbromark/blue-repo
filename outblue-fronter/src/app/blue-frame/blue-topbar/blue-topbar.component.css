@@ -20,3 +20,10 @@
   background-color: var(--blue-main-color);
   opacity: 99%;
 }
+
+.text-logo {
+  font-family: Outblue;
+  color: white;
+  font-size: 29px;
+  margin-left: 10px;
+}
