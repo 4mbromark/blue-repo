@@ -3,7 +3,7 @@ import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service'
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
 import { BaseWindowService } from './../../../blue-utils/blue-base/base-window/base-window.service';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BaseWindowComponent } from '../../../blue-utils/blue-base/base-window/base-window.component';
 import { Component, Inject } from '@angular/core';
 import { List } from 'src/app/blue-utils/blue-enum/list';
@@ -38,7 +38,7 @@ export class LanguageComponent extends BaseWindowComponent {
   }
 
   gbl(label: string, force?: string): string {
-    return this.languageService.getByLanguage(label);
+    return this.languageService.getByLanguage(label, force);
   }
 
   setLanguage(language: string) {

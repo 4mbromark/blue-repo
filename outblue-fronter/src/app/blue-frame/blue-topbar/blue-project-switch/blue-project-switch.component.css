@@ -1,8 +1,36 @@
+.switch-image {
+  height: auto;
+  width: 100%;
+}
+.switch-image::after {
+  content: "";
+  background: url("./../../../../assets/pattern/topbar-pattern-2.jpg");
+  background-size: cover;
+  top: -150px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  transform: rotate(180deg);
+  opacity: 40% !important;
+  z-index: -1;
+}
+
 .switch-opened {
   width: 700px !important;
+  background-color: white;
 }
 .switch-closed {
   width: 100% !important;
+  background-color: transparent;
+}
+
+.switch-header-opened {
+  z-index: 1;
+  background-color: var(--blue-main-color) !important;
+}
+.switch-header-closed {
+  background-color: transparent;
 }
 
 .switch-title, .switch-title-opened {
@@ -11,6 +39,7 @@
   height: 30px;
   text-align: center;
   color: white;
+  background-color: transparent;
 }
 .switch-title-opened {
   font-size: 30px;

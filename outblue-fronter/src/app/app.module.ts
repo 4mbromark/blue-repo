@@ -31,6 +31,9 @@ import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard
 import { LoginResultComponent } from './blue-login/blue-login-result/login-result.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page-not-found.component';
+import { DialogEntryComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry.component';
+import { DialogEntryProjectsComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-projects/dialog-entry-projects.component';
+import { DialogEntryAdminComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-admin/dialog-entry-admin.component';
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page
     LoginFormRegisterComponent,
     StandardLicenceBarComponent,
     LoginResultComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DialogEntryComponent,
+    DialogEntryProjectsComponent,
+    DialogEntryAdminComponent
   ],
   imports: [
     AngularModules,
