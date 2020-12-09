@@ -130,6 +130,8 @@ export class LanguageLabel {
   public static CONTEXT_COPYNAME_TOOLTIP = 'context-copyname' + Config.TOOLTIP;
   public static CONTEXT_SUPERPROJECTS = 'context-superprojects';
   public static CONTEXT_SUPERPROJECTS_TOOLTIP = 'context-superprojects' + Config.TOOLTIP;
+  public static CONTEXT_MIDDLEPROJECTS = 'context-middleprojects';
+  public static CONTEXT_MIDDLEPROJECTS_TOOLTIP = 'context-middleprojects' + Config.TOOLTIP;
   public static CONTEXT_SUBPROJECTS = 'context-subprojects';
   public static CONTEXT_SUBPROJECTS_TOOLTIP = 'context-subprojects' + Config.TOOLTIP;
   public static CONTEXT_RECENTS = 'context-recents';

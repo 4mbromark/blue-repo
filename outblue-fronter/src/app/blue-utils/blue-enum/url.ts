@@ -9,6 +9,7 @@ export class Url {
   public static USERS_REST = Url.BASE_REST + 'users/';
   public static USERS_EXISTS_REST = Url.USERS_REST + 'exists/';
   public static USERS_LOGIN_REST = Url.USERS_REST + 'login/';
+  public static USERS_VERIFY_REST = Url.USERS_REST + 'auth/';
 
   public static LICENCE_REST = Url.BASE_REST + 'licence/';
   public static LICENCE_LOAD_REST = Url.LICENCE_REST + Url.BASE_LOAD;

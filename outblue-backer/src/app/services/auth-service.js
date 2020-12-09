@@ -14,6 +14,7 @@ class AuthService {
 
     static async verify(token) {
         jwt.verify({token}, AuthService.key, (err, auth) => {
+            console.log(auth);
             if (err) {
                 return undefined;
             }

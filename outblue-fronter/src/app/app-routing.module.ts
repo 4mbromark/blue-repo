@@ -19,10 +19,12 @@ const routes: Routes = [
     {path: 'w', children: [
       { path: RoutingUrl.ADMINISTRATION_WINDOW, component: DialogEntryAdminComponent },
       { path: RoutingUrl.PROJECTS_WINDOW, component: DialogEntryProjectsComponent },
-      { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' }
+      { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
+      { path: '**', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
     ]},
     { path: RoutingUrl.TASKLIST_MODULE, component: TasklistComponent },
-    { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' }
+    { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
+    { path: '**', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
   ], canActivate: [AuthGuard]},
 
   /*{ path: RoutingUrl.TASKLIST_MODULE, redirectTo: RoutingUrl.TASKLIST_MODULE_USR, pathMatch: 'full' },*/

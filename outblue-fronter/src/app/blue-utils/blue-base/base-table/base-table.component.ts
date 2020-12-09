@@ -20,6 +20,8 @@ export class BaseTableComponent implements OnInit {
     rowHeight: 50
   };
 
+  loaded = false;
+
   constructor(protected lightning: LightningService, protected service: BaseTableService) {
     this.lightning.setTableService(this.service);
   }
@@ -27,6 +29,7 @@ export class BaseTableComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllOnRest().then((records: Project[] | Task[]) => {
       this.rowData = records;
+      this.loaded = true;
     });
   }
 

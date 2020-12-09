@@ -18,7 +18,7 @@
         </span>
 
         <span *ngIf="loaded"
-          [class]="opened ? 'switch-title-opened' : 'switch-title'">{{project ? project.name : ''}}</span>
+          [class]="opened ? 'switch-title-opened' : 'switch-title'">{{project ? getSwitchProjectName() : ''}}</span>
 
         <span mat-button class="switch-menu-icon" [matMenuTriggerFor]="projectsContext"
           (click)="$event.stopPropagation();">
@@ -31,9 +31,9 @@
       <div class="switch-image">
         <span style="font-size: 30px;"><b>{{project.name}}</b></span>
         <div class="blue-row">
-          <div class=blue-column>
-            <br><span>sottoprogetto di <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
-            <span>capoprogetto: <span style="font-size: 20px;"><b>HIGH FIVE</b></span></span>
+          <div class=blue-column *ngIf="superProjects.length > 0">
+            <br><span>sottoprogetto di <span style="font-size: 20px;"><b>{{superProjects[superProjects.length-1].name}}</b></span></span>
+            <span>capoprogetto: <span style="font-size: 20px;"><b>{{superProjects[0].name}}</b></span></span>
           </div>
         </div>
       </div>
@@ -55,14 +55,14 @@
           </button>
         </span>
         <span>{{getContextTitle(button)}}</span>
-        <span *ngIf="button.tag === tags.CONTEXT_SUPERPROJECTS || button.tag === tags.CONTEXT_SUBPROJECTS"
+        <span *ngIf="button.tag === tags.CONTEXT_SUPERPROJECTS || button.tag === tags.CONTEXT_SUBPROJECTS || button.tag === tags.CONTEXT_MIDDLEPROJECTS"
           style="float: right; margin: 2px;">{{getContextCount(button)}}</span>
       </button>
       <mat-expansion-panel #projectList="matExpansionPanel" style="width: 100%;" hideToggle>
         <button mat-button *ngFor="let project of getContextList(button);" class="project-button"
           (click)="setProject(project, projectList);" [matTooltip]="getContextProjectTooltip(project)"
           matTooltipPosition="right">
-          <span>{{project.name}}</span>
+          <span>{{getContextProjectName(project)}}</span>
           <span *ngIf="!project.subprojectOf"
             style="float: right; margin: 2px; color: var(--blue-main-color)">Capoprogetto</span>
         </button>

@@ -13,19 +13,24 @@ class UsersService {
     }
 
     static async authenticate(id, password) {
-        // const user = await UsersService.getById(id);
-        // AuthService.sign(user); 
-
         return new Promise((resolve, reject) => {
             const users = UsersDao.getByIdAndPassword(id, password);
             users.then((users) => {
                 if (users && users.length > 0) {
                     AuthService.sign(users[0]).then((token) => {
-                        resolve (token);
+                        resolve(token);
                     });
                 } else {
                     reject();
                 }
+            });
+        });
+    }
+
+    static async verify(token) {
+        return new Promise((resolve, reject) => {
+            AuthService.verify(token).then((auth) => {
+                resolve(auth);
             });
         });
     }
