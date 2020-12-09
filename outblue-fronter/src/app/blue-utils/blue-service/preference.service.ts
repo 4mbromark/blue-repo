@@ -1,3 +1,4 @@
+import { ProjectNamePreference } from 'src/app/blue-utils/blue-object/preference/ProjectNamePreference';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Preference } from './../blue-object/preference/Preference';
 import { Injectable } from '@angular/core';
@@ -9,15 +10,53 @@ import { Url } from '../blue-enum/url';
 })
 export class PreferenceService {
 
+  fakePreference: Preference = {
+    language: '',
+    sidebar: {
+      extended: false,
+    },
+    projects: {
+      name: {
+        switch: {
+          type: 'EXTENDED',
+          toUpperCase: true,
+          showFather: true,
+          fatherSeparator: null,
+          fatherType: 'NORMAL',
+          fatherToUpperCase: true
+        },
+        context: {
+          type: 'PERSONALIZED',
+          toUpperCase: true,
+          showFather: true,
+          fatherSeparator: null,
+          fatherType: 'NORMAL',
+          fatherToUpperCase: false
+        },
+        table: new ProjectNamePreference(),
+        chip: new ProjectNamePreference(),
+      },
+      switch: {
+        allSuper: false,
+        allSub: false
+      }
+    }
+  };
+
+  fake2 = new Preference();
+
   preference: BehaviorSubject<Preference> = new BehaviorSubject<Preference>(new Preference());
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.preference.next(this.fakePreference);
+  }
 
   getPreference(): Observable<Preference> {
     return this.preference.asObservable();
   }
 
   loadPreference(): Promise<Preference> {
+    this.preference.next(this.fakePreference);
     return new Promise((resolve, reject) => {
       this.http.get(Url.PREFERENCE_LOAD_REST).subscribe(
         (preference: Preference) => {

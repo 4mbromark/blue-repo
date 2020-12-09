@@ -16,6 +16,7 @@ import { ProjectsComponent } from '../../blue-projects/projects.component';
 import { Config } from 'src/app/blue-utils/blue-enum/word/config';
 import { UserService } from 'src/app/blue-utils/blue-service/user.service';
 import { Project } from 'src/app/blue-utils/blue-object/record/Project';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-project-switch',
@@ -35,6 +36,7 @@ export class ProjectSwitchComponent implements OnInit {
   projects: Project[];
   superProjects: Project[];
   subProjects: Project[];
+  middleProjects: Project[];
 
   opened = false;
   loaded = false;
@@ -42,9 +44,9 @@ export class ProjectSwitchComponent implements OnInit {
   constructor(
     private userService: UserService,
     private projectService: ProjectService,
+    private clipboard: Clipboard,
     private routingService: RoutingService,
-    private languageService: LanguageService,
-    private dialog: MatDialog
+    private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class ProjectSwitchComponent implements OnInit {
       this.project = project;
       setTimeout(() => {
         this.loaded = true;
-      }, 2000);
+      }, 1500);
     });
     this.projectService.getProjects().subscribe((projects: Project[]) => {
       this.projects = projects;
@@ -66,6 +68,9 @@ export class ProjectSwitchComponent implements OnInit {
     this.projectService.getSubProjects().subscribe((subProjects: Project[]) => {
       this.subProjects = subProjects;
     });
+    this.projectService.getMiddleProjects().subscribe((middleProjects: Project[]) => {
+      this.middleProjects = middleProjects;
+    });
   }
 
   gbl(label: string): string {
@@ -75,6 +80,7 @@ export class ProjectSwitchComponent implements OnInit {
   setProject(project: Project, projectList: MatExpansionPanel) {
     this.loaded = false;
     this.projectService.setProject(project);
+    this.projectBar.close();
     projectList.close();
   }
 
@@ -91,19 +97,40 @@ export class ProjectSwitchComponent implements OnInit {
     return button.tag === Tag.CONTEXT_TOGGLE && this.opened ? this.gbl(button.alt.tooltip) : this.gbl(button.tooltip).replace(Config.PROJECT, this.project.name.toUpperCase());
   }
   getContextAction(button: ContextButton, event: any, projectList: MatExpansionPanel) {
-    if (button.tag === Tag.CONTEXT_TOGGLE) {
-      this.projectBar.toggle();
-    }
-    if (button.tag === Tag.CONTEXT_SUPERPROJECTS || button.tag === Tag.CONTEXT_SUBPROJECTS || button.tag === Tag.CONTEXT_TOGGLEPANEL_NOCOUNT) {
-      projectList.toggle();
-      event.stopPropagation();
+    switch (button.tag) {
+      case Tag.CONTEXT_TOGGLE: {
+        this.projectBar.toggle();
+        break;
+      }
+      case Tag.CONTEXT_ADMINISTRATION: {
+        this.openAdministrationWindow();
+        break;
+      }
+      case Tag.CONTEXT_PROJECTS: {
+        this.openProjectsWindow();
+        break;
+      }
+      case Tag.CONTEXT_CLIPBOARD: {
+        this.clipboard.copy(this.project.name);
+        break;
+      }
+      case Tag.CONTEXT_SUPERPROJECTS:
+      case Tag.CONTEXT_SUBPROJECTS:
+      case Tag.CONTEXT_MIDDLEPROJECTS:
+      case Tag.CONTEXT_TOGGLEPANEL_NOCOUNT: {
+        projectList.toggle();
+        event.stopPropagation();
+        break;
+      }
     }
   }
   getContextProjectTooltip(project: ContextButton) {
     return this.gbl(LanguageLabel.CONTEXT_GOTOPROJECT_TOOLTIP).replace(Config.PROJECT, project.name.toUpperCase());
   }
   getContextDisabled(button: ContextButton) {
-    return button.tag === Tag.CONTEXT_SUPERPROJECTS && this.superProjects.length === 0 || button.tag === Tag.CONTEXT_SUBPROJECTS && this.subProjects.length === 0;
+    return button.tag === Tag.CONTEXT_SUPERPROJECTS && this.superProjects.length === 0 ||
+    button.tag === Tag.CONTEXT_SUBPROJECTS && this.subProjects.length === 0 ||
+    button.tag === Tag.CONTEXT_MIDDLEPROJECTS && this.middleProjects.length === 0;
   }
   getContextCount(button: ContextButton) {
     switch (button.tag) {
@@ -112,6 +139,9 @@ export class ProjectSwitchComponent implements OnInit {
       }
       case Tag.CONTEXT_SUBPROJECTS: {
         return this.subProjects.length;
+      }
+      case Tag.CONTEXT_MIDDLEPROJECTS: {
+        return this.middleProjects.length;
       }
     }
   }
@@ -122,6 +152,9 @@ export class ProjectSwitchComponent implements OnInit {
       }
       case Tag.CONTEXT_SUBPROJECTS: {
         return this.subProjects;
+      }
+      case Tag.CONTEXT_MIDDLEPROJECTS: {
+        return this.middleProjects;
       }
       default: {
         return this.projects;
@@ -137,5 +170,12 @@ export class ProjectSwitchComponent implements OnInit {
   openProjectsWindow() {
     this.projectBar.close();
     this.routingService.navigateWindow(RoutingUrl.PROJECTS_WINDOW);
+  }
+
+  getSwitchProjectName() {
+    return this.projectService.getProjectName(this.project, 'SWITCH');
+  }
+  getContextProjectName(project: Project) {
+    return this.projectService.getProjectName(project, 'CONTEXT');
   }
 }

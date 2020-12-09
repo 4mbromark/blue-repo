@@ -18,6 +18,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -45,6 +48,9 @@ import {AgGridModule} from 'ag-grid-angular';
     MatCardModule,
     MatProgressBarModule,
     MatListModule,
+    MatProgressSpinnerModule,
+
+    ClipboardModule,
 
     FormsModule,
     ReactiveFormsModule,

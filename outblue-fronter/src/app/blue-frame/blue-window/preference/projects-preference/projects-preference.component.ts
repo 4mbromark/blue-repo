@@ -1,7 +1,7 @@
-import { PreferenceService } from './../preference.service';
 import { Preference } from './../../../../blue-utils/blue-object/preference/Preference';
 import { Component } from '@angular/core';
 import { ProjectNamePreference } from 'src/app/blue-utils/blue-object/preference/ProjectNamePreference';
+import { PreferenceService } from 'src/app/blue-utils/blue-service/preference.service';
 
 @Component({
   selector: 'app-projects-preference',
@@ -47,7 +47,7 @@ export class ProjectsPreferenceComponent {
   subNameUppercase = true;
 
   constructor(private preferenceService: PreferenceService) {
-    this.preferenceService.getUserPreferences().subscribe((preference: Preference) => {
+    this.preferenceService.getPreference().subscribe((preference: Preference) => {
       this.lp = preference.projects.name;
     });
   }

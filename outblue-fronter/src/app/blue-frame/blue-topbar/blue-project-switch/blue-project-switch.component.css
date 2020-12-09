@@ -17,7 +17,8 @@
 }
 
 .switch-opened {
-  width: 700px !important;
+  width: 100% !important;
+  min-width: 700px;
   background-color: white;
 }
 .switch-closed {

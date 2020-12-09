@@ -15,5 +15,8 @@ export class TasklistComponent extends BaseTableComponent {
 
   constructor(protected lightning: LightningService, protected tasklistService: TasklistService) {
     super(lightning, tasklistService);
+    setTimeout(() => {
+      this.loaded = true;
+    }, 2500);
   }
 }

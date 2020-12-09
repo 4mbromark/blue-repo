@@ -4,9 +4,17 @@
 
     <as-split-area [size]="getTableSize()" class="standard-container-table">
 
-      <ag-grid-angular #agGrid class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
+      <div *ngIf="!loaded">
+        <div class="blue-flex-center" style="margin-top:20%">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+
+
+      <ag-grid-angular #agGrid *ngIf="loaded" class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
         [gridOptions]="gridOptions" (rowClicked)="openInformations();" rowSelection="single">
       </ag-grid-angular>
+
     </as-split-area>
 
     <as-split-area *ngIf="getInfoSize() > 0" [size]="getInfoSize()" class="standard-container-info mat-elevation-z8">
