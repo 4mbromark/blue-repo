@@ -1,7 +1,6 @@
 import { PermitService } from './../../blue-utils/blue-service/permit.service';
-import { List } from '../../blue-utils/blue-enum/list';
 import { Injectable } from '@angular/core';
-import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export class LeftbarStatus {
   enabled: boolean;
@@ -14,54 +13,32 @@ export class LeftbarStatus {
 })
 export class SidebarService {
 
-  buttons = List.SIDEBAR_BUTTONS;
-
-  leftbarStatus: LeftbarStatus;
-
-  selectedButton = this.buttons[0];
+  ls: LeftbarStatus = new LeftbarStatus();
+  leftbarStatus: BehaviorSubject<LeftbarStatus> = new BehaviorSubject<LeftbarStatus>(new LeftbarStatus());
 
   constructor(private permitService: PermitService) {
-    this.leftbarStatus = new LeftbarStatus();
     this.permitService.getSidebarPermit().subscribe((permit: boolean) => {
-      this.leftbarStatus.enabled = permit;
+      this.ls.enabled = permit;
+      this.leftbarStatus.next(this.ls);
     });
-    this.setLeftbarOpened();
-    // this.setLeftbarExtended();
+    this.setLeftbarOpened(true);
   }
 
-  getSidebarButtons(): SidebarButton[] {
-    return this.buttons;
+  getLeftbarStatus(): Observable<LeftbarStatus> {
+    return this.leftbarStatus.asObservable();
   }
 
-  // STATUS
-  getLeftbarStatus(): LeftbarStatus {
-    return this.leftbarStatus;
-  }
-
-  setLeftbarOpened(): void {
-    this.leftbarStatus.opened = !this.leftbarStatus.opened;
+  setLeftbarOpened(opened?: boolean): void {
+    if (opened === undefined) {
+      this.ls.opened = !this.ls.opened;
+    } else {
+      this.ls.opened = opened;
+    }
+    this.leftbarStatus.next(this.ls);
   }
 
   setLeftbarExtended(): void {
-    // this.leftbarStatus.opened = false;
-    // setTimeout(() => {
-    this.leftbarStatus.extended = !this.leftbarStatus.extended;
-    //  this.leftbarStatus.opened = true;
-    // }, time ? time : 400);
-  }
-
-  // SELECTED UTILS
-  getLeftbarSelectedButton(): SidebarButton {
-    return this.selectedButton;
-  }
-
-  setSelected(selected: SidebarButton): void {
-    if (selected.type === 'main') {
-      this.setSidebarSelectedButton(selected);
-    }
-  }
-
-  setSidebarSelectedButton(selectedButton: SidebarButton): void {
-    this.selectedButton = selectedButton;
+    this.ls.extended = !this.ls.extended;
+    this.leftbarStatus.next(this.ls);
   }
 }

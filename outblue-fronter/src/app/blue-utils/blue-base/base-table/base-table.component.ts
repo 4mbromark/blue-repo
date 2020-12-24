@@ -36,8 +36,7 @@ export class BaseTableComponent implements OnInit, OnDestroy {
       }
     },
     suppressCellSelection: true,
-    suppressNoRowsOverlay: true,
-    loadingOverlayComponent: 'loadingOverlayComponent'
+    suppressNoRowsOverlay: true
   };
 
   frameworkComponents = {
