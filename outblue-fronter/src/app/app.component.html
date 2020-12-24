@@ -1,9 +1,20 @@
 <div [class]="topbarEnabled ? 'background-image' : ''">
+
   <div *ngIf="topbarEnabled" class="topbar">
     <app-topbar></app-topbar>
   </div>
-  <div [class]="topbarEnabled ? 'content' : 'content-fullpage'">
-    <app-sidebar></app-sidebar>
-  </div>
-</div>
 
+  <div [class]="topbarEnabled ? 'content' : 'content-fullpage'">
+    <mat-sidenav-container style="height: 100%; background-color: transparent;" autosize=true>
+
+      <mat-sidenav #sidenav mode="side" *ngIf="ls.enabled" [opened]="ls.opened" class="mat-elevation-z2"
+        [style]="ls.extended ? 'width: 200px' : 'width: 60px'">
+        <app-sidebar></app-sidebar>
+      </mat-sidenav>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-container>
+  </div>
+
+</div>
