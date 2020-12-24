@@ -56,7 +56,7 @@ export class UserService {
     });
   }
 
-  login(pwd: string): Promise<any> {
+  login(pwd: string): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.post(Url.USERS_LOGIN_REST + this.user.value.id, { pwd: pwd }, { responseType: 'text' }).subscribe(
         (token: string) => {

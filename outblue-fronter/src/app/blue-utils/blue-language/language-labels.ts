@@ -73,6 +73,20 @@ export class LanguageLabel {
 
   public static LICENCE_STATUS_TOOLTIP = 'licence-status' + Config.TOOLTIP;
 
+  // PROJECTS
+  public static PROJECT_SETSWITCH = 'project-setproject';
+  public static PROJECT_SETSWITCH_TOOLTIP = 'project-setproject' + Config.TOOLTIP;
+  public static PROJECT_LEADERPROJECT = 'project-leaderproject';
+  public static PROJECT_CURRENTSELECTED = 'project-currentselected';
+
+  // TABLES
+  public static TABLE_NOPROJECTS = 'table-noprojects';
+  public static TABLE_NOTASKS = 'table-notasks';
+
+  public static ROW_CHANGEICON = 'row-changeicon';
+  public static ROW_CHANGECOLOR = 'row-changecolor';
+  public static ROW_CHANGEPRIORITY = 'row-changepriority';
+
   // USER MENU
   public static MENU_ACCOUNT = 'menu-account';
   public static MENU_MESSAGING = 'menu-messaging';
@@ -117,6 +131,10 @@ export class LanguageLabel {
 
   public static SIDEBAR_EXTEND = 'sidebar-extend'; // not linked
 
+  // SWITCH
+  public static SWITCH_NOPROJECTS = 'switch-noprojects';
+  public static SWITCH_ALLPROJECTS = 'switch-allprojects';
+
   // CONTEXT MENU of PROJECTBAR
   public static CONTEXT_OPENPANEL = 'context-openpanel';
   public static CONTEXT_OPENPANEL_TOOLTIP = 'context-openpanel' + Config.TOOLTIP;
@@ -128,6 +146,10 @@ export class LanguageLabel {
   public static CONTEXT_PROJECTLIST_TOOLTIP = 'context-projectlist' + Config.TOOLTIP;
   public static CONTEXT_COPYNAME = 'context-copyname';
   public static CONTEXT_COPYNAME_TOOLTIP = 'context-copyname' + Config.TOOLTIP;
+  public static CONTEXT_ALLPROJECTS = 'context-allprojects';
+  public static CONTEXT_ALLPROJECTS_TOOLTIP = 'context-allprojects' + Config.TOOLTIP;
+  public static CONTEXT_LEADERPROJECTS = 'context-leaderprojects';
+  public static CONTEXT_LEADERPROJECTS_TOOLTIP = 'context-leaderprojects' + Config.TOOLTIP;
   public static CONTEXT_SUPERPROJECTS = 'context-superprojects';
   public static CONTEXT_SUPERPROJECTS_TOOLTIP = 'context-superprojects' + Config.TOOLTIP;
   public static CONTEXT_MIDDLEPROJECTS = 'context-middleprojects';
@@ -144,6 +166,32 @@ export class LanguageLabel {
   public static CONTEXT_MANAGEPROJECTS_TOOLTIP = 'context-manageprojects' + Config.TOOLTIP;
 
   public static CONTEXT_GOTOPROJECT_TOOLTIP = 'context-gotoproject';
+
+  // PROJECT STATUS
+  public static PROJECT_CREATED = 'project-created';
+  public static PROJECT_CREATED_DESCRIPTION = 'project-created' + Config.DESCRIPTION;
+  public static PROJECT_APPROVAL = 'project-approval';
+  public static PROJECT_APPROVAL_DESCRIPTION = 'project-approval' + Config.DESCRIPTION;
+
+  public static PROJECT_ACCEPTED = 'project-accepted';
+  public static PROJECT_ACCEPTED_DESCRIPTION = 'project-accepted' + Config.DESCRIPTION;
+  public static PROJECT_REFUSED = 'project-refused';
+  public static PROJECT_REFUSED_DESCRIPTION = 'project-refused' + Config.DESCRIPTION;
+
+  public static PROJECT_READY = 'project-ready';
+  public static PROJECT_READY_DESCRIPTION = 'project-ready' + Config.DESCRIPTION;
+  public static PROJECT_ACTIVE = 'project-active';
+  public static PROJECT_ACTIVE_DESCRIPTION = 'project-active' + Config.DESCRIPTION;
+  public static PROJECT_WAITING = 'project-waiting';
+  public static PROJECT_WAITING_DESCRIPTION = 'project-waiting' + Config.DESCRIPTION;
+  public static PROJECT_SUSPENDED = 'project-suspended';
+  public static PROJECT_SUSPENDED_DESCRIPTION = 'project-suspended' + Config.DESCRIPTION;
+  public static PROJECT_DELETED = 'project-deleted';
+  public static PROJECT_DELETED_DESCRIPTION = 'project-deleted' + Config.DESCRIPTION;
+  public static PROJECT_TRANSFERRED = 'project-transferred';
+  public static PROJECT_TRANSFERRED_DESCRIPTION = 'project-transferred' + Config.DESCRIPTION;
+  public static PROJECT_COMPLETED = 'project-completed';
+  public static PROJECT_COMPLETED_DESCRIPTION = 'project-completed' + Config.DESCRIPTION;
 
   public static WINDOW_ADMINISTRATION = 'window-administration';
   public static WINDOW_PROJECTS = 'window-projects';

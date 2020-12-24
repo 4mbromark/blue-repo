@@ -18,7 +18,10 @@ export class LanguageService {
 
   language: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  constructor(private prefereceService: PreferenceService, private storage: StorageService) {
+  constructor(
+    private prefereceService: PreferenceService,
+    private storage: StorageService
+  ) {
     if (this.storage.get(Config.LOCAL_STORAGE_LANGUAGE)) {
       this.setLanguageByStorageLanguage();
     } else {
@@ -49,11 +52,15 @@ export class LanguageService {
   }
 
   getByLabel(label: string): LanguageMatch {
-    for (const match of this.matchs) {
+    const text = this.matchs.find(match => match.label === label);
+    if (text) {
+      return text;
+    }
+    /*for (const match of this.matchs) {
       if (match.label === label) {
         return match;
       }
-    }
+    }*/
     return this.matchs[0];
   }
 

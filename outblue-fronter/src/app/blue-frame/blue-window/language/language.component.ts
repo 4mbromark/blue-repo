@@ -25,12 +25,12 @@ export class LanguageComponent extends BaseWindowComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private routingService: RoutingService,
-    private lightningService: LightningService,
+    private lightning: LightningService,
     private languageService: LanguageService,
     protected service: BaseWindowService
   ) {
     super(data, service);
-    this.lightningService.setDialogService(service);
+    this.lightning.setDialogService(service);
     this.languageService.getLanguage().subscribe((language: string) => {
       this.language = language;
       this.languageSelected = language;

@@ -1,48 +1,105 @@
+import { Tag } from './word/tag';
+
 export class Table {
   public static PROJECTS_TABLE = [
-    /*{
+    {
       headerName: 'N°',
       field: 'stamp',
-      width: '70px'
+      minWidth: 70,
+      maxWidth: 70,
+      sortable: true
     },
     {
       headerName: '',
       field: 'icon',
-      width: '80px'
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'iconRenderingComponent',
+      sortable: true
     },
     {
       headerName: '',
-      field: 'stamp',
-      width: '80px'
+      field: 'color',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'colorRenderingComponent',
+      sortable: true
     },
     {
-      headerName: 'Priorità',
-      field: 'status',
-      width: '150px'
-    },*/
-    /*{
+      headerName: '',
+      field: 'priority',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'priorityRenderingComponent',
+      sortable: true
+    },
+    {
       headerName: 'Stato',
       field: 'status',
-      width: '150px'
-      cellRendererFramework: StatusTableCellComponent,
-      cellRendererParams: {}
-    },*/
-    {
-      headerName: 'Tipo',
-      field: 'type'
+      minWidth: 150,
+      cellRenderer: 'statusRenderingComponent',
+      sortable: true,
+      resizable: true
     },
+    /*{ // personalized types like versions
+      headerName: 'Tipo',
+      field: 'type',
+      minWidth: 150,
+      sortable: true,
+      resizable: true
+    },*/
     {
       headerName: 'Progetto',
-      field: 'name'
-    },
-   /* {
-      headerName: 'Progetto principale',
-      field: 'project'
+      field: 'name',
+      minWidth: 400,
+      cellRenderer: 'projectRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.TABLE
+        }
+      },
+      sortable: true,
+      resizable: true
     },
     {
-      headerName: 'Progetto padre',
-      field: 'project'
-    },*/
+      headerName: 'Superprogetto',
+      field: 'subprojectOf',
+      minWidth: 300,
+      cellRenderer: 'projectRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.CHIP
+        }
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: 'Data Inizio',
+      field: 'startDate',
+      minWidth: 150,
+      cellRenderer: (data) => {
+        if (!data.value) {
+          return '';
+        }
+        return new Date(data.value).toLocaleDateString();
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: 'Data Fine',
+      field: 'endDate',
+      minWidth: 150,
+      cellRenderer: (data) => {
+        if (!data.value) {
+          return '';
+        }
+        return new Date(data.value).toLocaleDateString();
+      },
+      sortable: true,
+      resizable: true
+    },
     /*{
       headerName: 'Versione',
       field: 'project',
@@ -53,16 +110,18 @@ export class Table {
       field: 'site',
       width: '200px'
     },*/
-    /*{
-      headerName: 'Data inserimento',
-      field: 'insertDate'
-    },
+    {
+      headerName: 'Data Inserimento',
+      field: 'insertDate',
+      minWidth: 200,
+      cellRenderer: (data) => {
+        return new Date(data.value).toLocaleString();
+      },
+      sortable: true,
+      resizable: true
+    }, /*
     {
       headerName: 'Data approvazione',
-      field: 'insertDate'
-    },
-    {
-      headerName: 'Data inizio',
       field: 'insertDate'
     },
     {
@@ -75,33 +134,54 @@ export class Table {
     {
       headerName: 'N°',
       field: 'stamp',
-      width: '70px'
+      minWidth: 70,
+      maxWidth: 70,
+      sortable: true
     },
     {
       headerName: '',
       field: 'icon',
-      width: '80px'
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'iconRenderingComponent',
+      sortable: true
     },
     {
       headerName: '',
-      field: 'stamp',
-      width: '80px'
+      field: 'color',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'colorRenderingComponent',
+      sortable: true
     },
     {
-      headerName: 'Priorità',
-      field: 'status',
-      width: '150px'
+      headerName: '',
+      field: 'priority',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'priorityRenderingComponent',
+      sortable: true
     },
-    {
+    /*{
       headerName: 'Stato',
       field: 'status',
-      width: '150px'
-      /*cellRendererFramework: StatusTableCellComponent,
-      cellRendererParams: {}*/
-    },
+      minWidth: 150,
+      cellRenderer: 'statusRenderingComponent',
+      sortable: true,
+      resizable: true
+    },*/
     {
       headerName: 'Progetto',
-      field: 'project'
+      field: 'taskOf',
+      minWidth: 300,
+      cellRenderer: 'projectRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.CHIP
+        }
+      },
+      sortable: true,
+      resizable: true
     },
    /* {
       headerName: 'Progetto principale',
@@ -111,17 +191,25 @@ export class Table {
       headerName: 'Progetto padre',
       field: 'project'
     },*/
-    {
+    /*{
       headerName: 'Versione',
       field: 'project',
       width: '120px'
-    },
+    },*/
     {
       headerName: 'Attività',
-      field: 'link',
-      width: '600px'
+      field: 'name',
+      minWidth: 400,
+      cellRenderer: 'taskRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.TABLE
+        }
+      },
+      sortable: true,
+      resizable: true
     },
-    {
+    /*{
       headerName: 'Completamento',
       field: 'site',
       width: '200px'
@@ -129,12 +217,18 @@ export class Table {
     {
       headerName: 'Link',
       field: 'insertDate'
-    },
+    },*/
     {
-      headerName: 'Data inserimento',
-      field: 'insertDate'
+      headerName: 'Data Inserimento',
+      field: 'insertDate',
+      minWidth: 200,
+      cellRenderer: (data) => {
+        return new Date(data.value).toLocaleString();
+      },
+      sortable: true,
+      resizable: true
     },
-    {
+    /*{
       headerName: 'Data approvazione',
       field: 'insertDate'
     },
@@ -145,6 +239,6 @@ export class Table {
     {
       headerName: 'Data fine',
       field: 'insertDate'
-    }
+    }*/
   ];
 }

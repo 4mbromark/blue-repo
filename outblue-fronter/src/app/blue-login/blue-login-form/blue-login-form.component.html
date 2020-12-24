@@ -14,7 +14,7 @@
 
   <mat-form-field floatLabel="never">
     <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password" [placeholder]="gbl(labels.LOGIN_PASSWORD)" (keyup.enter)="login();">
-    <button mat-icon-button matSuffix (click)="hide = !hide">
+    <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
       <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg" [matTooltip]="hide ? gbl(labels.LOGIN_PASSWORD_SHOW) : gbl(labels.LOGIN_PASSWORD_HIDE)" matTooltipPosition="right">
       </fa-icon>
     </button>

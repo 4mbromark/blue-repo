@@ -1,5 +1,6 @@
 .button, .selected-button {
   width: 100%;
+  min-width: unset !important;
   text-align: left;
   padding: 5px;
   font-size: medium;
@@ -22,38 +23,31 @@
 
 .icon {
   margin-right:20px;
-  margin-left:15px;
+  margin-left:6px;
 }
 .icon-not-extended {
-  margin-left:14px;
+  margin-left:5px;
 }
 .selected-icon {
-  background-color: var(--blue-main-color);
-  color:white;
+  color: var(--blue-main-color);
 }
 
 .selected-thing {
-  padding:5px;
+  padding: 5px;
+}
+.selected-thing-not {
+  padding: 5px;
+  color: white;
 }
 
-
-/**/
-.leftbar-bottom-tools {
-  position: absolute;
-  bottom: 25px;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: inline-block;
-  color: dimgrey;
-  background-color: rgb(200, 230, 255);
-  border-bottom: 2px solid var(--stot-main-color);
-}
 .leftbar-bottom-line {
   width: 100%;
+  padding: 0px 8px !important;
+  min-width: unset !important;
   border-radius: 0px;
 }
 .leftbar-bottom-line:hover {
   color: black;
   background-color: white;
 }
+

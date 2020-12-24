@@ -13,8 +13,8 @@ export class StandardToolbarComponent {
 
   service: BaseWindowService;
 
-  constructor(private lightningService: LightningService) {
-    this.service = lightningService.getDialogService();
+  constructor(private lightning: LightningService) {
+    this.service = lightning.getDialogService();
   }
 
   close(): void {

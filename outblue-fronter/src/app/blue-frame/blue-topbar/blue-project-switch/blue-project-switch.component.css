@@ -81,3 +81,8 @@
 .project-icon {
   margin-right: 10px;
 }
+.project-suffix {
+  float: right;
+  margin: 2px;
+  color: var(--blue-main-color);
+}

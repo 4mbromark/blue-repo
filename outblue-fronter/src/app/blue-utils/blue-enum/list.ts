@@ -43,10 +43,12 @@ export class List {
     { type: 'line' },
     { type: 'main', icon: 'copy', title: LanguageLabel.CONTEXT_COPYNAME, tooltip: LanguageLabel.CONTEXT_COPYNAME_TOOLTIP, tag: Tag.CONTEXT_CLIPBOARD },
     { type: 'line' },
+    { type: 'main', icon: 'certificate', title: LanguageLabel.CONTEXT_LEADERPROJECTS, tooltip: LanguageLabel.CONTEXT_LEADERPROJECTS_TOOLTIP, tag: Tag.CONTEXT_LEADERPROJECTS },
     { type: 'main', icon: 'arrow-up', title: LanguageLabel.CONTEXT_SUPERPROJECTS, tooltip: LanguageLabel.CONTEXT_SUPERPROJECTS_TOOLTIP, tag: Tag.CONTEXT_SUPERPROJECTS },
-    { type: 'main', icon: 'arrows-alt-h', title: LanguageLabel.CONTEXT_MIDDLEPROJECTS, tooltip: LanguageLabel.CONTEXT_MIDDLEPROJECTS_TOOLTIP, tag: Tag.CONTEXT_MIDDLEPROJECTS },
+    /*{ type: 'main', icon: 'arrows-alt-h', title: LanguageLabel.CONTEXT_MIDDLEPROJECTS, tooltip: LanguageLabel.CONTEXT_MIDDLEPROJECTS_TOOLTIP, tag: Tag.CONTEXT_MIDDLEPROJECTS },*/
     { type: 'main', icon: 'arrow-down', title: LanguageLabel.CONTEXT_SUBPROJECTS, tooltip: LanguageLabel.CONTEXT_SUBPROJECTS_TOOLTIP, tag: Tag.CONTEXT_SUBPROJECTS },
-    { type: 'main', icon: 'history', title: LanguageLabel.CONTEXT_RECENTS, tooltip: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, tag: Tag.CONTEXT_TOGGLEPANEL_NOCOUNT },
+    { type: 'main', icon: 'clipboard-list', title: LanguageLabel.CONTEXT_ALLPROJECTS, tooltip: LanguageLabel.CONTEXT_ALLPROJECTS_TOOLTIP, tag: Tag.CONTEXT_ALLPROJECTS },
+    { type: 'main', icon: 'history', title: LanguageLabel.CONTEXT_RECENTS, tooltip: LanguageLabel.CONTEXT_RECENTS_TOOLTIP, tag: Tag.CONTEXT_RECENTPROJECTS },
     { type: 'line' },
     /*{ type: 'main', icon: 'cog', title: LanguageLabel.CONTEXT_SETTINGS, tooltip: LanguageLabel.CONTEXT_SETTINGS_TOOLTIP },*/
     { type: 'main', icon: 'plus', title: LanguageLabel.CONTEXT_NEWPROJECT, tooltip: LanguageLabel.CONTEXT_NEWPROJECT_TOOLTIP },

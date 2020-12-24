@@ -19,12 +19,12 @@ export class PreferenceComponent extends BaseWindowComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private lightningService: LightningService,
+    private lightning: LightningService,
     private languageService: LanguageService,
     protected service: BaseWindowService
   ) {
     super(data, service);
-    this.lightningService.setDialogService(service);
+    this.lightning.setDialogService(service);
   }
 
   gbl(label: string): string {

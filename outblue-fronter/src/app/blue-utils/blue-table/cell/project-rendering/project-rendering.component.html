@@ -1,0 +1,53 @@
+<!--<span>
+  --<span *ngIf="params.value" [class]="type === tags.CHIP ? 'chip-grey' : 'record-main-data'"
+    (click)="$event.stopPropagation();" #projectTrigger="matMenuTrigger" [matMenuTriggerFor]="projectChip">
+    <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
+      [matTooltip]="gbl(labels.PROJECT_CURRENTSELECTED)" matTooltipPosition="left"></fa-icon>
+    {{projectName}}
+    <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
+      [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
+  </span>--
+  <span *ngIf="params.value && type === tags.TABLE && !params.data.subprojectOf">
+    <fa-icon icon="circle" size="sm" style="color: var(--blue-main-color);"></fa-icon>
+  </span>
+</span>-->
+
+<span *ngIf="params.value" [ngSwitch]="type">
+  <span *ngSwitchCase="tags.TABLE" class="record-main-data">
+    <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
+      [matTooltip]="gbl(labels.PROJECT_CURRENTSELECTED)" matTooltipPosition="left"></fa-icon>
+
+    {{projectName}}
+
+    <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
+      [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
+  </span>
+
+  <span *ngSwitchCase="tags.CHIP" class="chip-grey" (click)="$event.stopPropagation();"
+    #projectTrigger="matMenuTrigger" [matMenuTriggerFor]="projectChip">
+    <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
+      [matTooltip]="gbl(labels.PROJECT_CURRENTSELECTED)" matTooltipPosition="left"></fa-icon>
+
+    {{projectName}}
+
+    <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
+      [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
+  </span>
+</span>
+
+<mat-menu #projectChip="matMenu">
+  <div class="blue-column" style="min-width: 200px; padding: 15px;">
+    <span>
+      <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"></fa-icon>
+      <span class="chip-blue" *ngIf="isProjectLeader();">{{gbl(labels.PROJECT_LEADERPROJECT)}}</span>
+    </span>
+    <span class="record-main-data" style="padding: 10px 5px;">{{getNameExtended()}}</span>
+    <span class="blue-flex-right">
+      <button mat-button style="border-radius: 0px;" (click)="setProject();" [disabled]="isProjectSelected()"
+        [matTooltip]="gbl(labels.PROJECT_SETSWITCH_TOOLTIP)" matTooltipPosition="right">
+        {{gbl(labels.PROJECT_SETSWITCH)}}
+        <fa-icon style="margin-left: 5px;" icon="bolt" size="lg"></fa-icon>
+      </button>
+    </span>
+  </div>
+</mat-menu>

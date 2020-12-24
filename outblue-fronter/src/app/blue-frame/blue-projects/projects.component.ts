@@ -1,3 +1,4 @@
+import { BaseTableComponent } from 'src/app/blue-utils/blue-base/base-table/base-table.component';
 import { BaseWindowComponent } from 'src/app/blue-utils/blue-base/base-window/base-window.component';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -13,11 +14,11 @@ export class ProjectsComponent extends BaseWindowComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private lightningService: LightningService,
+    private lightning: LightningService,
     protected service: BaseWindowService
   ) {
     super(data, service);
-    this.lightningService.setDialogService(service);
+    this.lightning.setDialogService(service);
   }
 
 }

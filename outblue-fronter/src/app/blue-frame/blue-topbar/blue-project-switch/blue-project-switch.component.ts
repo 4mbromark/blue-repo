@@ -2,8 +2,6 @@ import { RoutingUrl } from './../../../blue-utils/blue-routing/routing-url';
 import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service';
 import { ProjectService } from './../../../blue-utils/blue-service/project.service';
 import { User } from './../../../blue-utils/blue-object/User';
-import { Name } from './../../../blue-utils/blue-enum/word/name';
-import { MatDialog } from '@angular/material/dialog';
 // tslint:disable: max-line-length
 import { ContextButton } from './../../../blue-utils/blue-object/button/ContextButton';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
@@ -12,7 +10,6 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
-import { ProjectsComponent } from '../../blue-projects/projects.component';
 import { Config } from 'src/app/blue-utils/blue-enum/word/config';
 import { UserService } from 'src/app/blue-utils/blue-service/user.service';
 import { Project } from 'src/app/blue-utils/blue-object/record/Project';
@@ -27,6 +24,7 @@ export class ProjectSwitchComponent implements OnInit {
   @ViewChild('projectBar') projectBar: MatExpansionPanel;
 
   tags = Tag;
+  labels = LanguageLabel;
 
   contextButton = List.PROJECTBAR_CONTEXT_BUTTONS;
 
@@ -34,11 +32,13 @@ export class ProjectSwitchComponent implements OnInit {
 
   project: Project;
   projects: Project[];
+  leaderProjects: Project[];
   superProjects: Project[];
   subProjects: Project[];
   middleProjects: Project[];
 
   opened = false;
+  disabled = false;
   loaded = false;
 
   constructor(
@@ -55,12 +55,17 @@ export class ProjectSwitchComponent implements OnInit {
     });
     this.projectService.getProject().subscribe((project: Project) => {
       this.project = project;
-      setTimeout(() => {
-        this.loaded = true;
-      }, 1500);
+      if (this.projectBar) {
+        this.disabled = !project;
+        this.projectBar.disabled = !project;
+      }
     });
     this.projectService.getProjects().subscribe((projects: Project[]) => {
       this.projects = projects;
+      this.leaderProjects = this.projects.filter(project =>
+        !project.subprojectOf
+      );
+      this.disabled = projects.length === 0;
     });
     this.projectService.getSuperProjects().subscribe((superProjects: Project[]) => {
       this.superProjects = superProjects;
@@ -71,17 +76,23 @@ export class ProjectSwitchComponent implements OnInit {
     this.projectService.getMiddleProjects().subscribe((middleProjects: Project[]) => {
       this.middleProjects = middleProjects;
     });
+    this.projectService.getLoaded().subscribe((loaded: boolean) => {
+      this.loaded = loaded;
+    });
   }
 
   gbl(label: string): string {
     return this.languageService.getByLanguage(label);
   }
 
-  setProject(project: Project, projectList: MatExpansionPanel) {
-    this.loaded = false;
+  setProject(project: Project, projectList?: MatExpansionPanel) {
     this.projectService.setProject(project);
-    this.projectBar.close();
-    projectList.close();
+    if (this.projectBar) {
+      this.projectBar.close();
+    }
+    if (projectList) {
+      projectList.close();
+    }
   }
 
   getContextTitle(button: ContextButton) {
@@ -111,16 +122,20 @@ export class ProjectSwitchComponent implements OnInit {
         break;
       }
       case Tag.CONTEXT_CLIPBOARD: {
-        this.clipboard.copy(this.project.name);
+        this.clipboard.copy(this.getSwitchProjectName());
         break;
       }
+      case Tag.CONTEXT_LEADERPROJECTS:
       case Tag.CONTEXT_SUPERPROJECTS:
       case Tag.CONTEXT_SUBPROJECTS:
       case Tag.CONTEXT_MIDDLEPROJECTS:
-      case Tag.CONTEXT_TOGGLEPANEL_NOCOUNT: {
+      case Tag.CONTEXT_RECENTPROJECTS: {
         projectList.toggle();
         event.stopPropagation();
         break;
+      }
+      case Tag.CONTEXT_ALLPROJECTS: {
+        this.setProject(null);
       }
     }
   }
@@ -128,12 +143,37 @@ export class ProjectSwitchComponent implements OnInit {
     return this.gbl(LanguageLabel.CONTEXT_GOTOPROJECT_TOOLTIP).replace(Config.PROJECT, project.name.toUpperCase());
   }
   getContextDisabled(button: ContextButton) {
+    switch (button.tag) {
+      case Tag.CONTEXT_TOGGLE:
+      case Tag.CONTEXT_CLIPBOARD:
+      case Tag.CONTEXT_ALLPROJECTS: {
+        return this.disabled;
+      }
+      case Tag.CONTEXT_LEADERPROJECTS:
+      case Tag.CONTEXT_RECENTPROJECTS: {
+        return this.projects.length === 0;
+      }
+      case Tag.CONTEXT_SUPERPROJECTS: {
+        return this.superProjects.length === 0;
+      }
+      case Tag.CONTEXT_SUBPROJECTS: {
+        return this.subProjects.length === 0;
+      }
+      case Tag.CONTEXT_MIDDLEPROJECTS: {
+        return this.middleProjects.length === 0;
+      }
+    }
     return button.tag === Tag.CONTEXT_SUPERPROJECTS && this.superProjects.length === 0 ||
     button.tag === Tag.CONTEXT_SUBPROJECTS && this.subProjects.length === 0 ||
-    button.tag === Tag.CONTEXT_MIDDLEPROJECTS && this.middleProjects.length === 0;
+    button.tag === Tag.CONTEXT_MIDDLEPROJECTS && this.middleProjects.length === 0 ||
+    button.tag === Tag.CONTEXT_ALLPROJECTS && this.project === null ||
+    button.tag === Tag.CONTEXT_ALLPROJECTS && this.projects.length === 0;
   }
   getContextCount(button: ContextButton) {
     switch (button.tag) {
+      /*case Tag.CONTEXT_LEADERPROJECTS: {
+        return this.superProjects.length;
+      }*/
       case Tag.CONTEXT_SUPERPROJECTS: {
         return this.superProjects.length;
       }
@@ -147,6 +187,9 @@ export class ProjectSwitchComponent implements OnInit {
   }
   getContextList(button: ContextButton) {
     switch (button.tag) {
+      case Tag.CONTEXT_LEADERPROJECTS: {
+        return this.leaderProjects;
+      }
       case Tag.CONTEXT_SUPERPROJECTS: {
         return this.superProjects;
       }
@@ -173,9 +216,19 @@ export class ProjectSwitchComponent implements OnInit {
   }
 
   getSwitchProjectName() {
-    return this.projectService.getProjectName(this.project, 'SWITCH');
+    if (this.projects.length === 0) {
+      return this.gbl(LanguageLabel.SWITCH_NOPROJECTS).toUpperCase();
+    }
+    switch (this.project) {
+      case null: {
+        return this.gbl(LanguageLabel.SWITCH_ALLPROJECTS).toUpperCase();
+      }
+      default: {
+        return this.projectService.getProjectName(this.project, Tag.SWITCH);
+      }
+    }
   }
   getContextProjectName(project: Project) {
-    return this.projectService.getProjectName(project, 'CONTEXT');
+    return this.projectService.getProjectName(project, Tag.CONTEXT);
   }
 }

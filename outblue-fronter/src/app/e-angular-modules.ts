@@ -28,6 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AngularSplitModule} from 'angular-split';
 import {AgGridModule} from 'ag-grid-angular';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { StatusRenderingComponent } from './blue-utils/blue-table/cell/status-rendering/status-rendering.component';
+
 @NgModule({
   exports: [
     MatToolbarModule,
@@ -56,7 +59,9 @@ import {AgGridModule} from 'ag-grid-angular';
     ReactiveFormsModule,
 
     AngularSplitModule,
-    AgGridModule
+    AgGridModule,
+
+    NgxSpinnerModule
   ]
 })
 export class AngularModules { }
