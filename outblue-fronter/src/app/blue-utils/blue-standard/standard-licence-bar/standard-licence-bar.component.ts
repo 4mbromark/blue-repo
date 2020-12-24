@@ -1,7 +1,7 @@
 import { LicenceType } from './../../blue-licence/licence-type';
-import { LicenceStatusList } from './../../blue-licence/licence-status-list';
-import { LicenceStatus } from './../../blue-object/licence/LicenceStatus';
-import { Licence } from './../../blue-object/licence/Licence';
+import { LicenceStatus } from '../../blue-licence/licence-status';
+import { Status } from '../../blue-object/status/Status';
+import { Licence } from '../../blue-object/licence/Licence';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { LicenceService } from './../../blue-service/licence.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,7 @@ export class StandardLicenceBarComponent implements OnInit {
 
   form = new FormControl();
   licence: Licence[];
-  status: LicenceStatus;
+  status: Status;
 
   constructor(private licenceService: LicenceService, private languageService: LanguageService) { }
 
@@ -27,7 +27,7 @@ export class StandardLicenceBarComponent implements OnInit {
     this.licenceService.getLicence().subscribe((licence: Licence[]) => {
       this.licence = licence;
     });
-    this.licenceService.getLicenceStatus().subscribe((status: LicenceStatus) => {
+    this.licenceService.getLicenceStatus().subscribe((status: Status) => {
       this.status = status;
     });
   }
@@ -38,16 +38,16 @@ export class StandardLicenceBarComponent implements OnInit {
 
   generateTrialLicence(): void {
     this.licenceService.generateTrialLicence();
-    this.status = LicenceStatusList.ACTIVE;
+    this.status = LicenceStatus.ACTIVE;
     this.form.setValue(this.licence[0].serial);
     this.form.disable();
   }
 
   setStatusToWaiting(): void {
     if (this.form.value) {
-      this.status = LicenceStatusList.WAITING_FOR_CHECK;
+      this.status = LicenceStatus.WAITING_FOR_CHECK;
     } else {
-      this.status = LicenceStatusList.NO_LICENCE;
+      this.status = LicenceStatus.NO_LICENCE;
     }
   }
 

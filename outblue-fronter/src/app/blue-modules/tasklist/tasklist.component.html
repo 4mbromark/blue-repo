@@ -1,18 +1,15 @@
 <div class="standard-container">
 
-  <as-split class="standard-split mat-elevation-z8" useTransition="true" (gutterClick)="openInformationsFull()" [direction]="'orizontal'">
+  <as-split class="standard-split mat-elevation-z8" useTransition="true" (gutterClick)="openInformationsFull()"
+    [direction]="'orizontal'">
 
     <as-split-area [size]="getTableSize()" class="standard-container-table">
 
-      <div *ngIf="!loaded">
-        <div class="blue-flex-center" style="margin-top:20%">
-          <mat-spinner></mat-spinner>
-        </div>
-      </div>
-
-
-      <ag-grid-angular #agGrid *ngIf="loaded" class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
-        [gridOptions]="gridOptions" (rowClicked)="openInformations();" rowSelection="single">
+      <ag-grid-angular #agGrid class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
+        [gridOptions]="gridOptions" (gridReady)="gridReady($event)" (rowClicked)="openInformations($event);"
+        rowSelection="single" [frameworkComponents]="frameworkComponents"
+        [loadingOverlayComponent]="loadingOverlayComponent" [noRowsOverlayComponent]="emptyOverlayComponent"
+        [noRowsOverlayComponentParams]="emptyOverlayParams">
       </ag-grid-angular>
 
     </as-split-area>
@@ -24,5 +21,3 @@
   </as-split>
 
 </div>
-
-

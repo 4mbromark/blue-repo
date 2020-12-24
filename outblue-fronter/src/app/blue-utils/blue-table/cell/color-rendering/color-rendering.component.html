@@ -1,0 +1,5 @@
+<span class="record-simple-selector" (click)="$event.stopPropagation();" [matTooltip]="gbl(labels.ROW_CHANGECOLOR)" matTooltipPosition="right">
+  <fa-icon *ngIf="color" icon="circle" size="lg" [style]="'color: ' + color + ';'"></fa-icon>
+  <!--<fa-icon icon="angle-down" size="lg" [style]="'color: ' + (params.data.colorRow ? params.data.colorRow : 'white')"></fa-icon>-->
+</span>
+

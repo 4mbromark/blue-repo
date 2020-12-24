@@ -13,11 +13,11 @@ export class LoginResultComponent extends BaseWindowComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private lightningService: LightningService,
+    private lightning: LightningService,
     protected service: BaseWindowService
   ) {
     super(data, service);
-    this.lightningService.setDialogService(service);
+    this.lightning.setDialogService(service);
   }
 
 }

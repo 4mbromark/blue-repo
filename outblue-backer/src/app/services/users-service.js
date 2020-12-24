@@ -31,6 +31,8 @@ class UsersService {
         return new Promise((resolve, reject) => {
             AuthService.verify(token).then((auth) => {
                 resolve(auth);
+            }).catch(() => {
+                
             });
         });
     }

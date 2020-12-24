@@ -33,12 +33,12 @@ export class LoginFormRegisterComponent extends BaseWindowComponent implements O
     @Inject(MAT_DIALOG_DATA) public data: any,
     private userService: UserService,
     private licenceService: LicenceService,
-    private lightningService: LightningService,
+    private lightning: LightningService,
     private languageService: LanguageService,
     protected service: BaseWindowService
   ) {
     super(data, service);
-    this.lightningService.setDialogService(service);
+    this.lightning.setDialogService(service);
   }
 
   ngOnInit(): void {

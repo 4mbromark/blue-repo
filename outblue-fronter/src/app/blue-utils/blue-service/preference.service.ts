@@ -33,8 +33,22 @@ export class PreferenceService {
           fatherType: 'NORMAL',
           fatherToUpperCase: false
         },
-        table: new ProjectNamePreference(),
-        chip: new ProjectNamePreference(),
+        table: {
+          type: 'NORMAL',
+          toUpperCase: false,
+          showFather: false,
+          fatherSeparator: null,
+          fatherType: null,
+          fatherToUpperCase: false
+        },
+        chip: {
+          type: 'NORMAL',
+          toUpperCase: true,
+          showFather: true,
+          fatherSeparator: null,
+          fatherType: 'REDUCED',
+          fatherToUpperCase: true
+        },
       },
       switch: {
         allSuper: false,
@@ -55,7 +69,7 @@ export class PreferenceService {
     return this.preference.asObservable();
   }
 
-  loadPreference(): Promise<Preference> {
+  loadPreference(): Promise<void> {
     this.preference.next(this.fakePreference);
     return new Promise((resolve, reject) => {
       this.http.get(Url.PREFERENCE_LOAD_REST).subscribe(
@@ -69,7 +83,7 @@ export class PreferenceService {
       );
     });
   }
-  savePreference(): Promise<Preference> {
+  savePreference(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.post(Url.PREFERENCE_SAVE_REST, this.preference.value).subscribe(
         () => {

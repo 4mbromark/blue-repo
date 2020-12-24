@@ -1,0 +1,11 @@
+.table {
+  margin: 30px;
+}
+.cell {
+  width: 35px;
+  height: 35px;
+  margin: 0px 2px;
+  border-radius: 0px;
+  border-color: dimgray;
+  background-color: lightskyblue;
+}

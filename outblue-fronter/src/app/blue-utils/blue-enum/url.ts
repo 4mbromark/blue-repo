@@ -1,5 +1,3 @@
-import { faYandexInternational } from '@fortawesome/free-brands-svg-icons';
-
 export class Url {
   public static BASE_REST = 'outblue/';
   public static BASE_FETCH = 'fetch';
@@ -23,4 +21,6 @@ export class Url {
   public static PROJECTS_FETCH_REST = Url.PROJECTS_REST + Url.BASE_FETCH;
 
   public static TASKLIST_REST = Url.BASE_REST + 'tasklist/';
+  public static TASKLIST_FETCH_REST = Url.TASKLIST_REST + Url.BASE_FETCH;
+  public static TASKLIST_GETBY_REST = Url.TASKLIST_REST + 'getby/';
 }

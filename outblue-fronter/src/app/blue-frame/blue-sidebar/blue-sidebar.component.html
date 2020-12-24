@@ -1,44 +1,66 @@
-<mat-sidenav-container style="height: 100%; background-color: transparent;" autosize>
+<mat-sidenav-container style="height: 100%; background-color: transparent;" autosize=true>
 
   <mat-sidenav #sidenav mode="side" *ngIf="getSidebarStatus().enabled" [opened]="getSidebarStatus().opened"
-    class="mat-elevation-z2" [style]="getSidebarStatus().extended ? 'width: 250px' : 'width: 80px'">
+    class="mat-elevation-z2" [style]="getSidebarStatus().extended ? 'width: 200px' : 'width: 60px'">
 
-    <!--<div style="padding-top: 5px;">-->
+    <div class="blue-100-100 blue-column blue-flex-center">
+      <div style="width: 100%;">
+        <div *ngFor="let button of getSidebarButtons()"
+          [class]="getSidebarSelectedButton() === button ? 'selected-outbox' : ''">
+          <button mat-button *ngIf="button.type === 'main'"
+            [class]="getSidebarSelectedButton() === button ? 'selected-button' : 'button'"
+            (click)="setSidebarSelectedButton(button);" [matTooltip]="gbl(button.tooltip)" matTooltipPosition="right">
+            <span *ngIf="getSidebarStatus().extended"
+              [class]="getSidebarSelectedButton() === button ? 'selected-thing' : 'selected-thing-not'">
+              <fa-icon icon="angle-right" size="lg"></fa-icon>
+            </span>
+            <span [class]="getSidebarStatus().extended ? 'icon' : 'icon-not-extended'">
+              <button mat-icon-button [class]="getSidebarSelectedButton() === button ? 'selected-icon' : ''">
+                <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+              </button>
+            </span>
+            <span *ngIf="getSidebarStatus().extended">{{gbl(button.title)}}</span>
+          </button>
 
-    <div *ngFor="let button of getSidebarButtons()">
-
-      <div [class]="getSidebarSelectedButton() === button ? 'selected-outbox' : ''">
-        <button mat-button *ngIf="button.type === 'main'"
-          [class]="getSidebarSelectedButton() === button ? 'selected-button' : 'button'"
-          (click)="setSidebarSelectedButton(button);" [matTooltip]="gbl(button.tooltip)" matTooltipPosition="right">
-          <span *ngIf="getSidebarStatus().extended && getSidebarSelectedButton() === button"
-            [class]="getSidebarStatus().extended ? 'selected-thing' : ''">
-            <fa-icon icon="angle-right" size="lg"></fa-icon>
-          </span>
-          <span [class]="getSidebarStatus().extended ? 'icon' : 'icon-not-extended'">
-            <button mat-icon-button
-              [class]="getSidebarSelectedButton() === button ? 'mat-elevation-z2 selected-icon' : ''">
-              <fa-icon [icon]="button.icon" size="lg"></fa-icon>
-            </button>
-          </span>
-          <span *ngIf="getSidebarStatus().extended">{{gbl(button.title)}}</span>
-        </button>
-
-        <mat-divider *ngIf="button.type === 'line'" class="divider"></mat-divider>
-
+          <mat-divider *ngIf="button.type === 'line'" class="divider"></mat-divider>
+        </div>
       </div>
-    </div>
 
-    <div class="leftbar-bottom-tools">
-      <button mat-button class="leftbar-bottom-line"
-        [style]="getSidebarStatus().extended ? 'text-align: right; padding-right: 20px;' : 'padding-left: 20px;'"
-        (click)="setSidebarExtended()" [title]="gbl('sidebar-extend')">
-        <span *ngIf="getSidebarStatus().extended">{{gbl('sidebar-extend')}}</span>
-        <button mat-icon-button>
-          <fa-icon [icon]="getSidebarStatus().extended ? 'angle-double-left' : 'angle-double-right'" size="lg">
-          </fa-icon>
+      <div style="width: 100%;">
+        <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
+          [matTooltip]="'Search'" matTooltipPosition="right">
+          <span *ngIf="getSidebarStatus().extended">{{'Search'}}</span>
+          <button mat-icon-button>
+            <fa-icon icon="search" size="lg">
+            </fa-icon>
+          </button>
         </button>
-      </button>
+        <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
+          [matTooltip]="'Filters'" matTooltipPosition="right">
+          <span *ngIf="getSidebarStatus().extended">{{'Filters'}}</span>
+          <button mat-icon-button>
+            <fa-icon icon="filter" size="lg">
+            </fa-icon>
+          </button>
+        </button>
+        <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
+          [matTooltip]="'Reload data'" matTooltipPosition="right">
+          <span *ngIf="getSidebarStatus().extended">{{'Reload data'}}</span>
+          <button mat-icon-button>
+            <fa-icon icon="sync-alt" size="lg">
+            </fa-icon>
+          </button>
+        </button>
+        <mat-divider style="margin-right: 1px 0px;"></mat-divider>
+        <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
+          [matTooltip]="gbl('sidebar-extend')" matTooltipPosition="right">
+          <span *ngIf="getSidebarStatus().extended">{{gbl('sidebar-extend')}}</span>
+          <button mat-icon-button>
+            <fa-icon [icon]="getSidebarStatus().extended ? 'angle-double-left' : 'angle-double-right'" size="lg">
+            </fa-icon>
+          </button>
+        </button>
+      </div>
 
     </div>
 

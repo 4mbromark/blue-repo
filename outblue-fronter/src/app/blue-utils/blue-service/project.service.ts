@@ -1,11 +1,12 @@
+import { Project } from './../blue-object/record/Project';
 import { Preference } from './../blue-object/preference/Preference';
 import { ProjectNamePreference } from 'src/app/blue-utils/blue-object/preference/ProjectNamePreference';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Project } from '../blue-object/record/Project';
 import { HttpClient } from '@angular/common/http';
 import { Url } from '../blue-enum/url';
 import { PreferenceService } from './preference.service';
+import { Tag } from '../blue-enum/word/tag';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,16 @@ export class ProjectService {
     chip: ProjectNamePreference;
   };
 
-  project: BehaviorSubject<Project> = new BehaviorSubject<Project>(null);
+  project: BehaviorSubject<Project> = new BehaviorSubject<Project>(undefined);
   projects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
 
   superProjects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
   subProjects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
   middleProjects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
+
+  projectIdWithSubprojects: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
+
+  loaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
   constructor(
     private http: HttpClient,
@@ -32,7 +37,15 @@ export class ProjectService {
   ) {
     this.fetchProjects();
     this.project.subscribe((project: Project) => {
-      this.updateSupportProjects();
+      if (project) {
+        this.updateSupportProjects();
+        this.updateProjectIdWithSubprojects(project);
+      } else {
+        this.clearSupportProjects();
+        if (project === null) {
+          this.projectIdWithSubprojects.next(null);
+        }
+      }
     });
     this.projects.subscribe((projects: Project[]) => {
       // TODO
@@ -63,11 +76,24 @@ export class ProjectService {
     return this.middleProjects.asObservable();
   }
 
-  fetchProjects(): Promise<Project[]> {
+  getProjectIdWithSubprojects(): Observable<number[]> {
+    return this.projectIdWithSubprojects.asObservable();
+  }
+
+  getLoaded(): Observable<boolean> {
+    return this.loaded.asObservable();
+  }
+
+  getProjectById(id: number): Project {
+    return this.projects.value.find(project => project.id === id);
+  }
+
+  fetchProjects(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.get(Url.PROJECTS_FETCH_REST).subscribe(
         (projects: Project[]) => {
           this.projects.next(projects);
+          this.loaded.next(true);
           resolve();
         },
         (error) => {
@@ -114,17 +140,41 @@ export class ProjectService {
     return middleProjects;
   }
 
-  getProjectName(project: Project, destination: string) {
-    if (!this.lp) {
-      return '';
+  updateProjectIdWithSubprojects(p: Project): number[] {
+    let projectIds = [];
+    this.projects.value.filter(project =>
+      project.subprojectOf === p.id
+    ).forEach(project => {
+      projectIds.push(project.id);
+      projectIds = projectIds.concat(this.updateProjectIdWithSubprojects(project));
+    });
+    if (p.id === this.project.value.id) {
+      projectIds.unshift(p.id);
+      this.projectIdWithSubprojects.next(projectIds);
     }
+    return projectIds;
+  }
+
+  clearSupportProjects() {
+    this.superProjects.next([]);
+    this.subProjects.next([]);
+    this.middleProjects.next([]);
+  }
+
+  getProjectName(project: Project, destination: string) {
     const projectFather = this.findSuperProjects(project)[0];
     switch (destination) {
-      case 'SWITCH': {
+      case Tag.SWITCH: {
         return this.buildProjectName(project, projectFather, this.lp.switch);
       }
-      case 'CONTEXT': {
+      case Tag.CONTEXT: {
         return this.buildProjectName(project, projectFather, this.lp.context);
+      }
+      case Tag.TABLE: {
+        return this.buildProjectName(project, projectFather, this.lp.table);
+      }
+      case Tag.CHIP: {
+        return this.buildProjectName(project, projectFather, this.lp.chip);
       }
     }
 

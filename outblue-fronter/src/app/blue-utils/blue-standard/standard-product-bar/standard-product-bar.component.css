@@ -1,0 +1,42 @@
+.background-image {
+  background: url("../../../../assets/pattern/login-pattern.jpg");
+  background-size: cover;
+  z-index: -1;
+}
+
+.product-bar {
+  height: 130px;
+  width: 100%;
+  transition: var(--blue-long-transition);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.product-logo {
+  height: 90px;
+  margin-left: 20px;
+  animation: flip 1s;
+  transition: var(--blue-base-transition);
+}
+.product-logo:hover {
+  transform: rotateX(180deg);
+  transition: var(--blue-base-transition);
+}
+@keyframes flip {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+.product-hf {
+  font-size: 30px;
+  font-weight: 900;
+}
+.product-outblue {
+  font-size: 25px;
+}
+
+
+
+

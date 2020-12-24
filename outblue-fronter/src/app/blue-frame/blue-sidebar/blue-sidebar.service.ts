@@ -1,7 +1,7 @@
 import { PermitService } from './../../blue-utils/blue-service/permit.service';
 import { List } from '../../blue-utils/blue-enum/list';
 import { Injectable } from '@angular/core';
-import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';;
+import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
 
 export class LeftbarStatus {
   enabled: boolean;
@@ -26,7 +26,7 @@ export class SidebarService {
       this.leftbarStatus.enabled = permit;
     });
     this.setLeftbarOpened();
-    this.setLeftbarExtended();
+    // this.setLeftbarExtended();
   }
 
   getSidebarButtons(): SidebarButton[] {

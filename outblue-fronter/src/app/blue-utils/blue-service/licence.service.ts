@@ -1,13 +1,13 @@
-import { LicenceStatusList } from './../blue-licence/licence-status-list';
+import { LicenceStatus } from '../blue-licence/licence-status';
 import { LicenceDetail } from './../blue-licence/licence-detail';
 // tslint:disable: max-line-length
 import { LicenceTag } from './../blue-licence/licence-tag';
 import { LicenceType } from './../blue-licence/licence-type';
-import { Licence } from './../blue-object/licence/Licence';
+import { Licence } from '../blue-object/licence/Licence';
 import { Injectable } from '@angular/core';
 import { Config } from '../blue-enum/word/config';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LicenceStatus } from '../blue-object/licence/LicenceStatus';
+import { Status } from '../blue-object/status/Status';
 import { HttpClient } from '@angular/common/http';
 import { Url } from '../blue-enum/url';
 
@@ -19,7 +19,7 @@ export class LicenceService {
   licenceDetails = LicenceDetail.LICENCE_DETAIL;
 
   licence: BehaviorSubject<Licence[]> = new BehaviorSubject<Licence[]>([]);
-  licenceStatus: BehaviorSubject<LicenceStatus> = new BehaviorSubject<LicenceStatus>(LicenceStatusList.NO_LICENCE);
+  licenceStatus: BehaviorSubject<Status> = new BehaviorSubject<Status>(LicenceStatus.NO_LICENCE);
 
   constructor(private http: HttpClient) {}
 
@@ -29,7 +29,7 @@ export class LicenceService {
     }
     return this.licence.asObservable();
   }
-  getLicenceStatus(): Observable<LicenceStatus> {
+  getLicenceStatus(): Observable<Status> {
     return this.licenceStatus.asObservable();
   }
 
@@ -43,7 +43,7 @@ export class LicenceService {
     return this.licenceDetails[0];
   }
 
-  loadLicence(): Promise<Licence[]> {
+  loadLicence(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.get(Url.LICENCE_LOAD_REST).subscribe(
         (licence: Licence[]) => {
@@ -56,7 +56,7 @@ export class LicenceService {
       );
     });
   }
-  saveLicence(): Promise<Licence[]> {
+  saveLicence(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.post(Url.LICENCE_SAVE_REST, this.licence.value).subscribe(
         (licence: Licence[]) => {
