@@ -144,6 +144,20 @@ body {
   width: 100%;
   height: 100%;
 }
+.blue-w100 {
+  width: 100%;
+}
+.blue-h100 {
+  height: 100%;
+}
+
+.blue-context-menu {
+  width: 300px;
+}
+.blue-tool-menu {
+  width: 500px;
+  margin: 10px;
+}
 
 /* SPAZIATORI */
 .blue-spacer {

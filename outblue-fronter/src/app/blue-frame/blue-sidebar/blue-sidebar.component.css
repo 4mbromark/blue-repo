@@ -45,6 +45,7 @@
   padding: 0px 8px !important;
   min-width: unset !important;
   border-radius: 0px;
+  text-align: right;
 }
 .leftbar-bottom-line:hover {
   color: black;

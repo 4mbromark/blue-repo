@@ -1,3 +1,4 @@
+import { VersionsComponent } from './blue-modules/versions/versions.component';
 import { DialogEntryAdminComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-admin/dialog-entry-admin.component';
 import { DialogEntryProjectsComponent } from './blue-utils/blue-dialog/dialog-entry/dialog-entry-projects/dialog-entry-projects.component';
 import { Config } from './blue-utils/blue-enum/word/config';
@@ -9,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './blue-utils/blue-404/page-not-found/page-not-found.component';
 import { LoginGuardService as LoginGuard } from './blue-utils/blue-service/auth/login-guard.service';
+import { ProjectsComponent } from './blue-modules/projects/projects.component';
 
 const username = localStorage.getItem(Config.USERNAME) ? localStorage.getItem(Config.USERNAME) : '';
 
@@ -22,7 +24,9 @@ const routes: Routes = [
       { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
       { path: '**', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
     ]},
+    { path: RoutingUrl.PROJECTS_MODULE, component: ProjectsComponent },
     { path: RoutingUrl.TASKLIST_MODULE, component: TasklistComponent },
+    { path: RoutingUrl.VERSIONS_MODULE, component: VersionsComponent },
     { path: '', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
     { path: '**', redirectTo: RoutingUrl.TASKLIST_MODULE, pathMatch: 'full' },
   ], canActivate: [AuthGuard]},

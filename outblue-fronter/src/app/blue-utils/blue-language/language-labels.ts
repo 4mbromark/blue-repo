@@ -82,6 +82,7 @@ export class LanguageLabel {
   // TABLES
   public static TABLE_NOPROJECTS = 'table-noprojects';
   public static TABLE_NOTASKS = 'table-notasks';
+  public static TABLE_NOVERSIONS = 'table-noversions';
 
   public static ROW_CHANGEICON = 'row-changeicon';
   public static ROW_CHANGECOLOR = 'row-changecolor';
@@ -119,9 +120,9 @@ export class LanguageLabel {
   // WINDOW of PREFERENCE
   public static PREFERENCE_PROJECTS = 'preference-projects';
 
-  // SIDEBAR of TASKS
-  public static SIDEBAR_MAIN_SHORT = 'sidebar-main-short';
-  public static SIDEBAR_MAIN_COMPLETE = 'sidebar-main-complete';
+  // SIDEBAR
+  public static SIDEBAR_ADMIN_SHORT = 'sidebar-admin-short';
+  public static SIDEBAR_ADMIN_COMPLETE = 'sidebar-admin-complete';
   public static SIDEBAR_PROJECTS_SHORT = 'sidebar-projects-short';
   public static SIDEBAR_PROJECTS_COMPLETE = 'sidebar-projects-complete';
   public static SIDEBAR_TASKS_SHORT = 'sidebar-tasks-short';
@@ -129,7 +130,16 @@ export class LanguageLabel {
   public static SIDEBAR_VERSIONS_SHORT = 'sidebar-versions-short';
   public static SIDEBAR_VERSIONS_COMPLETE = 'sidebar-versions-complete';
 
-  public static SIDEBAR_EXTEND = 'sidebar-extend'; // not linked
+  public static SIDEBAR_EXTEND_SHORT = 'sidebar-extend-short';
+  public static SIDEBAR_EXTEND_COMPLETE = 'sidebar-extend-complete';
+  public static SIDEBAR_REDUCE_SHORT = 'sidebar-reduce-short';
+  public static SIDEBAR_REDUCE_COMPLETE = 'sidebar-reduce-complete';
+  public static SIDEBAR_SEARCH_SHORT = 'sidebar-search-short';
+  public static SIDEBAR_SEARCH_COMPLETE = 'sidebar-search-complete';
+  public static SIDEBAR_FILTER_SHORT = 'sidebar-filter-short';
+  public static SIDEBAR_FILTER_COMPLETE = 'sidebar-filter-complete';
+  public static SIDEBAR_RELOAD_SHORT = 'sidebar-reload-short';
+  public static SIDEBAR_RELOAD_COMPLETE = 'sidebar-reload-complete';
 
   // SWITCH
   public static SWITCH_NOPROJECTS = 'switch-noprojects';

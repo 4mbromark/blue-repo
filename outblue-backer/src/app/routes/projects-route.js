@@ -12,4 +12,11 @@ router.get('/outblue/projects/fetch', (req, res) => {
     });
 })
 
+router.get('/outblue/projects/getby/:projects', (req, res) => {
+    const projects = ProjectsService.getByProjectList(session.id, req.params.projects.split`,`.map(x=>+x));
+    projects.then((projects) => {
+        res.send(projects); 
+    });
+})
+
 module.exports = router;

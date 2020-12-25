@@ -17,6 +17,24 @@ class ProjectsService {
         });
     }
 
+    static async getByProjectList(userId, projectId) {
+        return new Promise((resolve, reject) => {
+            const projectsOk = [];
+            ProjectsService.getByUserId(userId).then((projects) => {
+
+                for (let project of projects) {
+                    for (let id of projectId) {
+                        if (project.id === id) {
+                            projectsOk.push(project);
+                        }
+                    }
+                }
+                resolve(projectsOk);
+
+            });
+        });
+    }
+
     static async getProjectObject(dbObject) {
         dbObject.id = dbObject.ID;
         dbObject.idUser = dbObject.ID_USER;

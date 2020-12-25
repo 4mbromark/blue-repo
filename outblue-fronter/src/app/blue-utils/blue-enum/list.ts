@@ -1,3 +1,4 @@
+import { RoutingUrl } from './../blue-routing/routing-url';
 import { ContextButton } from './../blue-object/button/ContextButton';
 import { WindowLeftButton } from '../blue-object/button/WindowLeftButton';
 import { LanguageTag } from '../blue-language/language-tag';
@@ -10,11 +11,21 @@ import { Tag } from './word/tag';
 
 export class List {
   public static SIDEBAR_BUTTONS: SidebarButton[] = [
-    /*{ type: 'main', icon: 'book', title: LanguageLabel.SIDEBAR_MAIN_SHORT, tooltip: LanguageLabel.SIDEBAR_MAIN_COMPLETE },
-    { type: 'main', icon: 'bolt', title: LanguageLabel.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE },*/
-    { type: 'main', icon: 'check', title: LanguageLabel.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabel.SIDEBAR_TASKS_COMPLETE },
-    { type: 'main', icon: 'stream', title: LanguageLabel.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE },
+    { type: 'main', icon: 'shield-alt', title: LanguageLabel.SIDEBAR_ADMIN_SHORT, tooltip: LanguageLabel.SIDEBAR_ADMIN_COMPLETE },
+    { type: 'main', icon: 'bolt', title: LanguageLabel.SIDEBAR_PROJECTS_SHORT, tooltip: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE, routerlink: RoutingUrl.PROJECTS_MODULE },
+    { type: 'main', icon: 'check', title: LanguageLabel.SIDEBAR_TASKS_SHORT, tooltip: LanguageLabel.SIDEBAR_TASKS_COMPLETE, routerlink: RoutingUrl.TASKLIST_MODULE },
+    { type: 'main', icon: 'stream', title: LanguageLabel.SIDEBAR_VERSIONS_SHORT, tooltip: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE, routerlink: RoutingUrl.VERSIONS_MODULE },
     /*{ type: 'main', icon: 'calendar', title: LanguageLabel.SIDEBAR_CALENDAR_SHORT, name: LanguageLabel.SIDEBAR_CALENDAR_COMPLETE },*/
+  ];
+
+  public static SIDEBAR_TOOLS: SidebarButton[] = [
+    { type: 'main', icon: 'search', title: LanguageLabel.SIDEBAR_SEARCH_SHORT, tooltip: LanguageLabel.SIDEBAR_SEARCH_COMPLETE, tag: Tag.SIDEBAR_SEARCH },
+    { type: 'main', icon: 'filter', title: LanguageLabel.SIDEBAR_FILTER_SHORT, tooltip: LanguageLabel.SIDEBAR_FILTER_COMPLETE, tag: Tag.SIDEBAR_FILTER },
+    { type: 'line' },
+    { type: 'main', icon: 'sync-alt', title: LanguageLabel.SIDEBAR_RELOAD_SHORT, tooltip: LanguageLabel.SIDEBAR_RELOAD_COMPLETE, tag: Tag.SIDEBAR_RELOAD },
+    { type: 'line' },
+    { type: 'main', icon: 'angle-double-right', title: LanguageLabel.SIDEBAR_EXTEND_SHORT, tooltip: LanguageLabel.SIDEBAR_EXTEND_COMPLETE,
+      alt: {icon: 'angle-double-left', title: LanguageLabel.SIDEBAR_REDUCE_SHORT, tooltip: LanguageLabel.SIDEBAR_REDUCE_COMPLETE}, tag: Tag.SIDEBAR_TOGGLE },
   ];
 
   public static MESSAGING_BUTTONS: MessagingButton[] = [

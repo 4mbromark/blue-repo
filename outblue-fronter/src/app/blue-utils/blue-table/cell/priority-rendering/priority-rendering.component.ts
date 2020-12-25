@@ -13,7 +13,7 @@ export class PriorityRenderingComponent extends BaseCellComponent implements OnI
 
   labels = LanguageLabel;
 
-  priority: string;
+  icon: string;
   color: string;
 
   constructor(
@@ -26,22 +26,22 @@ export class PriorityRenderingComponent extends BaseCellComponent implements OnI
   ngOnInit(): void {
     switch (this.params.value) {
       case '1': {
-        this.priority = 'angle-up';
+        this.icon = 'angle-up';
         this.color = 'orange';
         break;
       }
       case '2': {
-        this.priority = 'angle-double-up';
+        this.icon = 'angle-double-up';
         this.color = 'red';
         break;
       }
       case '-1': {
-        this.priority = 'angle-down';
+        this.icon = 'angle-down';
         this.color = 'greenyellow';
         break;
       }
       case '-2': {
-        this.priority = 'angle-double-down';
+        this.icon = 'angle-double-down';
         this.color = 'green';
         break;
       }

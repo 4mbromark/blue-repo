@@ -1,3 +1,4 @@
+import { SidebarService } from './../../blue-frame/blue-sidebar/blue-sidebar.service';
 import { LanguageLabel } from './../../blue-utils/blue-language/language-labels';
 import { Table } from './../../blue-utils/blue-enum/table';
 import { TasklistService } from './tasklist.service';
@@ -21,10 +22,11 @@ export class TasklistComponent extends BaseTableComponent {
 
   constructor(
     protected lightning: LightningService,
+    protected sidebarService: SidebarService,
     protected tasklistService: TasklistService,
     private languageService: LanguageService
   ) {
-    super(lightning, tasklistService);
+    super(lightning, sidebarService, tasklistService);
   }
 
   gbl(label: string): string {

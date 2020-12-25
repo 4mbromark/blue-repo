@@ -1,7 +1,8 @@
+import { SidebarService } from '../../blue-sidebar/blue-sidebar.service';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
-import { LanguageService } from './../../../blue-utils/blue-service/language.service';
-import { BaseTableService } from './../../../blue-utils/blue-base/base-table/base-table.service';
-import { BaseTableComponent } from './../../../blue-utils/blue-base/base-table/base-table.component';
+import { LanguageService } from '../../../blue-utils/blue-service/language.service';
+import { BaseTableService } from '../../../blue-utils/blue-base/base-table/base-table.service';
+import { BaseTableComponent } from '../../../blue-utils/blue-base/base-table/base-table.component';
 import { Component, OnInit } from '@angular/core';
 import { Table } from 'src/app/blue-utils/blue-enum/table';
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
@@ -9,11 +10,11 @@ import { Project } from 'src/app/blue-utils/blue-object/record/Project';
 import { ProjectService } from 'src/app/blue-utils/blue-service/project.service';
 
 @Component({
-  selector: 'app-projects-table',
-  templateUrl: './projects-table.component.html',
-  styleUrls: ['./projects-table.component.css']
+  selector: 'app-projects-all-table',
+  templateUrl: './projects-all-table.component.html',
+  styleUrls: ['./projects-all-table.component.css']
 })
-export class ProjectsTableComponent extends BaseTableComponent implements OnInit {
+export class ProjectsAllTableComponent extends BaseTableComponent implements OnInit {
 
   columnDefs = Table.PROJECTS_TABLE;
 
@@ -23,11 +24,12 @@ export class ProjectsTableComponent extends BaseTableComponent implements OnInit
 
   constructor(
     protected lightning: LightningService,
+    protected sidebarService: SidebarService,
     protected baseTableService: BaseTableService,
     protected projectService: ProjectService,
     private languageService: LanguageService
   ) {
-    super(lightning, baseTableService);
+    super(lightning, sidebarService, baseTableService);
   }
 
   ngOnInit(): void {

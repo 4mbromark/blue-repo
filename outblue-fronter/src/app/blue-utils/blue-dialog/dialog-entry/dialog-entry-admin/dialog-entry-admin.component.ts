@@ -1,5 +1,5 @@
 import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service';
-import { ProjectsComponent } from './../../../../blue-frame/blue-projects/projects.component';
+import { ProjectsAllComponent } from './../../../../blue-frame/blue-projects-all/projects-all.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
@@ -19,7 +19,7 @@ export class DialogEntryAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const dialog = this.dialog.open(ProjectsComponent, {
+    const dialog = this.dialog.open(ProjectsAllComponent, {
       width: '95%',
       height: '88%',
       data: {

@@ -26,7 +26,7 @@ import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging
 import { BaseWindowComponent } from './blue-utils/blue-base/base-window/base-window.component';
 import { StandardToolbarComponent } from './blue-utils/blue-standard/standard-toolbar/standard-toolbar.component';
 import { CommunicationsComponent } from './blue-frame/blue-window/messaging/communications/communications.component';
-import { ProjectsComponent } from './blue-frame/blue-projects/projects.component';
+import { ProjectsAllComponent } from './blue-frame/blue-projects-all/projects-all.component';
 import { LoginFormRegisterComponent } from './blue-login/blue-login-form-register/login-form-register.component';
 import { StandardLicenceBarComponent } from './blue-utils/blue-standard/standard-licence-bar/standard-licence-bar.component';
 import { LoginResultComponent } from './blue-login/blue-login-result/login-result.component';
@@ -39,8 +39,8 @@ import { StandardProductBarComponent } from './blue-utils/blue-standard/standard
 import { BattleshipComponent } from './blue-utils/blue-404/battleship/battleship.component';
 import { GameboardComponent } from './blue-utils/blue-404/battleship/gameboard/gameboard.component';
 import { StandardSpinnerComponent } from './blue-utils/blue-standard/standard-spinner/standard-spinner.component';
-import { ProjectsTableComponent } from './blue-frame/blue-projects/projects-table/projects-table.component';
-import { ProjectsSidepanelComponent } from './blue-frame/blue-projects/projects-sidepanel/projects-sidepanel.component';
+import { ProjectsAllTableComponent } from './blue-frame/blue-projects-all/projects-all-table/projects-all-table.component';
+import { ProjectsSidepanelComponent } from './blue-modules/projects/projects-sidepanel/projects-sidepanel.component';
 import { StatusRenderingComponent } from './blue-utils/blue-table/cell/status-rendering/status-rendering.component';
 import { ProjectRenderingComponent } from './blue-utils/blue-table/cell/project-rendering/project-rendering.component';
 import { BaseCellComponent } from './blue-utils/blue-base/base-cell/base-cell.component';
@@ -51,6 +51,9 @@ import { PriorityRenderingComponent } from './blue-utils/blue-table/cell/priorit
 import { LoadingOverlayComponent } from './blue-utils/blue-table/overlay/loading-overlay/loading-overlay.component';
 import { EmptyOverlayComponent } from './blue-utils/blue-table/overlay/empty-overlay/empty-overlay.component';
 import { TaskRenderingComponent } from './blue-utils/blue-table/cell/task-rendering/task-rendering.component';
+import { ProjectsComponent } from './blue-modules/projects/projects.component';
+import { VersionsComponent } from './blue-modules/versions/versions.component';
+import { VersionRenderingComponent } from './blue-utils/blue-table/cell/version-rendering/version-rendering.component';
 
 
 @NgModule({
@@ -71,7 +74,7 @@ import { TaskRenderingComponent } from './blue-utils/blue-table/cell/task-render
     BaseWindowComponent,
     StandardToolbarComponent,
     CommunicationsComponent,
-    ProjectsComponent,
+    ProjectsAllComponent,
     ProjectsPreferenceComponent,
     LoginFormRegisterComponent,
     StandardLicenceBarComponent,
@@ -84,7 +87,7 @@ import { TaskRenderingComponent } from './blue-utils/blue-table/cell/task-render
     BattleshipComponent,
     GameboardComponent,
     StandardSpinnerComponent,
-    ProjectsTableComponent,
+    ProjectsAllTableComponent,
     ProjectsSidepanelComponent,
     StatusRenderingComponent,
     ProjectRenderingComponent,
@@ -94,7 +97,10 @@ import { TaskRenderingComponent } from './blue-utils/blue-table/cell/task-render
     PriorityRenderingComponent,
     LoadingOverlayComponent,
     EmptyOverlayComponent,
-    TaskRenderingComponent
+    TaskRenderingComponent,
+    ProjectsComponent,
+    VersionsComponent,
+    VersionRenderingComponent
   ],
   imports: [
     AngularModules,

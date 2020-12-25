@@ -1,6 +1,6 @@
-import { RowData } from '../RowData';
+import { RowDataTable } from './../RowDataTable';
 
-export class Project extends RowData {
+export class Project extends RowDataTable {
   type: string;
   status: string;
   priority: string;

@@ -1,4 +1,4 @@
-<as-split useTransition="true" (gutterClick)="openInformationsFull()" [direction]="'orizontal'">
+<as-split useTransition="true" (gutterClick)="openInformationsFull()" (transitionEnd)="sizeColumnsToFit();" (dragEnd)="sizeColumnsToFit();" [direction]="'orizontal'">
 
   <as-split-area [size]="getTableSize()" class="standard-container-table">
 

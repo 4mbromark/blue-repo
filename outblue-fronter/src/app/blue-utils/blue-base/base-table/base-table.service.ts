@@ -26,7 +26,17 @@ export class BaseTableService {
   constructor(
     protected projectService: ProjectService,
     protected http: HttpClient,
-  ) {
+  ) { }
+
+  getRecords(): Observable<Project[] | Task[]> {
+    return this.records.asObservable();
+  }
+
+  getLoaded(): Observable<boolean> {
+    return this.loaded.asObservable();
+  }
+
+  buildService(): void {
     this.projectService.getProjectIdWithSubprojects().subscribe((projects: number[]) => {
       this.loaded.next(false);
       if (this.httpBaseFetch && projects === null) {
@@ -35,14 +45,6 @@ export class BaseTableService {
         this.getAllOnRest(this.httpBaseUrl + projects);
       }
     });
-  }
-
-  getRecords(): Observable<Project[] | Task[]> {
-    return this.records.asObservable();
-  }
-
-  getLoaded(): Observable<boolean> {
-    return this.loaded.asObservable();
   }
 
   getAllOnRest(url: string): Promise<void> {

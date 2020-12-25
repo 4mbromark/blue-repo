@@ -3,7 +3,6 @@ import { ProjectStatus } from './../../../blue-enum/status/project-status';
 import { BaseCellComponent } from './../../../blue-base/base-cell/base-cell.component';
 import { Component, OnInit } from '@angular/core';
 import { Status } from 'src/app/blue-utils/blue-object/status/Status';
-import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
@@ -12,9 +11,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
   styleUrls: ['./status-rendering.component.css']
 })
 export class StatusRenderingComponent extends BaseCellComponent implements OnInit {
-
-  status = ProjectStatus;
-  labels = LanguageLabel;
 
   rowStatus: Status;
 
@@ -26,7 +22,8 @@ export class StatusRenderingComponent extends BaseCellComponent implements OnIni
   }
 
   ngOnInit(): void {
-    this.rowStatus = this.status.get(this.params.value);
+    this.rowStatus = ProjectStatus.get(this.params.value);
+    this.value = this.gbl(this.rowStatus.title);
   }
 
   gbl(label: string): string {

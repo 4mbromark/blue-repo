@@ -3,7 +3,7 @@ import { User } from 'src/app/blue-utils/blue-object/User';
 import { UserService } from 'src/app/blue-utils/blue-service/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { ProjectsComponent } from 'src/app/blue-frame/blue-projects/projects.component';
+import { ProjectsAllComponent } from 'src/app/blue-frame/blue-projects-all/projects-all.component';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { Config } from 'src/app/blue-utils/blue-enum/word/config';
@@ -29,7 +29,7 @@ export class DialogEntryProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const dialog = this.dialog.open(ProjectsComponent, {
+    const dialog = this.dialog.open(ProjectsAllComponent, {
       width: '95%',
       height: '88%',
       data: {

@@ -13,17 +13,11 @@ export class IconRenderingComponent extends BaseCellComponent implements OnInit 
 
   labels = LanguageLabel;
 
-  icon: string;
-
   constructor(
     private languageService: LanguageService,
     protected clipboard: Clipboard
   ) {
     super(clipboard);
-  }
-
-  ngOnInit(): void {
-    this.icon = this.params.value;
   }
 
   gbl(label: string): string {
