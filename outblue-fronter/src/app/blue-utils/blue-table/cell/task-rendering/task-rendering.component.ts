@@ -9,16 +9,10 @@ import { BaseCellComponent } from 'src/app/blue-utils/blue-base/base-cell/base-c
 })
 export class TaskRenderingComponent extends BaseCellComponent implements OnInit {
 
-  task: string;
-
   constructor(
     protected clipboard: Clipboard
   ) {
     super(clipboard);
-  }
-
-  ngOnInit(): void {
-    this.task = this.params.value;
   }
 
 }

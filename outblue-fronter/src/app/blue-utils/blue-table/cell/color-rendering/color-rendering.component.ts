@@ -13,17 +13,11 @@ export class ColorRenderingComponent extends BaseCellComponent implements OnInit
 
   labels = LanguageLabel;
 
-  color: string;
-
   constructor(
     private languageService: LanguageService,
     protected clipboard: Clipboard
   ) {
     super(clipboard);
-  }
-
-  ngOnInit(): void {
-    this.color = this.params.value;
   }
 
   gbl(label: string): string {

@@ -89,6 +89,7 @@ export class ProjectService {
   }
 
   fetchProjects(): Promise<void> {
+    this.loaded.next(false);
     return new Promise((resolve, reject) => {
       this.http.get(Url.PROJECTS_FETCH_REST).subscribe(
         (projects: Project[]) => {

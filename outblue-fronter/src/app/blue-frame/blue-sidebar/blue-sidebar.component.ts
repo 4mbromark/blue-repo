@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/blue-utils/blue-service/project.service';
+import { SidebarButton } from './../../blue-utils/blue-object/button/SidebarButton';
+import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
-import { SidebarButton } from 'src/app/blue-utils/blue-object/button/SidebarButton';
 import { SidebarService, LeftbarStatus } from './blue-sidebar.service';
 import { List } from 'src/app/blue-utils/blue-enum/list';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { StorageService } from 'src/app/blue-utils/blue-service/storage.service';
+import { Config } from 'src/app/blue-utils/blue-enum/word/config';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,21 +15,34 @@ import { List } from 'src/app/blue-utils/blue-enum/list';
   styleUrls: ['./blue-sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  @ViewChild('searchTrigger', {read: MatMenuTrigger}) search: MatMenuTrigger;
+  @ViewChild('filterTrigger', {read: MatMenuTrigger}) filter: MatMenuTrigger;
 
-  buttons = List.SIDEBAR_BUTTONS;
+  tags = Tag;
+
+  buttons: SidebarButton[] = List.SIDEBAR_BUTTONS;
+  buttonsTool: SidebarButton[] = List.SIDEBAR_TOOLS;
 
   ls: LeftbarStatus;
+  loaded = false;
 
-  selectedButton = this.buttons[0];
+  selectedButton = this.buttons[1];
+
+  username = this.localStorage.get(Config.USERNAME) ? this.localStorage.get(Config.USERNAME) : '';
 
   constructor(
     private sidebarService: SidebarService,
+    private projectService: ProjectService,
+    private localStorage: StorageService,
     private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
     this.sidebarService.getLeftbarStatus().subscribe((leftbarStatus: LeftbarStatus) => {
       this.ls = leftbarStatus;
+    });
+    this.projectService.getLoaded().subscribe((loaded: boolean) => {
+      this.loaded = loaded;
     });
   }
 
@@ -36,12 +54,33 @@ export class SidebarComponent implements OnInit {
     this.selectedButton = selectedButton;
   }
 
-  setSidebarOpened(): void {
-    this.sidebarService.setLeftbarOpened();
+  getSidebarTitle(button: SidebarButton): string {
+    return button.tag === Tag.SIDEBAR_TOGGLE && this.ls.extended ? this.gbl(button.alt.title) : this.gbl(button.title);
   }
-
-  setSidebarExtended(): void {
-    this.sidebarService.setLeftbarExtended();
+  getSidebarIcon(button: SidebarButton): string {
+    return button.tag === Tag.SIDEBAR_TOGGLE && this.ls.extended ? button.alt.icon : button.icon;
   }
-
+  getSidebarTooltip(button: SidebarButton): string {
+    return button.tag === Tag.SIDEBAR_TOGGLE && this.ls.extended ? this.gbl(button.alt.tooltip) : this.gbl(button.tooltip);
+  }
+  getSidebarAction(button: SidebarButton): void {
+    switch (button.tag) {
+      case Tag.SIDEBAR_SEARCH: {
+        this.search.openMenu();
+        break;
+      }
+      case Tag.SIDEBAR_FILTER: {
+        this.filter.openMenu();
+        break;
+      }
+      case Tag.SIDEBAR_RELOAD: {
+        this.projectService.fetchProjects();
+        break;
+      }
+      case Tag.SIDEBAR_TOGGLE: {
+        this.sidebarService.setLeftbarExtended();
+        break;
+      }
+    }
+  }
 }

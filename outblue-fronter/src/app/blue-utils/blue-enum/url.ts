@@ -1,6 +1,7 @@
 export class Url {
   public static BASE_REST = 'outblue/';
   public static BASE_FETCH = 'fetch';
+  public static BASE_GETBY = 'getby/';
   public static BASE_LOAD = 'load';
   public static BASE_SAVE = 'save';
 
@@ -19,8 +20,13 @@ export class Url {
 
   public static PROJECTS_REST = Url.BASE_REST + 'projects/';
   public static PROJECTS_FETCH_REST = Url.PROJECTS_REST + Url.BASE_FETCH;
+  public static PROJECTS_GETBY_REST = Url.PROJECTS_REST + Url.BASE_GETBY;
 
   public static TASKLIST_REST = Url.BASE_REST + 'tasklist/';
   public static TASKLIST_FETCH_REST = Url.TASKLIST_REST + Url.BASE_FETCH;
-  public static TASKLIST_GETBY_REST = Url.TASKLIST_REST + 'getby/';
+  public static TASKLIST_GETBY_REST = Url.TASKLIST_REST + Url.BASE_GETBY;
+
+  public static VERSIONS_REST = Url.BASE_REST + 'versions/';
+  public static VERSIONS_FETCH_REST = Url.VERSIONS_REST + Url.BASE_FETCH;
+  public static VERSIONS_GETBY_REST = Url.VERSIONS_REST + Url.BASE_GETBY;
 }

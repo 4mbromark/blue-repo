@@ -73,6 +73,7 @@ export class LanguageMatchList {
     // TABLES
     { label: LanguageLabel.TABLE_NOPROJECTS, italian: 'Non ci sono ancora Progetti  :(', english: 'There are no Projects yet  :('},
     { label: LanguageLabel.TABLE_NOTASKS, italian: 'Nessuna attività per il Progetto selezionato', english: 'There are no tasks for the selected Project'},
+    { label: LanguageLabel.TABLE_NOVERSIONS, italian: 'Nessuna versione per il Progetto selezionato', english: 'There are no versions for the selected Project'},
 
     { label: LanguageLabel.ROW_CHANGEICON, italian: 'Cambia icona', english: 'Change icon'},
     { label: LanguageLabel.ROW_CHANGECOLOR, italian: 'Cambia colore', english: 'Change color'},
@@ -110,17 +111,26 @@ export class LanguageMatchList {
     // WINDOW of PREFERENCE
     { label: LanguageLabel.PREFERENCE_PROJECTS, italian: 'Progetti', english: 'Projects' },
 
-    // SIDEBAR OF TASKS
-    { label: LanguageLabel.SIDEBAR_MAIN_SHORT, italian: 'Amministrazione', english: 'Administration' },
-    { label: LanguageLabel.SIDEBAR_MAIN_COMPLETE, italian: 'Amministrazione di ' + Name.OUTBLUE, english: Name.OUTBLUE + ' Administration' },
+    // SIDEBAR
+    { label: LanguageLabel.SIDEBAR_ADMIN_SHORT, italian: 'Gestione', english: 'Admin' },
+    { label: LanguageLabel.SIDEBAR_ADMIN_COMPLETE, italian: 'Amministrazione del Progetto', english: 'Project administration' },
     { label: LanguageLabel.SIDEBAR_PROJECTS_SHORT, italian: 'Progetti', english: 'Projects' },
-    { label: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE, italian: 'Registro dei Progetti', english: 'Projects Register' },
+    { label: LanguageLabel.SIDEBAR_PROJECTS_COMPLETE, italian: 'Progetti e sottoprogetti', english: 'Projects and subprojects' },
     { label: LanguageLabel.SIDEBAR_TASKS_SHORT, italian: 'Attività', english: 'Tasklist' },
-    { label: LanguageLabel.SIDEBAR_TASKS_COMPLETE, italian: 'Elenco delle Attività', english: 'List of Tasks' },
+    { label: LanguageLabel.SIDEBAR_TASKS_COMPLETE, italian: 'Elenco delle attività', english: 'List of tasks' },
     { label: LanguageLabel.SIDEBAR_VERSIONS_SHORT, italian: 'Versioni', english: 'Versions' },
-    { label: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE, italian: 'Gestione delle Versioni', english: 'Version Management' },
+    { label: LanguageLabel.SIDEBAR_VERSIONS_COMPLETE, italian: 'Gestione delle versioni', english: 'Version management' },
 
-    { label: LanguageLabel.SIDEBAR_EXTEND, italian: 'Estendi / Riduci', english: 'Extend / Reduce' },
+    { label: LanguageLabel.SIDEBAR_EXTEND_SHORT, italian: 'Estendi', english: 'Extend' },
+    { label: LanguageLabel.SIDEBAR_EXTEND_COMPLETE, italian: 'Estendi la barra di navigazione', english: 'Extend the navigation bar' },
+    { label: LanguageLabel.SIDEBAR_REDUCE_SHORT, italian: 'Riduci', english: 'Reduce' },
+    { label: LanguageLabel.SIDEBAR_REDUCE_COMPLETE, italian: 'Riduci la barra di navigazione', english: 'Reduce the navigation bar' },
+    { label: LanguageLabel.SIDEBAR_SEARCH_SHORT, italian: 'Cerca', english: 'Search' },
+    { label: LanguageLabel.SIDEBAR_SEARCH_COMPLETE, italian: 'Esegui una ricerca', english: 'Perform a search' },
+    { label: LanguageLabel.SIDEBAR_FILTER_SHORT, italian: 'Filtra', english: 'Filter' },
+    { label: LanguageLabel.SIDEBAR_FILTER_COMPLETE, italian: 'Applica dei filtri', english: 'Apply filters' },
+    { label: LanguageLabel.SIDEBAR_RELOAD_SHORT, italian: 'Ricarica', english: 'Reload' },
+    { label: LanguageLabel.SIDEBAR_RELOAD_COMPLETE, italian: 'Ricarica i dati', english: 'Reload data' },
 
     // SWITCH
     { label: LanguageLabel.SWITCH_NOPROJECTS, italian: 'Nessun Progetto', english: 'No projects' },

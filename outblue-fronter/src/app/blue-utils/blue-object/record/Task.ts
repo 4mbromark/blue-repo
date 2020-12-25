@@ -1,6 +1,6 @@
-import { RowData } from '../RowData';
+import { RowDataTable } from './../RowDataTable';
 
-export class Task extends RowData {
+export class Task extends RowDataTable {
   type: string;
   name: string;
   status: string;
@@ -9,7 +9,4 @@ export class Task extends RowData {
   taskOf: number;
   version: number;
   description: string;
-  icon: string;
-  color: string;
-  colorRow: string;
 }

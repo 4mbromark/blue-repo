@@ -6,11 +6,11 @@ import { BaseWindowService } from 'src/app/blue-utils/blue-base/base-window/base
 import { LightningService } from 'src/app/blue-utils/blue-service/lightning.service';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-projects-all',
+  templateUrl: './projects-all.component.html',
+  styleUrls: ['./projects-all.component.css']
 })
-export class ProjectsComponent extends BaseWindowComponent {
+export class ProjectsAllComponent extends BaseWindowComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,

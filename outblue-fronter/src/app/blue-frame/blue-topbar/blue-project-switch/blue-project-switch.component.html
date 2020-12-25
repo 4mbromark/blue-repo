@@ -43,7 +43,7 @@
 </div>
 
 <mat-menu #projectsContext="matMenu">
-  <div style="width: 300px;">
+  <div class="blue-context-menu">
     <div *ngFor="let button of contextButton">
       <button mat-button *ngIf="button.type === 'main'" class="project-button"
         (click)="getContextAction(button, $event, projectList);" [disabled]="getContextDisabled(button)"

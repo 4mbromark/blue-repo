@@ -1,12 +1,10 @@
 <div class="blue-100-100 blue-column blue-flex-center">
-  <div style="width: 100%;">
-    <div *ngFor="let button of buttons"
+  <div class="blue-w100">
+    <div *ngFor="let button of buttons" [ngSwitch]="button.type"
       [class]="selectedButton === button ? 'selected-outbox' : ''">
-      <button mat-button *ngIf="button.type === 'main'"
-        [class]="selectedButton === button ? 'selected-button' : 'button'"
-        (click)="setSidebarSelectedButton(button);" [matTooltip]="gbl(button.tooltip)" matTooltipPosition="right">
-        <span *ngIf="ls.extended"
-          [class]="selectedButton === button ? 'selected-thing' : 'selected-thing-not'">
+      <button mat-button *ngSwitchCase="tags.MAIN" [class]="selectedButton === button ? 'selected-button' : 'button'"
+        (click)="setSidebarSelectedButton(button);" [routerLink]="username + '/' + button.routerlink" [matTooltip]="gbl(button.tooltip)" matTooltipPosition="right">
+        <span *ngIf="ls.extended" [class]="selectedButton === button ? 'selected-thing' : 'selected-thing-not'">
           <fa-icon icon="angle-right" size="lg"></fa-icon>
         </span>
         <span [class]="ls.extended ? 'icon' : 'icon-not-extended'">
@@ -17,44 +15,37 @@
         <span *ngIf="ls.extended">{{gbl(button.title)}}</span>
       </button>
 
-      <mat-divider *ngIf="button.type === 'line'" class="divider"></mat-divider>
+      <mat-divider *ngSwitchCase="tags.LINE" class="divider"></mat-divider>
     </div>
   </div>
 
-  <div style="width: 100%;">
-    <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
-      [matTooltip]="'Search'" matTooltipPosition="right">
-      <span *ngIf="ls.extended">{{'Search'}}</span>
-      <button mat-icon-button>
-        <fa-icon icon="search" size="lg">
-        </fa-icon>
+  <div class="blue-w100">
+    <div *ngFor="let button of buttonsTool" [ngSwitch]="button.type">
+      <button mat-button *ngSwitchCase="tags.MAIN" class="leftbar-bottom-line" (click)="getSidebarAction(button);"
+        [matTooltip]="getSidebarTooltip(button)" matTooltipPosition="right">
+        <span *ngIf="ls.extended">{{getSidebarTitle(button)}}</span>
+        <button mat-icon-button>
+          <fa-icon [icon]="getSidebarIcon(button)" [spin]="button.tag === tags.SIDEBAR_RELOAD && !loaded" size="lg">
+          </fa-icon>
+        </button>
       </button>
-    </button>
-    <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
-      [matTooltip]="'Filters'" matTooltipPosition="right">
-      <span *ngIf="ls.extended">{{'Filters'}}</span>
-      <button mat-icon-button>
-        <fa-icon icon="filter" size="lg">
-        </fa-icon>
-      </button>
-    </button>
-    <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
-      [matTooltip]="'Reload data'" matTooltipPosition="right">
-      <span *ngIf="ls.extended">{{'Reload data'}}</span>
-      <button mat-icon-button>
-        <fa-icon icon="sync-alt" size="lg">
-        </fa-icon>
-      </button>
-    </button>
-    <mat-divider style="margin-right: 1px 0px;"></mat-divider>
-    <button mat-button class="leftbar-bottom-line" style="text-align: right;" (click)="setSidebarExtended()"
-      [matTooltip]="gbl('sidebar-extend')" matTooltipPosition="right">
-      <span *ngIf="ls.extended">{{gbl('sidebar-extend')}}</span>
-      <button mat-icon-button>
-        <fa-icon [icon]="ls.extended ? 'angle-double-left' : 'angle-double-right'" size="lg">
-        </fa-icon>
-      </button>
-    </button>
-  </div>
 
+      <span #searchTrigger [matMenuTriggerFor]="search"></span>
+      <span #filterTrigger [matMenuTriggerFor]="filter"></span>
+
+      <mat-divider *ngSwitchCase="tags.LINE" class="divider"></mat-divider>
+    </div>
+  </div>
 </div>
+
+<mat-menu #search="matMenu">
+  <div class="blue-tool-menu">
+    Ricerca
+  </div>
+</mat-menu>
+
+<mat-menu #filter="matMenu">
+  <div class="blue-tool-menu">
+    Filtri
+  </div>
+</mat-menu>

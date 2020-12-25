@@ -241,4 +241,77 @@ export class Table {
       field: 'insertDate'
     }*/
   ];
+
+  public static VERSIONS_TABLE = [
+    {
+      headerName: 'N°',
+      field: 'stamp',
+      minWidth: 70,
+      maxWidth: 70,
+      sortable: true
+    },
+    {
+      headerName: '',
+      field: 'icon',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'iconRenderingComponent',
+      sortable: true
+    },
+    {
+      headerName: '',
+      field: 'color',
+      minWidth: 70,
+      maxWidth: 70,
+      cellRenderer: 'colorRenderingComponent',
+      sortable: true
+    },
+    {
+      headerName: 'Progetto',
+      field: 'versionOf',
+      minWidth: 300,
+      cellRenderer: 'projectRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.CHIP
+        }
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: 'Versione',
+      field: 'name',
+      minWidth: 300,
+      cellRenderer: 'versionRenderingComponent',
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: 'Data Inizio',
+      field: 'from',
+      minWidth: 150,
+      cellRenderer: (data) => {
+        if (!data.value) {
+          return '';
+        }
+        return new Date(data.value).toLocaleDateString();
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: 'Data Fine',
+      field: 'to',
+      minWidth: 150,
+      cellRenderer: (data) => {
+        if (!data.value) {
+          return '';
+        }
+        return new Date(data.value).toLocaleDateString();
+      },
+      sortable: true,
+      resizable: true
+    },
+  ];
 }

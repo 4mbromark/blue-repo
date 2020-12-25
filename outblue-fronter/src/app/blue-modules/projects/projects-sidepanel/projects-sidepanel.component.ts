@@ -1,4 +1,4 @@
-import { LightningService } from './../../../blue-utils/blue-service/lightning.service';
+import { LightningService } from '../../../blue-utils/blue-service/lightning.service';
 import { BaseTableService } from 'src/app/blue-utils/blue-base/base-table/base-table.service';
 import { Component, OnInit } from '@angular/core';
 import { RowClickedEvent } from 'ag-grid-community';

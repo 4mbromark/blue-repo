@@ -12,10 +12,12 @@ export class BaseCellComponent implements ICellRendererAngularComp, OnInit {
 
   params: ICellRendererParams;
 
+  value: any;
+
   @HostListener('contextmenu', ['$event'])
   onRightClick(event) {
     event.preventDefault();
-    this.clipboard.copy(this.params.value);
+    this.clipboard.copy(this.value);
     return false;
   }
   constructor(
@@ -23,6 +25,7 @@ export class BaseCellComponent implements ICellRendererAngularComp, OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.value = this.params.value;
   }
 
   refresh(params: any): boolean {

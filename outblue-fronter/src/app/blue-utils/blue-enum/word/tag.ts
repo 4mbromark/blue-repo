@@ -16,6 +16,16 @@ export class Tag {
   public static CONTEXT_RECENTPROJECTS = 'context-togglepanel-nocount';
   public static CONTEXT_MIDDLEPROJECTS = 'context-middleprojects';
 
+  // SIDEBAR
+  public static SIDEBAR_SEARCH = 'sidebar-search';
+  public static SIDEBAR_FILTER = 'sidebar-filter';
+  public static SIDEBAR_RELOAD = 'sidebar-reload';
+  public static SIDEBAR_TOGGLE = 'sidebar-toggle';
+
+  // BUTTONS
+  public static MAIN = 'main';
+  public static LINE = 'line';
+
   // PREFERENCES
   public static SWITCH = 'SWITCH';
   public static CONTEXT = 'CONTEXT';
