@@ -7,7 +7,7 @@
     <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
       [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
   </span>
-  <span #projectTrigger="matMenuTrigger" [matMenuTriggerFor]="projectChip"></span>
+  <span #trigger="matMenuTrigger" [matMenuTriggerFor]="projectChip"></span>
 </span>
 
 <mat-menu #projectChip="matMenu">

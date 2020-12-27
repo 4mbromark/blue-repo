@@ -32,5 +32,25 @@ export class Tag {
   public static CHIP = 'CHIP';
   public static TABLE = 'TABLE';
 
+  // SELECTORS
+  public static PALETTE_RGB = 'palette-rgb';
+  public static PALETTE_CMYK = 'palette-cmyk';
+  public static PALETTE_HSL = 'palette-hsl';
+
+  public static PALETTE_GENERAL = 'palette-general';
+
+  public static PALETTE_RED = 'palette-red';
+  public static PALETTE_GREEN = 'palette-green';
+  public static PALETTE_BLUE = 'palette-blue';
+
+  public static PALETTE_CYAN = 'palette-cyan';
+  public static PALETTE_MAGENTA = 'palette-magenta';
+  public static PALETTE_YELLOW = 'palette-yellow';
+  public static PALETTE_KEY = 'palette-key';
+
+  public static PALETTE_HUE = 'palette-hue';
+  public static PALETTE_SATURATION = 'palette-saturation';
+  public static PALETTE_LIGHTNESS = 'palette-lightness';
+
   public static LOGOUT = 'logout';
 }

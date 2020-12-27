@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaletteComponent } from './palette.component';
+import { ColorBasicSelectorComponent } from './color-basic-selector.component';
 
-describe('PaletteComponent', () => {
-  let component: PaletteComponent;
-  let fixture: ComponentFixture<PaletteComponent>;
+describe('ColorBasicSelectorComponent', () => {
+  let component: ColorBasicSelectorComponent;
+  let fixture: ComponentFixture<ColorBasicSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaletteComponent ]
+      declarations: [ ColorBasicSelectorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PaletteComponent);
+    fixture = TestBed.createComponent(ColorBasicSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

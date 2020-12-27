@@ -1,3 +1,4 @@
+import { LanguageLabel } from '../blue-language/language-labels';
 import { Tag } from './word/tag';
 
 export class Table {
@@ -10,7 +11,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'icon',
       minWidth: 70,
       maxWidth: 70,
@@ -18,7 +24,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'color',
       minWidth: 70,
       maxWidth: 70,
@@ -26,15 +37,22 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: LanguageLabel.HEADER_PRIORITY,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'priority',
-      minWidth: 70,
-      maxWidth: 70,
+      minWidth: 100,
       cellRenderer: 'priorityRenderingComponent',
       sortable: true
     },
     {
-      headerName: 'Stato',
+      headerName: LanguageLabel.HEADER_STATUS,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'status',
       minWidth: 150,
       cellRenderer: 'statusRenderingComponent',
@@ -49,7 +67,11 @@ export class Table {
       resizable: true
     },*/
     {
-      headerName: 'Progetto',
+      headerName: LanguageLabel.HEADER_PROJECT,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'name',
       minWidth: 400,
       cellRenderer: 'projectRenderingComponent',
@@ -62,7 +84,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Superprogetto',
+      headerName: LanguageLabel.HEADER_SUPERPROJECT,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'subprojectOf',
       minWidth: 300,
       cellRenderer: 'projectRenderingComponent',
@@ -75,7 +101,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Data Inizio',
+      headerName: LanguageLabel.HEADER_STARTDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'startDate',
       minWidth: 150,
       cellRenderer: (data) => {
@@ -88,7 +118,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Data Fine',
+      headerName: LanguageLabel.HEADER_ENDDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'endDate',
       minWidth: 150,
       cellRenderer: (data) => {
@@ -111,10 +145,31 @@ export class Table {
       width: '200px'
     },*/
     {
-      headerName: 'Data Inserimento',
+      headerName: LanguageLabel.HEADER_INSERTDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'insertDate',
       minWidth: 200,
       cellRenderer: (data) => {
+        return new Date(data.value).toLocaleString();
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: LanguageLabel.HEADER_UPDATEDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
+      field: 'updateDate',
+      minWidth: 200,
+      cellRenderer: (data) => {
+        if (!data.value) {
+          return '';
+        }
         return new Date(data.value).toLocaleString();
       },
       sortable: true,
@@ -139,7 +194,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'icon',
       minWidth: 70,
       maxWidth: 70,
@@ -147,7 +207,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'color',
       minWidth: 70,
       maxWidth: 70,
@@ -155,10 +220,13 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: LanguageLabel.HEADER_PRIORITY,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'priority',
-      minWidth: 70,
-      maxWidth: 70,
+      minWidth: 100,
       cellRenderer: 'priorityRenderingComponent',
       sortable: true
     },
@@ -171,7 +239,11 @@ export class Table {
       resizable: true
     },*/
     {
-      headerName: 'Progetto',
+      headerName: LanguageLabel.HEADER_PROJECT,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'taskOf',
       minWidth: 300,
       cellRenderer: 'projectRenderingComponent',
@@ -197,7 +269,11 @@ export class Table {
       width: '120px'
     },*/
     {
-      headerName: 'Attività',
+      headerName: LanguageLabel.HEADER_TASK,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'name',
       minWidth: 400,
       cellRenderer: 'taskRenderingComponent',
@@ -219,7 +295,11 @@ export class Table {
       field: 'insertDate'
     },*/
     {
-      headerName: 'Data Inserimento',
+      headerName: LanguageLabel.HEADER_INSERTDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'insertDate',
       minWidth: 200,
       cellRenderer: (data) => {
@@ -251,7 +331,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'icon',
       minWidth: 70,
       maxWidth: 70,
@@ -259,7 +344,12 @@ export class Table {
       sortable: true
     },
     {
-      headerName: '',
+      headerName: null,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        displayName: null,
+        enableSorting: true
+      },
       field: 'color',
       minWidth: 70,
       maxWidth: 70,
@@ -267,7 +357,11 @@ export class Table {
       sortable: true
     },
     {
-      headerName: 'Progetto',
+      headerName: LanguageLabel.HEADER_PROJECT,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'versionOf',
       minWidth: 300,
       cellRenderer: 'projectRenderingComponent',
@@ -280,7 +374,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Versione',
+      headerName: LanguageLabel.HEADER_VERSION,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'name',
       minWidth: 300,
       cellRenderer: 'versionRenderingComponent',
@@ -288,7 +386,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Data Inizio',
+      headerName: LanguageLabel.HEADER_STARTDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'from',
       minWidth: 150,
       cellRenderer: (data) => {
@@ -301,7 +403,11 @@ export class Table {
       resizable: true
     },
     {
-      headerName: 'Data Fine',
+      headerName: LanguageLabel.HEADER_ENDDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
       field: 'to',
       minWidth: 150,
       cellRenderer: (data) => {
@@ -309,6 +415,20 @@ export class Table {
           return '';
         }
         return new Date(data.value).toLocaleDateString();
+      },
+      sortable: true,
+      resizable: true
+    },
+    {
+      headerName: LanguageLabel.HEADER_INSERTDATE,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
+      field: 'insertDate',
+      minWidth: 200,
+      cellRenderer: (data) => {
+        return new Date(data.value).toLocaleString();
       },
       sortable: true,
       resizable: true

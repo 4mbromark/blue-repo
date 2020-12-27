@@ -53,6 +53,7 @@ class ProjectsService {
         dbObject.color = dbObject.COLOR;
         dbObject.colorRow = dbObject.COLOR_ROW;
         dbObject.insertDate = dbObject.INSERT_DATE;
+        dbObject.updateDate = dbObject.UPDATE_DATE;
 
         return dbObject;
     }

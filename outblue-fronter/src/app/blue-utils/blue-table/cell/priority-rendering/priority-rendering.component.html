@@ -1,6 +1,14 @@
-<span class="record-simple-selector" (click)="$event.stopPropagation();" [matTooltip]="gbl(labels.ROW_CHANGEPRIORITY)"
+<span class="record-simple-selector" (click)="triggerMenu($event)" [matTooltip]="gbl(labels.ROW_CHANGEPRIORITY)"
   matTooltipPosition="right">
-  <fa-icon *ngIf="icon" [icon]="icon" size="lg" [style]="'color: ' + color + ';'"></fa-icon>
-  <fa-icon *ngIf="!icon" icon="angle-down" size="lg" [style]="'color: ' + (params.data.colorRow ? params.data.colorRow : 'white')">
+  <span *ngIf="priority" class="chip" [style]="'background-color:' + priority.color + ';'">
+    <fa-icon [icon]="priority.icon" size="sm" style="color: white; margin-right: 5px;"></fa-icon>
+    {{value}}
+  </span>
+  <fa-icon *ngIf="!priority" icon="angle-down" size="lg" [style]="'color: ' + (params.data.colorRow ? params.data.colorRow : 'white')">
   </fa-icon>
+  <span #trigger="matMenuTrigger" [matMenuTriggerFor]="priorities"></span>
 </span>
+
+<mat-menu #priorities="matMenu">
+  <app-priority-selector [selected]="priority ? priority.code : ''"></app-priority-selector>
+</mat-menu>

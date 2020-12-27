@@ -12,7 +12,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class StatusRenderingComponent extends BaseCellComponent implements OnInit {
 
-  rowStatus: Status;
+  status: Status;
 
   constructor(
     private languageService: LanguageService,
@@ -22,8 +22,10 @@ export class StatusRenderingComponent extends BaseCellComponent implements OnIni
   }
 
   ngOnInit(): void {
-    this.rowStatus = ProjectStatus.get(this.params.value);
-    this.value = this.gbl(this.rowStatus.title);
+    this.status = ProjectStatus.get(this.params.value);
+    if (this.status) {
+      this.value = this.gbl(this.status.title);
+    }
   }
 
   gbl(label: string): string {

@@ -1,8 +1,10 @@
+import { PriorityList } from './../../../blue-enum/priority/priority-list';
 import { LanguageService } from './../../../blue-service/language.service';
 import { BaseCellComponent } from './../../../blue-base/base-cell/base-cell.component';
 import { Component, OnInit } from '@angular/core';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Priority } from 'src/app/blue-utils/blue-object/priority/Priority';
 
 @Component({
   selector: 'app-priority-rendering',
@@ -13,8 +15,7 @@ export class PriorityRenderingComponent extends BaseCellComponent implements OnI
 
   labels = LanguageLabel;
 
-  icon: string;
-  color: string;
+  priority: Priority;
 
   constructor(
     private languageService: LanguageService,
@@ -24,30 +25,9 @@ export class PriorityRenderingComponent extends BaseCellComponent implements OnI
   }
 
   ngOnInit(): void {
-    switch (this.params.value) {
-      case '1': {
-        this.icon = 'angle-up';
-        this.color = 'orange';
-        break;
-      }
-      case '2': {
-        this.icon = 'angle-double-up';
-        this.color = 'red';
-        break;
-      }
-      case '-1': {
-        this.icon = 'angle-down';
-        this.color = 'greenyellow';
-        break;
-      }
-      case '-2': {
-        this.icon = 'angle-double-down';
-        this.color = 'green';
-        break;
-      }
-      default: {
-        // this.priority = 'bars';
-      }
+    this.priority = PriorityList.get(this.params.value);
+    if (this.priority) {
+      this.value = this.gbl(this.priority.title);
     }
   }
 

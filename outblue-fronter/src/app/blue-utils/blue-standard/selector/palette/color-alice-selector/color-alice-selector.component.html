@@ -1,0 +1,88 @@
+<div class="blue-row blue-m10">
+  <div class="blue-column">
+    <div class="blue-row">
+      <div class="blue-column">
+        <mat-button-toggle-group [(ngModel)]="type" style="margin-bottom: 5px;">
+          <mat-button-toggle [value]="tags.PALETTE_RGB" (click)="setType(tags.PALETTE_RGB, $event);" ngDefaultControl>
+            RGB
+          </mat-button-toggle>
+          <!--<mat-button-toggle [value]="tags.PALETTE_CMYK" (click)="setType(tags.PALETTE_CMYK, $event);" ngDefaultControl>
+            CMYK
+          </mat-button-toggle>-->
+          <mat-button-toggle [value]="tags.PALETTE_HSL" (click)="setType(tags.PALETTE_HSL, $event);" ngDefaultControl>
+            HSL
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-button-toggle-group [(ngModel)]="selector" [disabled]="professional" style="margin-bottom: 5px;">
+          <mat-button-toggle *ngFor="let slider of sliders" [value]="!professional ? slider.color : null"
+            [disabled]="professional" (click)="setSelector(slider, $event);" ngDefaultControl>
+            {{gbl(slider.title)}}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="blue-column">
+        <button mat-icon-button class="blue-no-radius" (click)="setProfessional($event);" style="margin: 15px; rotate: (90deg);">
+          <fa-icon icon="sliders-h" size="lg"></fa-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="blue-row" [ngSwitch]="type">
+      <div *ngSwitchCase="tags.PALETTE_RGB" style="margin-right: 10px;">
+        <div *ngFor="let r of getColorRange(tags.PALETTE_RED)"
+          [class]="professional ? sliders[0].check ? 'blue-column' : 'blue-row' : selector === tags.PALETTE_RED ? 'blue-column' : 'blue-row'">
+          <div *ngFor="let g of getColorRange(tags.PALETTE_GREEN)" class="blue-row">
+            <div *ngFor="let b of getColorRange(tags.PALETTE_BLUE)" class="blue-row">
+              <button class="grid-button" [style]="'background-color: rgb(' + r + ',' + g + ',' + b + ');'"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="tags.PALETTE_CMYK" style="margin-right: 10px;">
+        <div *ngFor="let c of getColorRange(tags.PALETTE_CYAN)"
+          [class]="professional ? sliders[0].check ? 'blue-column' : 'blue-row' : selector === tags.PALETTE_CYAN ? 'blue-column' : 'blue-row'">
+          <div *ngFor="let m of getColorRange(tags.PALETTE_MAGENTA)" class="blue-row">
+            <div *ngFor="let y of getColorRange(tags.PALETTE_YELLOW)" class="blue-row">
+              <button class="grid-button"
+                [style]="'background-color: cmyk(' + c + '%,' + m + '%,' + y + '%,0%);'"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="tags.PALETTE_HSL" style="margin-right: 10px;">
+        <div *ngFor="let h of getColorRange(tags.PALETTE_HUE)"
+          [class]="professional ? sliders[0].check ? 'blue-column' : 'blue-row' : selector === tags.PALETTE_HUE ? 'blue-column' : 'blue-row'">
+          <div *ngFor="let s of getColorRange(tags.PALETTE_SATURATION)" class="blue-row">
+            <div *ngFor="let l of getColorRange(tags.PALETTE_LIGHTNESS)" class="blue-row">
+              <button class="grid-button"
+                [style]="'background-color: hsl(' + h + ',' + s + '%,' + l + '%);'"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="blue-column">
+    <div class="blue-h100 blue-row blue-m10" (click)="$event.stopPropagation();">
+      <div *ngFor="let slider of sliders">
+        <div *ngIf="professional || !professional && slider.color === selector"
+          class="blue-h100 blue-flex-center blue-column">
+          <span class="blue-no-select" style="font-size: large;" [matTooltip]="gbl(slider.title)"
+            matTooltipPosition="below">{{slider.letter}}</span>
+          <input mat-input *ngIf="professional " [(ngModel)]="slider.value"
+            style="width: 25px; margin: 3px; text-align: center;">
+          <mat-slider class="blue-h100" [invert]="true" [min]="slider.min" [max]="slider.max" [(ngModel)]="slider.value"
+            [vertical]="true" [step]="15" [thumbLabel]="true" (input)="onSliderChange($event, slider)">
+          </mat-slider>
+          <fa-icon *ngIf="professional" [icon]="slider.check ? 'check-circle' : 'circle'" size="lg"
+            [style]="'color: ' + getColorBySlider(slider)" (click)="checkSlider(slider);"></fa-icon>
+        </div>
+      </div>
+    </div>
+
+    <button class="blue-w100 blue-no-radius combo-button" *ngIf="professional"
+      [style]="'background-color: ' + getColorByValues()"></button>
+  </div>
+</div>

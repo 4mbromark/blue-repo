@@ -84,6 +84,18 @@ export class LanguageLabel {
   public static TABLE_NOTASKS = 'table-notasks';
   public static TABLE_NOVERSIONS = 'table-noversions';
 
+  public static HEADER_PROJECT = 'header-project';
+  public static HEADER_TASK = 'header-task';
+  public static HEADER_VERSION = 'header-version';
+  public static HEADER_STATUS = 'header-status';
+  public static HEADER_PRIORITY = 'header-priority';
+  public static HEADER_SUPERPROJECT = 'header-subproject';
+  public static HEADER_STARTDATE = 'header-startdate';
+  public static HEADER_ENDDATE = 'header-enddate';
+  public static HEADER_INSERTDATE = 'header-insertdate';
+  public static HEADER_UPDATEDATE = 'header-updatedate';
+
+
   public static ROW_CHANGEICON = 'row-changeicon';
   public static ROW_CHANGECOLOR = 'row-changecolor';
   public static ROW_CHANGEPRIORITY = 'row-changepriority';
@@ -205,4 +217,28 @@ export class LanguageLabel {
 
   public static WINDOW_ADMINISTRATION = 'window-administration';
   public static WINDOW_PROJECTS = 'window-projects';
+
+  // PRIORITIES
+  public static PRIORITY_HIGHER = 'priority-higher';
+  public static PRIORITY_HIGHER_DESCRIPTION = 'priority-higher' + Config.DESCRIPTION;
+  public static PRIORITY_HIGH = 'priority-high';
+  public static PRIORITY_HIGH_DESCRIPTION = 'priority-high' + Config.DESCRIPTION;
+  public static PRIORITY_MEDIUM = 'priority-medium';
+  public static PRIORITY_MEDIUM_DESCRIPTION = 'priority-medium' + Config.DESCRIPTION;
+  public static PRIORITY_LOW = 'priority-low';
+  public static PRIORITY_LOW_DESCRIPTION = 'priority-low' + Config.DESCRIPTION;
+  public static PRIORITY_LOWER = 'priority-lower';
+  public static PRIORITY_LOWER_DESCRIPTION = 'priority-lower' + Config.DESCRIPTION;
+
+  // SELECTORS
+  public static PALETTE_RED = 'palette-red';
+  public static PALETTE_GREEN = 'palette-green';
+  public static PALETTE_BLUE = 'palette-blue';
+  public static PALETTE_CYAN = 'palette-cyan';
+  public static PALETTE_MAGENTA = 'palette-magenta';
+  public static PALETTE_YELLOW = 'palette-yellow';
+  public static PALETTE_KEY = 'palette-key';
+  public static PALETTE_HUE = 'palette-hue';
+  public static PALETTE_SATURATION = 'palette-saturation';
+  public static PALETTE_LIGHTNESS = 'palette-lightness';
 }

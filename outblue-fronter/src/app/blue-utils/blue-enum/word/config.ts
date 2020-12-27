@@ -26,4 +26,7 @@ export class Config {
   // LANGUAGE LABELS
   public static TOOLTIP = '-tooltip';
   public static DESCRIPTION = '-description';
+
+  // SELECTORS
+  public static SLIDER = 'slider';
 }
