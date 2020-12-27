@@ -19,7 +19,7 @@ import { BlueLoginFormComponent } from './blue-login/blue-login-form/blue-login-
 import { BlueLoginContactsComponent } from './blue-login/blue-login-contacts/blue-login-contacts.component';
 import { BlueTopbarComponent } from './blue-frame/blue-topbar/blue-topbar.component';
 import { TasklistComponent } from './blue-modules/tasklist/tasklist.component';
-import { PaletteComponent } from './blue-utils/blue-context/palette/palette.component';
+import { ColorSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-selector/color-selector.component';
 import { LanguageComponent } from './blue-frame/blue-window/language/language.component';
 import { PreferenceComponent } from './blue-frame/blue-window/preference/preference.component';
 import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging.component';
@@ -54,6 +54,11 @@ import { TaskRenderingComponent } from './blue-utils/blue-table/cell/task-render
 import { ProjectsComponent } from './blue-modules/projects/projects.component';
 import { VersionsComponent } from './blue-modules/versions/versions.component';
 import { VersionRenderingComponent } from './blue-utils/blue-table/cell/version-rendering/version-rendering.component';
+import { HeaderRenderingComponent } from './blue-utils/blue-table/header/header-rendering/header-rendering.component';
+import { PrioritySelectorComponent } from './blue-utils/blue-standard/selector/priority-selector/priority-selector.component';
+import { IconSelectorComponent } from './blue-utils/blue-standard/selector/icon-selector/icon-selector.component';
+import { ColorAliceSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-alice-selector/color-alice-selector.component';
+import { ColorBasicSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-basic-selector/color-basic-selector.component';
 
 
 @NgModule({
@@ -67,7 +72,7 @@ import { VersionRenderingComponent } from './blue-utils/blue-table/cell/version-
     BlueLoginContactsComponent,
     BlueTopbarComponent,
     TasklistComponent,
-    PaletteComponent,
+    ColorSelectorComponent,
     MessagingComponent,
     LanguageComponent,
     PreferenceComponent,
@@ -100,7 +105,12 @@ import { VersionRenderingComponent } from './blue-utils/blue-table/cell/version-
     TaskRenderingComponent,
     ProjectsComponent,
     VersionsComponent,
-    VersionRenderingComponent
+    VersionRenderingComponent,
+    HeaderRenderingComponent,
+    PrioritySelectorComponent,
+    IconSelectorComponent,
+    ColorAliceSelectorComponent,
+    ColorBasicSelectorComponent
   ],
   imports: [
     AngularModules,

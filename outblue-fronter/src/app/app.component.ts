@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
 
   ls: LeftbarStatus = new LeftbarStatus();
 
-  @HostListener('contextmenu', ['$event'])
+  /*@HostListener('contextmenu', ['$event'])
   onRightClick(event) {
     event.preventDefault();
     return false;
-  }
+  }*/
   constructor(
     private permitService: PermitService,
     private sidebarService: SidebarService

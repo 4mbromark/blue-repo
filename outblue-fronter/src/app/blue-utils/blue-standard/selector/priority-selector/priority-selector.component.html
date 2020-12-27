@@ -1,0 +1,13 @@
+<div class="blue-selector-menu">
+  <div *ngFor="let priority of priorities">
+    <button mat-button class="blue-column blue-w100 blue-no-radius"
+      [style]="priority.code === selected ? 'background-color: var(--blue-support-color)' : ''">
+      <span class="chip" [style]="'background-color: ' + priority.color + ';'">
+        <fa-icon [icon]="priority.icon" size="sm" style="color: white; margin-right: 5px;"></fa-icon>
+        {{gbl(priority.title)}}
+      </span>
+      <span style="margin: 5px;">{{gbl(priority.description)}}</span>
+    </button>
+    <mat-divider class="blue-w100"></mat-divider>
+  </div>
+</div>

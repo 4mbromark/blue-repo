@@ -6,7 +6,7 @@ import { User } from './../../../blue-utils/blue-object/User';
 import { ContextButton } from './../../../blue-utils/blue-object/button/ContextButton';
 import { LanguageLabel } from 'src/app/blue-utils/blue-language/language-labels';
 import { List } from './../../../blue-utils/blue-enum/list';
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, ɵRender3ComponentFactory } from '@angular/core';
 import { Tag } from 'src/app/blue-utils/blue-enum/word/tag';
 import { LanguageService } from 'src/app/blue-utils/blue-service/language.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
@@ -36,6 +36,7 @@ export class ProjectSwitchComponent implements OnInit {
   superProjects: Project[];
   subProjects: Project[];
   middleProjects: Project[];
+  recentProjects: Project[];
 
   opened = false;
   disabled = false;
@@ -66,6 +67,18 @@ export class ProjectSwitchComponent implements OnInit {
         !project.subprojectOf
       );
       this.disabled = projects.length === 0;
+      // TODO
+      let recent = this.projects.filter(project =>
+        true
+      );
+      recent = recent.sort((p1, p2) => {
+        if (p1.updateDate > p2.updateDate) {
+          return -1;
+        }
+        return 1;
+      });
+      recent.splice(5);
+      this.recentProjects = recent;
     });
     this.projectService.getSuperProjects().subscribe((superProjects: Project[]) => {
       this.superProjects = superProjects;
@@ -151,7 +164,7 @@ export class ProjectSwitchComponent implements OnInit {
       }
       case Tag.CONTEXT_LEADERPROJECTS:
       case Tag.CONTEXT_RECENTPROJECTS: {
-        return this.projects.length === 0;
+        return this.recentProjects.length === 0;
       }
       case Tag.CONTEXT_SUPERPROJECTS: {
         return this.superProjects.length === 0;
@@ -163,11 +176,6 @@ export class ProjectSwitchComponent implements OnInit {
         return this.middleProjects.length === 0;
       }
     }
-    return button.tag === Tag.CONTEXT_SUPERPROJECTS && this.superProjects.length === 0 ||
-    button.tag === Tag.CONTEXT_SUBPROJECTS && this.subProjects.length === 0 ||
-    button.tag === Tag.CONTEXT_MIDDLEPROJECTS && this.middleProjects.length === 0 ||
-    button.tag === Tag.CONTEXT_ALLPROJECTS && this.project === null ||
-    button.tag === Tag.CONTEXT_ALLPROJECTS && this.projects.length === 0;
   }
   getContextCount(button: ContextButton) {
     switch (button.tag) {
@@ -200,7 +208,7 @@ export class ProjectSwitchComponent implements OnInit {
         return this.middleProjects;
       }
       default: {
-        return this.projects;
+        return this.recentProjects;
       }
     }
   }

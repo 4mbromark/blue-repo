@@ -73,6 +73,19 @@ body {
 .mat-expansion-panel-body {
   padding: 0 0px 0px !important;
 }
+.mat-button-toggle-label-content {
+  line-height: 30px !important;
+}
+.mat-button-toggle {
+  height: 100% !important;
+}
+.mat-button-toggle-group {
+  border-radius: 0px !important;
+}
+.mat-button-toggle-checked {
+  color: white !important;
+  background-color: var(--blue-main-color) !important;
+}
 
 /* OVERRIDE SCROLLBAR */
 ::-webkit-scrollbar {
@@ -97,6 +110,7 @@ body {
   font-weight: 500;
   color: var(--blue-main-color);
   border-bottom: var(--blue-border-bottom);
+  justify-content: center;
 }
 .ag-header-cell-label {
   justify-content: center;
@@ -140,15 +154,22 @@ body {
   user-select: none;
 }
 
+.blue-no-radius {
+  border-radius: 0px !important;
+}
+
 .blue-100-100 {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 .blue-w100 {
   width: 100%;
 }
 .blue-h100 {
   height: 100%;
+}
+.blue-m10 {
+  margin: 10px;
 }
 
 .blue-context-menu {
@@ -157,6 +178,9 @@ body {
 .blue-tool-menu {
   width: 500px;
   margin: 10px;
+}
+.blue-selector-menu {
+  width: 300px;
 }
 
 /* SPAZIATORI */
@@ -229,7 +253,7 @@ body {
 }
 
 /* CHIPS */
-.chip-grey, .chip-blue {
+.chip, .chip-grey, .chip-blue {
   border-radius: 30px;
   padding: 2px 10px;
   color: white;

@@ -8,6 +8,7 @@ import { List } from 'src/app/blue-utils/blue-enum/list';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { StorageService } from 'src/app/blue-utils/blue-service/storage.service';
 import { Config } from 'src/app/blue-utils/blue-enum/word/config';
+import { RoutingService } from 'src/app/blue-utils/blue-service/routing.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,13 +27,14 @@ export class SidebarComponent implements OnInit {
   ls: LeftbarStatus;
   loaded = false;
 
-  selectedButton = this.buttons[1];
+  selectedButton: SidebarButton;
 
   username = this.localStorage.get(Config.USERNAME) ? this.localStorage.get(Config.USERNAME) : '';
 
   constructor(
     private sidebarService: SidebarService,
     private projectService: ProjectService,
+    private routingService: RoutingService,
     private localStorage: StorageService,
     private languageService: LanguageService
   ) { }
@@ -44,6 +46,7 @@ export class SidebarComponent implements OnInit {
     this.projectService.getLoaded().subscribe((loaded: boolean) => {
       this.loaded = loaded;
     });
+    this.setSidebarSelectedButton(this.buttons.find(button => this.routingService.getUrl().includes(button.routerlink)));
   }
 
   gbl(label: string): string {

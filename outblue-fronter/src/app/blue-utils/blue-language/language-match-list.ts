@@ -75,6 +75,17 @@ export class LanguageMatchList {
     { label: LanguageLabel.TABLE_NOTASKS, italian: 'Nessuna attività per il Progetto selezionato', english: 'There are no tasks for the selected Project'},
     { label: LanguageLabel.TABLE_NOVERSIONS, italian: 'Nessuna versione per il Progetto selezionato', english: 'There are no versions for the selected Project'},
 
+    { label: LanguageLabel.HEADER_PROJECT, italian: 'Progetto', english: 'Project'},
+    { label: LanguageLabel.HEADER_TASK, italian: 'Attività', english: 'Task'},
+    { label: LanguageLabel.HEADER_VERSION, italian: 'Versione', english: 'Version'},
+    { label: LanguageLabel.HEADER_STATUS, italian: 'Stato', english: 'Status'},
+    { label: LanguageLabel.HEADER_PRIORITY, italian: 'Priorità', english: 'Priority'},
+    { label: LanguageLabel.HEADER_SUPERPROJECT, italian: 'Superprogetto', english: 'Superproject'},
+    { label: LanguageLabel.HEADER_STARTDATE, italian: 'Data Inizio', english: 'Start Date'},
+    { label: LanguageLabel.HEADER_ENDDATE, italian: 'Data Fine', english: 'End Date'},
+    { label: LanguageLabel.HEADER_INSERTDATE, italian: 'Data Inserimento', english: 'Insert Date'},
+    { label: LanguageLabel.HEADER_UPDATEDATE, italian: 'Ultimo Aggiornamento', english: 'Last Update'},
+
     { label: LanguageLabel.ROW_CHANGEICON, italian: 'Cambia icona', english: 'Change icon'},
     { label: LanguageLabel.ROW_CHANGECOLOR, italian: 'Cambia colore', english: 'Change color'},
     { label: LanguageLabel.ROW_CHANGEPRIORITY, italian: 'Cambia priorità', english: 'Change priority'},
@@ -194,5 +205,29 @@ export class LanguageMatchList {
 
     { label: LanguageLabel.WINDOW_ADMINISTRATION, italian: 'Pannello amministrativo di ' + Name.OUTBLUE, english: Name.OUTBLUE + ' administration panel' },
     { label: LanguageLabel.WINDOW_PROJECTS, italian: 'Registro dei Progetti di ' + Config.NAME, english: Config.NAME + '\'s Projects register' },
+
+    // PRIORITIES
+    { label: LanguageLabel.PRIORITY_HIGHER, italian: 'Urgente', english: 'Higher' },
+    { label: LanguageLabel.PRIORITY_HIGHER_DESCRIPTION, italian: 'Progetto completato', english: 'Project completed' },
+    { label: LanguageLabel.PRIORITY_HIGH, italian: 'Alta', english: 'High' },
+    { label: LanguageLabel.PRIORITY_HIGH_DESCRIPTION, italian: 'Progetto completato', english: 'Project completed' },
+    { label: LanguageLabel.PRIORITY_MEDIUM, italian: 'Media', english: 'Medium' },
+    { label: LanguageLabel.PRIORITY_MEDIUM_DESCRIPTION, italian: 'Progetto completato', english: 'Project completed' },
+    { label: LanguageLabel.PRIORITY_LOW, italian: 'Bassa', english: 'Low' },
+    { label: LanguageLabel.PRIORITY_LOW_DESCRIPTION, italian: 'Progetto completato', english: 'Project completed' },
+    { label: LanguageLabel.PRIORITY_LOWER, italian: 'Futile', english: 'Lower' },
+    { label: LanguageLabel.PRIORITY_LOWER_DESCRIPTION, italian: 'Progetto completato', english: 'Project completed' },
+
+    // SELECTORS
+    { label: LanguageLabel.PALETTE_RED, italian: 'Rosso', english: 'Red' },
+    { label: LanguageLabel.PALETTE_GREEN, italian: 'Verde', english: 'Green' },
+    { label: LanguageLabel.PALETTE_BLUE, italian: 'Blu', english: 'Blue' },
+    { label: LanguageLabel.PALETTE_CYAN, italian: 'Ciano', english: 'Cyan' },
+    { label: LanguageLabel.PALETTE_MAGENTA, italian: 'Magenta', english: 'Magenta' },
+    { label: LanguageLabel.PALETTE_YELLOW, italian: 'Giallo', english: 'Yellow' },
+    { label: LanguageLabel.PALETTE_KEY, italian: 'Key', english: 'Key' },
+    { label: LanguageLabel.PALETTE_HUE, italian: 'Tonalità', english: 'Hue' },
+    { label: LanguageLabel.PALETTE_SATURATION, italian: 'Saturazione', english: 'Saturation' },
+    { label: LanguageLabel.PALETTE_LIGHTNESS, italian: 'Luminosità', english: 'Lightness' },
   ];
 }

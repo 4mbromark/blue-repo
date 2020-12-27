@@ -1,0 +1,8 @@
+<div *ngFor="let icon of icons">
+  <span *ngFor="let i of icon">
+    <button mat-icon-button class="blue-no-radius" *ngIf="i" [style]="i === selected ? 'background-color: var(--blue-support-color)' : ''">
+      <fa-icon [icon]="i" size="lg"></fa-icon>
+    </button>
+    <mat-divider *ngIf="!i"></mat-divider>
+  </span>
+</div>

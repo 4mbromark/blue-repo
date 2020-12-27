@@ -17,7 +17,8 @@ var userMap = session.tableMap('blue_project')
     .columnMap('icon', 'ICON')
     .columnMap('color', 'COLOR')
     .columnMap('colorRow', 'COLOR_ROW')
-    .columnMap('insertDate', 'INSERT_DATE');
+    .columnMap('insertDate', 'INSERT_DATE')
+    .columnMap('updateDate', 'UPDATE_DATE');
 
 class ProjectsDao {
 

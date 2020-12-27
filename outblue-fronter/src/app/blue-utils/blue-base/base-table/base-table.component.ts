@@ -1,3 +1,4 @@
+import { HeaderRenderingComponent } from './../../blue-table/header/header-rendering/header-rendering.component';
 import { SidebarService, LeftbarStatus } from './../../../blue-frame/blue-sidebar/blue-sidebar.service';
 import { TaskRenderingComponent } from './../../blue-table/cell/task-rendering/task-rendering.component';
 import { INoRowsOverlayParams, RowClickedEvent } from 'ag-grid-community';
@@ -45,6 +46,8 @@ export class BaseTableComponent implements OnInit, OnDestroy {
     emptyOverlayComponent: EmptyOverlayComponent,
     loadingOverlayComponent: LoadingOverlayComponent,
 
+    headerRenderingComponent: HeaderRenderingComponent,
+
     iconRenderingComponent: IconRenderingComponent,
     colorRenderingComponent: ColorRenderingComponent,
     statusRenderingComponent: StatusRenderingComponent,
@@ -90,7 +93,7 @@ export class BaseTableComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.sizeColumnsToFit();
         this.manageFinalOverlay();
-      }, 500);
+      }, 200);
     });
   }
   ngOnDestroy(): void {

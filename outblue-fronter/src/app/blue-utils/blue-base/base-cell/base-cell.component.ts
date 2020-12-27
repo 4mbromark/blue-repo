@@ -1,5 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid-community';
 
@@ -9,6 +10,7 @@ import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid-community'
   styleUrls: ['./base-cell.component.css']
 })
 export class BaseCellComponent implements ICellRendererAngularComp, OnInit {
+  @ViewChild('trigger', {read: MatMenuTrigger}) trigger: MatMenuTrigger;
 
   params: ICellRendererParams;
 
@@ -36,6 +38,11 @@ export class BaseCellComponent implements ICellRendererAngularComp, OnInit {
   }
   afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
     throw new Error('Method not implemented.');
+  }
+
+  triggerMenu(event: any): void {
+    this.trigger.openMenu();
+    event.stopPropagation();
   }
 
 }

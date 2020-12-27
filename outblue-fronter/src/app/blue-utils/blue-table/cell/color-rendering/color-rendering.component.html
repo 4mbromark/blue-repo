@@ -1,5 +1,9 @@
-<span class="record-simple-selector" (click)="$event.stopPropagation();" [matTooltip]="gbl(labels.ROW_CHANGECOLOR)" matTooltipPosition="right">
+<span class="record-simple-selector" (click)="triggerMenu($event)" [matTooltip]="gbl(labels.ROW_CHANGECOLOR)" matTooltipPosition="right">
   <fa-icon *ngIf="value" icon="circle" size="lg" [style]="'color: ' + value + ';'"></fa-icon>
   <fa-icon *ngIf="!value" icon="angle-down" size="lg" [style]="'color: ' + (params.data.colorRow ? params.data.colorRow : 'white')"></fa-icon>
+  <span #trigger="matMenuTrigger" [matMenuTriggerFor]="colors"></span>
 </span>
 
+<mat-menu #colors="matMenu">
+  <app-color-selector></app-color-selector>
+</mat-menu>

@@ -15,7 +15,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./project-rendering.component.css']
 })
 export class ProjectRenderingComponent extends BaseCellComponent implements OnInit {
-  @ViewChild('projectTrigger', {read: MatMenuTrigger}) projectA: MatMenuTrigger;
 
   tags = Tag;
   labels = LanguageLabel;
@@ -75,7 +74,7 @@ export class ProjectRenderingComponent extends BaseCellComponent implements OnIn
 
   triggerProject(event: any): void {
     if (this.type === Tag.CHIP) {
-      this.projectA.openMenu();
+      this.trigger.openMenu();
       event.stopPropagation();
     }
   }
