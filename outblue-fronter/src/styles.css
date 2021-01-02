@@ -242,8 +242,11 @@ body {
   font-size: 20px;
   font-weight: 500;
 }
-.record-simple-selector:hover {
+.record-simple-selector {
   padding: 7px 20px;
+  border-radius: 0px !important;
+}
+.record-simple-selector:hover {
   background-color: gainsboro;
 }
 .icon-circle {

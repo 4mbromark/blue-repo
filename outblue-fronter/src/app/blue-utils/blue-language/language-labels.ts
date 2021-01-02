@@ -1,3 +1,4 @@
+import { Tag } from '../blue-enum/word/tag';
 import { LicenceTag } from '../blue-licence/licence-tag';
 import { Config } from './../blue-enum/word/config';
 
@@ -231,14 +232,14 @@ export class LanguageLabel {
   public static PRIORITY_LOWER_DESCRIPTION = 'priority-lower' + Config.DESCRIPTION;
 
   // SELECTORS
-  public static PALETTE_RED = 'palette-red';
-  public static PALETTE_GREEN = 'palette-green';
-  public static PALETTE_BLUE = 'palette-blue';
-  public static PALETTE_CYAN = 'palette-cyan';
-  public static PALETTE_MAGENTA = 'palette-magenta';
-  public static PALETTE_YELLOW = 'palette-yellow';
-  public static PALETTE_KEY = 'palette-key';
-  public static PALETTE_HUE = 'palette-hue';
-  public static PALETTE_SATURATION = 'palette-saturation';
-  public static PALETTE_LIGHTNESS = 'palette-lightness';
+  public static PALETTE_RED = Tag.PALETTE_RED;
+  public static PALETTE_GREEN = Tag.PALETTE_GREEN;
+  public static PALETTE_BLUE = Tag.PALETTE_BLUE;
+  public static PALETTE_CYAN = Tag.PALETTE_CYAN;
+  public static PALETTE_MAGENTA = Tag.PALETTE_MAGENTA;
+  public static PALETTE_YELLOW = Tag.PALETTE_YELLOW;
+  public static PALETTE_KEY = Tag.PALETTE_KEY;
+  public static PALETTE_HUE = Tag.PALETTE_HUE;
+  public static PALETTE_SATURATION = Tag.PALETTE_SATURATION;
+  public static PALETTE_LIGHTNESS = Tag.PALETTE_LIGHTNESS;
 }

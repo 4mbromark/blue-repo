@@ -1,4 +1,4 @@
-<div class="blue-row blue-m10">
+<div class="blue-row">
   <div class="blue-column">
     <div class="blue-row">
       <div class="blue-column">
@@ -74,7 +74,7 @@
           <input mat-input *ngIf="professional " [(ngModel)]="slider.value"
             style="width: 25px; margin: 3px; text-align: center;">
           <mat-slider class="blue-h100" [invert]="true" [min]="slider.min" [max]="slider.max" [(ngModel)]="slider.value"
-            [vertical]="true" [step]="15" [thumbLabel]="true" (input)="onSliderChange($event, slider)">
+            [vertical]="true" [step]="slider.step ? slider.step : 15" [thumbLabel]="true" (input)="onSliderChange($event, slider)">
           </mat-slider>
           <fa-icon *ngIf="professional" [icon]="slider.check ? 'check-circle' : 'circle'" size="lg"
             [style]="'color: ' + getColorBySlider(slider)" (click)="checkSlider(slider);"></fa-icon>

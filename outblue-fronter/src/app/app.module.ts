@@ -19,7 +19,7 @@ import { BlueLoginFormComponent } from './blue-login/blue-login-form/blue-login-
 import { BlueLoginContactsComponent } from './blue-login/blue-login-contacts/blue-login-contacts.component';
 import { BlueTopbarComponent } from './blue-frame/blue-topbar/blue-topbar.component';
 import { TasklistComponent } from './blue-modules/tasklist/tasklist.component';
-import { ColorSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-selector/color-selector.component';
+import { ColorSelectorComponent } from './blue-utils/blue-standard/selector/color-selector/color-selector.component';
 import { LanguageComponent } from './blue-frame/blue-window/language/language.component';
 import { PreferenceComponent } from './blue-frame/blue-window/preference/preference.component';
 import { MessagingComponent } from './blue-frame/blue-window/messaging/messaging.component';
@@ -59,6 +59,8 @@ import { PrioritySelectorComponent } from './blue-utils/blue-standard/selector/p
 import { IconSelectorComponent } from './blue-utils/blue-standard/selector/icon-selector/icon-selector.component';
 import { ColorAliceSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-alice-selector/color-alice-selector.component';
 import { ColorBasicSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-basic-selector/color-basic-selector.component';
+import { ColorBasicSelectorV2Component } from './blue-utils/blue-standard/selector/palette/color-basic-selector-v2/color-basic-selector-v2.component';
+import { ColorHtmlSelectorComponent } from './blue-utils/blue-standard/selector/palette/color-html-selector/color-html-selector.component';
 
 
 @NgModule({
@@ -110,7 +112,9 @@ import { ColorBasicSelectorComponent } from './blue-utils/blue-standard/selector
     PrioritySelectorComponent,
     IconSelectorComponent,
     ColorAliceSelectorComponent,
-    ColorBasicSelectorComponent
+    ColorBasicSelectorComponent,
+    ColorBasicSelectorV2Component,
+    ColorHtmlSelectorComponent
   ],
   imports: [
     AngularModules,

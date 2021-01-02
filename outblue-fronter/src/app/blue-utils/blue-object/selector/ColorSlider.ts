@@ -7,4 +7,5 @@ export class ColorSlider {
   style: string;
   value?: number;
   check?: boolean;
+  step?: number;
 }

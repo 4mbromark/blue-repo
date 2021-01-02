@@ -238,23 +238,6 @@ export class Table {
       sortable: true,
       resizable: true
     },*/
-    {
-      headerName: LanguageLabel.HEADER_PROJECT,
-      headerComponent: 'headerRenderingComponent',
-      headerComponentParams: {
-        enableSorting: true
-      },
-      field: 'taskOf',
-      minWidth: 300,
-      cellRenderer: 'projectRenderingComponent',
-      cellRendererParams: {
-        data: {
-          nameType: Tag.CHIP
-        }
-      },
-      sortable: true,
-      resizable: true
-    },
    /* {
       headerName: 'Progetto principale',
       field: 'project'
@@ -280,6 +263,23 @@ export class Table {
       cellRendererParams: {
         data: {
           nameType: Tag.TABLE
+        }
+      },
+      sortable: true,
+      resizable: true
+    },
+    { // INVERTITA - era prima dei tasks -- fare la stessa cosa anche nelle versioni?
+      headerName: LanguageLabel.HEADER_PROJECT,
+      headerComponent: 'headerRenderingComponent',
+      headerComponentParams: {
+        enableSorting: true
+      },
+      field: 'taskOf',
+      minWidth: 300,
+      cellRenderer: 'projectRenderingComponent',
+      cellRendererParams: {
+        data: {
+          nameType: Tag.CHIP
         }
       },
       sortable: true,

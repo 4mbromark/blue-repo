@@ -57,11 +57,8 @@ export class UserActionsComponent implements OnInit {
   }
 
   openMessagingDialog(): void {
-    this.menuButtons.forEach(button => {
-      if (button.tag === Tag.MESSAGING) {
-        this.openWindow(button);
-      }
-    });
+    const messaging = this.menuButtons.find(button => button.tag === Tag.MESSAGING);
+    this.openWindow(messaging);
   }
 
   openWindow(button: MenuButton): void {
