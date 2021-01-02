@@ -1,6 +1,6 @@
 import { ProjectService } from './../../blue-service/project.service';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Version } from '@angular/core';
 import { RowClickedEvent } from 'ag-grid-community';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Project } from '../../blue-object/record/Project';
@@ -19,7 +19,7 @@ export class BaseTableService {
 
   sidepanel: BehaviorSubject<RowClickedEvent> = new BehaviorSubject<RowClickedEvent>(null);
 
-  records: BehaviorSubject<Project[] | Task[]> = new BehaviorSubject<Project[] | Task[]>([]);
+  records: BehaviorSubject<Project[] | Task[] | Version[]> = new BehaviorSubject<Project[] | Task[] | Version[]>([]);
 
   loaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
@@ -28,7 +28,7 @@ export class BaseTableService {
     protected http: HttpClient,
   ) { }
 
-  getRecords(): Observable<Project[] | Task[]> {
+  getRecords(): Observable<Project[] | Task[] | Version[]> {
     return this.records.asObservable();
   }
 
@@ -50,7 +50,7 @@ export class BaseTableService {
   getAllOnRest(url: string): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(
-        (records: Project[] | Task[]) => {
+        (records: Project[] | Task[] | Version[]) => {
           this.records.next(records);
           this.loaded.next(true);
           resolve();

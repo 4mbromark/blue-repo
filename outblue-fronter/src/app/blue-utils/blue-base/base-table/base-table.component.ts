@@ -6,7 +6,7 @@ import { EmptyOverlayComponent } from './../../blue-table/overlay/empty-overlay/
 import { LoadingOverlayComponent } from './../../blue-table/overlay/loading-overlay/loading-overlay.component';
 import { ColorRenderingComponent } from './../../blue-table/cell/color-rendering/color-rendering.component';
 import { StatusRenderingComponent } from './../../blue-table/cell/status-rendering/status-rendering.component';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Version } from '@angular/core';
 import { GridApi, GridOptions } from 'ag-grid';
 import { Project } from '../../blue-object/record/Project';
 import { Task } from '../../blue-object/record/Task';
@@ -72,7 +72,7 @@ export class BaseTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.service.getRecords().subscribe((records: Project[] | Task[]) => {
+    this.service.getRecords().subscribe((records: Project[] | Task[] | Version[]) => {
       this.rowData = records;
     });
     this.service.getLoaded().subscribe((loaded: boolean) => {

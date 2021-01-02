@@ -1,12 +1,9 @@
-<div class="blue-m10">
-  <div *ngFor="let l of ls" class="blue-row">
-    <div *ngFor="let s of ss" class="blue-row">
-      <div *ngFor="let h of hs" class="blue-row">
-        <button class="grid-button" [style]="'background-color: hsl(' + h + ',' + s + '%,' + l + '%);'">
-          <!--<fa-icon icon="check" size="sm"></fa-icon>-->
-        </button>
-      </div>
+<div *ngFor="let l of ls" class="blue-row">
+  <div *ngFor="let s of ss" class="blue-row">
+    <div *ngFor="let h of hs" class="blue-row">
+      <button class="grid-button" [style]="'background-color: hsl(' + h + ',' + s + '%,' + l + '%);'">
+        <!--<fa-icon icon="check" size="sm"></fa-icon>-->
+      </button>
     </div>
   </div>
 </div>
-

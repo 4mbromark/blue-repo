@@ -1,12 +1,10 @@
-<span>
-  <span *ngIf="params.value" [class]="type === tags.CHIP ? 'chip-grey' : 'record-main-data'"
-    (click)="triggerProject($event);">
-    <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
-      [matTooltip]="gbl(labels.PROJECT_CURRENTSELECTED)" matTooltipPosition="left"></fa-icon>
-    {{value}}
-    <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
-      [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
-  </span>
+<span *ngIf="params.value" [class]="type === tags.CHIP ? 'chip-grey' : 'record-main-data'"
+  (click)="triggerProject($event);">
+  <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
+    [matTooltip]="gbl(labels.PROJECT_CURRENTSELECTED)" matTooltipPosition="left"></fa-icon>
+  {{value}}
+  <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
+    [matTooltip]="gbl(labels.PROJECT_LEADERPROJECT)" matTooltipPosition="right">&#11044;</span>
   <span #trigger="matMenuTrigger" [matMenuTriggerFor]="projectChip"></span>
 </span>
 

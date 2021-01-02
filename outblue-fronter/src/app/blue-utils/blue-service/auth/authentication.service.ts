@@ -34,7 +34,7 @@ export class AuthenticationService {
     return false;
   }
 
-  verify(token: string): Promise<any> {
+  verify(token: string): Promise<void> {
     return new Promise((resolve, reject) => {
       this.http.post(Url.USERS_VERIFY_REST, { token: token }, { responseType: 'text' }).subscribe(
         (auth: any) => {
