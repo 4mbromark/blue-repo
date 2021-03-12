@@ -62,33 +62,38 @@ export class BaseTableComponent implements OnInit, OnDestroy {
 
   emptyOverlayParams: INoRowsOverlayParams;
 
+  tl = false;
+
   constructor(
     protected lightning: LightningService,
     protected sidebarService: SidebarService,
     protected service: BaseTableService
   ) {
     this.lightning.setTableService(this.service);
-    this.service.buildService();
   }
 
   ngOnInit(): void {
-    this.service.getRecords().subscribe((records: Project[] | Task[] | Version[]) => {
-      this.rowData = records;
-    });
+    this.service.buildService();
+  }
+  ngOnDestroy(): void {
+    this.rowData = [];
+    this.service.closeInformations();
+    this.service.destroyService();
+    this.lightning.setTableService(null);
+  }
+
+  loadObservables(): void {
     this.service.getLoaded().subscribe((loaded: boolean) => {
-      if (!this.gridApi) {
-        return; // TODO
-      }
       if (loaded) {
         this.manageFinalOverlay();
       } else {
         this.gridApi.showLoadingOverlay();
       }
     });
+    this.service.getRecords().subscribe((records: Project[] | Task[] | Version[]) => {
+      this.rowData = records;
+    });
     this.sidebarService.getLeftbarStatus().subscribe((leftbarStatus: LeftbarStatus) => {
-      if (!this.gridApi) {
-        return; // TODO
-      }
       this.gridApi.showLoadingOverlay();
       setTimeout(() => {
         this.sizeColumnsToFit();
@@ -96,13 +101,12 @@ export class BaseTableComponent implements OnInit, OnDestroy {
       }, 200);
     });
   }
-  ngOnDestroy(): void {
-    this.service.closeInformations();
-  }
 
   gridReady(params: any): void {
     this.gridApi = params.api;
+    this.loadObservables();
     this.sizeColumnsToFit();
+    this.tl = true;
   }
   sizeColumnsToFit(): void {
     this.gridApi.sizeColumnsToFit();

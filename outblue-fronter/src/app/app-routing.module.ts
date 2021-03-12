@@ -35,7 +35,6 @@ const routes: Routes = [
 
   { path: '', redirectTo: RoutingUrl.LOGIN_PAGE, pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard]},
-
 ];
 
 @NgModule({

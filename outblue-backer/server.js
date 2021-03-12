@@ -20,9 +20,9 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     next();
-  });
+});
   
-app.use(user, licence, projects, tasklist,versions);
+app.use(user, licence, projects, tasklist, versions);
 
 app.use(session({
   secret: 'a4f8071f-c873-4447-8ee2',

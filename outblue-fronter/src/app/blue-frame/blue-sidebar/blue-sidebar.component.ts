@@ -77,7 +77,7 @@ export class SidebarComponent implements OnInit {
         break;
       }
       case Tag.SIDEBAR_RELOAD: {
-        this.projectService.fetchProjects();
+        this.projectService.reloadAll();
         break;
       }
       case Tag.SIDEBAR_TOGGLE: {
