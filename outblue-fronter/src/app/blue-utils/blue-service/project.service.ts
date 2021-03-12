@@ -141,6 +141,14 @@ export class ProjectService {
     return middleProjects;
   }
 
+  reloadAll(): void {
+    this.fetchProjects().then(() => {
+      if (this.project.value) {
+        this.updateProjectIdWithSubprojects(this.project.value);
+      }
+    });
+  }
+
   updateProjectIdWithSubprojects(p: Project): number[] {
     let projectIds = [];
     this.projects.value.filter(project =>

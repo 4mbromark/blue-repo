@@ -5,11 +5,12 @@
 
     <as-split-area [size]="getTableSize()" class="standard-container-table">
 
+      <app-standard-spinner *ngIf="!tl"></app-standard-spinner>
       <ag-grid-angular #agGrid class="ag-theme-material standard-table" [rowData]="rowData" [columnDefs]="columnDefs"
         [gridOptions]="gridOptions" (gridReady)="gridReady($event);" (rowClicked)="openInformations($event);"
         rowSelection="single" [frameworkComponents]="frameworkComponents"
         [loadingOverlayComponent]="loadingOverlayComponent" [noRowsOverlayComponent]="emptyOverlayComponent"
-        [noRowsOverlayComponentParams]="emptyOverlayParams">
+        [noRowsOverlayComponentParams]="emptyOverlayParams" [hidden]="!tl">
       </ag-grid-angular>
 
     </as-split-area>

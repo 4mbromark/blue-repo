@@ -2,7 +2,7 @@ import { ProjectService } from './../../blue-service/project.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Version } from '@angular/core';
 import { RowClickedEvent } from 'ag-grid-community';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Project } from '../../blue-object/record/Project';
 import { Task } from '../../blue-object/record/Task';
 
@@ -16,6 +16,8 @@ export class BaseTableService {
 
   tableSize = 100;
   infoSize = 0;
+
+  subscription: Subscription;
 
   sidepanel: BehaviorSubject<RowClickedEvent> = new BehaviorSubject<RowClickedEvent>(null);
 
@@ -37,7 +39,7 @@ export class BaseTableService {
   }
 
   buildService(): void {
-    this.projectService.getProjectIdWithSubprojects().subscribe((projects: number[]) => {
+    this.subscription = this.projectService.getProjectIdWithSubprojects().subscribe((projects: number[]) => {
       this.loaded.next(false);
       if (this.httpBaseFetch && projects === null) {
         this.getAllOnRest(this.httpBaseFetch);
@@ -45,6 +47,11 @@ export class BaseTableService {
         this.getAllOnRest(this.httpBaseUrl + projects);
       }
     });
+  }
+  destroyService(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   getAllOnRest(url: string): Promise<void> {
