@@ -1,0 +1,29 @@
+.background-image {
+  height: auto;
+  width: 100%;
+}
+.background-image::after {
+  content: "";
+  background: url("./../../../assets/pattern/topbar-pattern-4.png");
+  background-size: cover;
+  top: -600px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  opacity: 10%;
+  z-index: -1;
+}
+
+.blue-topbar {
+  height: 50px;
+  background-color: var(--blue-main-color);
+  opacity: 99%;
+}
+
+.text-logo {
+  font-family: Outblue;
+  color: white;
+  font-size: 29px;
+  margin-left: 10px;
+}

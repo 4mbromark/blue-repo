@@ -1,0 +1,231 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-material.css";
+
+@import 'https://4mbromark.github.io/hf-axdevtool/styles/highfive-basestyle.css';
+
+
+/*
+  BLUE CLASSES ORDER
+  row / column
+  blue directives
+  local css
+  mat-elevation
+*/
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+  font-family: 'Outblue'; /*a name to be used later*/
+  src: url('./assets/fonts/mplus-2c-bold.ttf'); /*URL to font*/
+}
+
+:root {
+  --blue-hf-color: rgb(0, 9, 111);
+  --blue-main-color: rgb(0, 0, 100);
+  --blue-support-color: rgb(200, 230, 255);
+  --blue-base-transition: all 0.3s ease-in-out 0s;
+  --blue-long-transition: all 0.7s ease-in-out 0s;
+  --blue-border-bottom: 2px solid var(--blue-main-color);
+}
+
+/* OVERRIDE ANGULAR */
+.mat-dialog-container {
+  display: block;
+  padding: 0px !important;
+  border-radius: 0px !important;
+  box-sizing: border-box;
+  overflow: auto;
+  outline: 0;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  max-height: inherit;
+}
+.mat-button-toggle-checked {
+  color: white !important;
+  background-color: var(--blue-main-color) !important;
+}
+.mat-expansion-panel {
+  border-radius: 0px !important;
+}
+.mat-menu-content:not(:empty) {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-radius: 0px !important;
+}
+.mat-menu-panel {
+  max-width: none !important;
+  border-radius: 0px !important;
+}
+.mat-tooltip {
+  color: white;
+  background-color: var(--blue-main-color);
+  font-size: small;
+  padding: 2px;
+  border-radius: 0px !important;
+}
+.mat-expansion-panel-body {
+  padding: 0 0px 0px !important;
+}
+.mat-button-toggle-label-content {
+  line-height: 30px !important;
+}
+.mat-button-toggle {
+  height: 100% !important;
+}
+.mat-button-toggle-group {
+  border-radius: 0px !important;
+}
+.mat-button-toggle-checked {
+  color: white !important;
+  background-color: var(--blue-main-color) !important;
+}
+
+/* OVERRIDE SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-main-color);
+}
+
+/* OVERRIDE AG GRID */
+.ag-header-cell {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--blue-main-color);
+  border-bottom: var(--blue-border-bottom);
+  justify-content: left;
+}
+.ag-header-cell-label {
+  justify-content: left;
+}
+.ag-row .ag-cell {
+  display: flex;
+  justify-content: left; /* align horizontal */
+  align-items: center;
+  font-size: 15px;
+}
+
+.blue-context-menu {
+  width: 300px;
+}
+.blue-tool-menu {
+  width: 500px;
+  margin: 10px;
+}
+
+/* MODULES CONTAINERS AND TABLES */
+.standard-container,
+.standard-split,
+.standard-container-table,
+.standard-container-info,
+.standard-container-square,
+.standard-table {
+  height: 100%;
+}
+.standard-container {
+  display: flex;
+  flex-direction: column;
+}
+.standard-container-table,
+.standard-container-info,
+.standard-container-square {
+  padding: 0px !important;
+  background-color: white;
+}
+.standard-table {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.standard-split,
+.standard-container-square {
+  margin: 10px !important;
+  width: auto !important;
+}
+
+/* DIALOGS */
+.dialog-standard-titlebar {
+  width: 100% !important;
+  height: 50px !important;
+  color: white;
+  background-color: var(--blue-main-color);
+  font-weight: 400;
+}
+.dialog-standard-titlebar-icon {
+  margin-right: 20px;
+}
+
+/* BUTTONS */
+.blue-green-button {
+  margin: 20px !important;
+  border-radius: 0px !important;
+  padding: 5px 15px !important;
+  color: white;
+  background-color: darkgreen;
+}
+
+.record-main-data {
+  font-size: 20px;
+  font-weight: 500;
+}
+.record-description {
+  font-size: 15px;
+}
+.record-simple-selector {
+  cursor: pointer;
+}
+.icon-circle {
+  border-radius: 30px;
+  padding: 3px 6px;
+  background-color: white;
+}
+
+/* CHIPS */
+.chip, .chip-grey, .chip-blue {
+  border-radius: 30px;
+  padding: 2px 10px;
+  color: white;
+}
+.chip-grey {
+  background-color: gray;
+}
+.chip-blue {
+  background-color: var(--blue-main-color);
+}
+.chip-grey:hover {
+  background-color: dimgray;
+}
+
+.chip-border {
+  padding: 2px 10px;
+  cursor: pointer;
+  border: 2px;
+  border-radius: 30px;
+  border-color: var(--blue-main-color);
+}
+
+.yena-main-color {
+  color: rgb(255, 51, 27);
+}
+.yena-main-background-color {
+  background-color: rgb(255, 51, 27);
+}

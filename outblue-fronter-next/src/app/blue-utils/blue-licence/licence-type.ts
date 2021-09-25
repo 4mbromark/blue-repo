@@ -1,0 +1,16 @@
+import { LicenceTag } from './licence-tag';
+export class LicenceType {
+  public static NO_LICENCE = LicenceTag.NO_LICENCE;
+
+  public static LICENCE_LIMITED_TRIAL = LicenceTag.LICENCE_LIMITED_TRIAL;
+  public static LICENCE_EXTENDED_TRIAL = LicenceTag.LICENCE_EXTENDED_TRIAL;
+  public static LICENCE_LIMITED_BETA = LicenceTag.LICENCE_LIMITED_BETA;
+  public static LICENCE_EXTENDED_BETA = LicenceTag.LICENCE_EXTENDED_BETA;
+  public static LICENCE_UNLIMITED_BETA = LicenceTag.LICENCE_UNLIMITED_BETA;
+  public static LICENCE_MONTHLY_RENEWAL = LicenceTag.LICENCE_MONTHLY_RENEWAL;
+  public static LICENCE_ANNUAL_RENEWAL = LicenceTag.LICENCE_ANNUAL_RENEWAL;
+  public static LICENCE_PROMOTIONAL_RENEWAL = LicenceTag.LICENCE_PROMOTIONAL_RENEWAL;
+  public static LICENCE_LIFETIME = LicenceTag.LICENCE_LIFETIME;
+  public static LICENCE_LIFETIME_PROMOTIONAL = LicenceTag.LICENCE_LIFETIME_PROMOTIONAL;
+  public static LICENCE_LIFETIME_FREE = LicenceTag.LICENCE_LIFETIME_FREE;
+}

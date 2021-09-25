@@ -1,0 +1,65 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<mat-vertical-stepper linear="false" #stepper>
+  <mat-step [stepControl]="generalInfo" [errorMessage]="labels.FORM_NEWTASK_NAMEERROR | translate">
+    <form [formGroup]="generalInfo">
+      <ng-template matStepLabel>{{ labels.FORM_GENERAL | translate }}</ng-template>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <input matInput #nameInput maxlength="200" [placeholder]="labels.FORM_NEWTASK_NAME | translate"
+          [(formControl)]="nameControl" required>
+        <mat-hint align="end">{{ nameInput.value?.length || 0 }}/200</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <textarea matInput #descriptionInput maxlength="2000"
+          [placeholder]="labels.FORM_NEWTASK_DESCRIPTION | translate" [(formControl)]="descriptionControl"></textarea> <!-- cdkTextareaAutosize -->
+        <mat-hint align="end">{{ descriptionInput.value?.length || 0 }}/2000</mat-hint>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step optional="true">
+    <form>
+      <ng-template matStepLabel>{{ labels.FORM_NEWTASK_PROJECT | translate }}</ng-template>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <mat-select [formControl]="projectControl" [disabled]="projects.length === 0" [placeholder]="labels.FORM_NEWTASK_PROJECT | translate">
+          <mat-option></mat-option>
+          <mat-option *ngFor="let project of projects" [value]="project"
+            [disabled]="projectControl.value && projectControl.value.id === project.id">{{ project.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step optional="true">
+    <form>
+      <ng-template matStepLabel>{{ labels.FORM_DETAILS | translate }}</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>{{ labels.FORM_RECAP | translate }}</ng-template>
+    <div class="hf-m10 hf-column" *ngIf="nameControl.value">
+      <span>{{ labels.FORM_NEWTASK_NAME | translate }}</span>
+      <span class="record-main-data">{{ nameControl.value }}</span>
+    </div>
+    <div class="hf-m10 hf-column" *ngIf="projectControl.value">
+      <span>{{ labels.FORM_NEWTASK_PROJECT | translate }}</span>
+      <app-standard-project-chip [project]="projectControl.value" showLeaderproject="true" style="margin: 5px 0px;">
+      </app-standard-project-chip>
+    </div>
+    <div style="margin-top: 60px;">
+      <mat-error *ngIf="error" style="margin: 10px 0px;">{{ error | translate }}</mat-error>
+      <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+      <button mat-button class="insert-button" [disabled]="generalInfo.invalid" (click)="addTask();">{{
+        labels.FORM_NEWTASK_INSERT | translate }}</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

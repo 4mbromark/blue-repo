@@ -1,0 +1,34 @@
+<div style="margin:20px;">
+  <mat-accordion class="communications-headers-align">
+    <mat-expansion-panel *ngFor="let communication of getCommunications()">
+      <mat-expansion-panel-header [style]="communication.type == 'warning' ? 'background-color: lightcoral' : ''">
+        <mat-panel-title>
+          <span *ngIf="communication.type === 'info'" class="communications-type"
+            style="background-color: blue;">Info</span>
+          <span *ngIf="communication.type === 'news'" class="communications-type"
+            style="background-color: green;">News</span>
+          <span *ngIf="communication.type === 'update'" class="communications-type"
+            style="background-color: darkorange;">Update</span>
+          <span *ngIf="communication.type === 'warning'" class="communications-type"
+            style="background-color: red;">Warning</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span style="font-weight: 500;">{{communication.title}}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div style="margin: 20px;">
+        <h1>
+          {{communication.subtitle}}
+        </h1>
+        <br>
+        {{communication.text}}
+      </div>
+
+      <mat-action-row>
+        <button mat-button>Elimina</button>
+      </mat-action-row>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

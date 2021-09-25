@@ -1,0 +1,16 @@
+.preference-button {
+  width: 100%;
+  text-align: left;
+  padding: 5px 15px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.preference-button:hover {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+
+.preference-icon {
+  margin-right: 10px;
+}

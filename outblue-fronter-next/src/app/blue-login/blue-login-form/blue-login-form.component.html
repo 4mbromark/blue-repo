@@ -1,0 +1,30 @@
+<div style="margin: 60px">
+  <h1 [innerHTML]="customWelcomeMessage | translate:{name: user ? user.name : ''}" style="margin-bottom: 50px;"></h1>
+
+  <div class="hf-column">
+    <mat-form-field floatLabel="never">
+      <input matInput type="text" [(formControl)]="username" [placeholder]="labels.LOGIN_USERNAME | translate" required>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never">
+      <input matInput [type]="hide ? 'password' : 'text'" [(formControl)]="password"
+        [placeholder]="labels.LOGIN_PASSWORD | translate" (focus)="checkIfUserExists();" (keyup.enter)="login();" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+        <fa-icon [icon]="hide ? 'eye-slash' : 'eye'" size="lg"
+          [matTooltip]="(hide ? labels.LOGIN_PASSWORD_SHOW : labels.LOGIN_PASSWORD_HIDE) | translate"
+          matTooltipPosition="right">
+        </fa-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="hf-row hf-flex-right" style="text-align: right;">
+    <button mat-raised-button class="login-button" [disabled]="username.invalid || password.invalid" [matTooltip]="labels.LOGIN_TOOLTIP | translate" (click)="login();">
+      <fa-icon icon="sign-in-alt" size="lg"></fa-icon>
+    </button>
+    <button mat-raised-button class="registration-button" [matTooltip]="labels.REGISTRATION_TOOLTIP | translate"
+      (click)="openRegisterWindow();">
+      {{labels.REGISTRATION | translate}}
+    </button>
+  </div>
+</div>

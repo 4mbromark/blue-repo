@@ -1,0 +1,75 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<mat-vertical-stepper linear="false" #stepper>
+  <mat-step [stepControl]="generalInfo" [errorMessage]="labels.FORM_NEWPROJECT_NAMEERROR | translate">
+    <form [formGroup]="generalInfo">
+      <ng-template matStepLabel>{{ labels.FORM_GENERAL | translate }}</ng-template>
+      <mat-form-field class="hf-m10" style="width: 60%;">
+        <input matInput #nameInput maxlength="30" [placeholder]="labels.FORM_NEWPROJECT_NAME | translate"
+          [(formControl)]="nameControl" required>
+        <mat-hint align="end">{{ nameInput.value?.length || 0 }}/30</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="hf-m10" style="width: 25%;">
+        <input matInput #codeInput maxlength="10" [placeholder]="labels.FORM_NEWPROJECT_CODENAME | translate"
+          [(formControl)]="codeControl">
+        <mat-hint align="end">{{ codeInput.value?.length || 0 }}/10</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <input matInput #extendedInput maxlength="40" [placeholder]="labels.FORM_NEWPROJECT_EXTENDEDNAME | translate"
+          [(formControl)]="extendedControl">
+        <mat-hint align="end">{{ extendedInput.value?.length || 0 }}/40</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <input matInput #customInput maxlength="40" [placeholder]="labels.FORM_NEWPROJECT_CUSTOMNAME | translate"
+          [(formControl)]="customControl">
+        <mat-hint align="end">{{ customInput.value?.length || 0 }}/40</mat-hint>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step optional="true">
+    <form>
+      <ng-template matStepLabel>{{ labels.FORM_NEWPROJECT_SUPERPROJECT | translate }}</ng-template>
+      <mat-form-field class="hf-m10" style="width: 90%;">
+        <mat-select [formControl]="superprojectControl" [disabled]="projects.length === 0" [placeholder]="labels.FORM_NEWPROJECT_SUPERPROJECT | translate">
+          <mat-option></mat-option>
+          <mat-option *ngFor="let project of projects" [value]="project"
+            [disabled]="superprojectControl.value && superprojectControl.value.id === project.id">{{ project.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step optional="true">
+    <form>
+      <ng-template matStepLabel>{{ labels.FORM_DETAILS | translate }}</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+        <button mat-button matStepperNext>{{ labels.FORM_NEXT | translate }}</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>{{ labels.FORM_RECAP | translate }}</ng-template>
+    <div class="hf-m10 hf-column" *ngIf="nameControl.value">
+      <span>{{ labels.FORM_NEWPROJECT_NAME | translate }}</span>
+      <span class="record-main-data">{{ nameControl.value }}</span>
+    </div>
+    <div class="hf-m10 hf-column" *ngIf="superprojectControl.value">
+      <span>{{ labels.FORM_NEWPROJECT_SUPERPROJECT | translate }}</span>
+      <app-standard-project-chip [project]="superprojectControl.value" showLeaderproject="true" style="margin: 5px 0px;">
+      </app-standard-project-chip>
+    </div>
+    <div style="margin-top: 60px;">
+      <mat-error *ngIf="error" style="margin: 10px 0px;">{{ error | translate }}</mat-error>
+      <button mat-button matStepperPrevious>{{ labels.FORM_BACK | translate }}</button>
+      <button mat-button class="insert-button" [disabled]="generalInfo.invalid" (click)="addProject();">{{
+        labels.FORM_NEWPROJECT_INSERT | translate }}</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

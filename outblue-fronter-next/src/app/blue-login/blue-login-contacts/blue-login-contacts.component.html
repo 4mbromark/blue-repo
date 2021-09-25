@@ -1,0 +1,34 @@
+<div class="hf-row hf-flex-center">
+
+  <img src="assets/hf-logo.png" style="height: 120px;">
+
+
+  <div class="hf-column hf-flex-center" style="margin-left: 30px;">
+    <mat-divider style="width: 200px; margin-bottom: 15px; background-color: black;"></mat-divider>
+
+    <span style="font-size: 25px;"><b>{{names.HIGH_FIVE}}</b></span>
+    <span style="height: 5px;"></span>
+    <span style="font-size: 15px;">{{'©' + names.HIGH_FIVE_YEARS}}</span>
+
+    <span style="font-size: 15px; margin: 5px;">
+      <b>{{names.MARCO_AMBROSI}}</b>
+      <fa-icon icon="user-tie" size="lg" style="margin: 0px 5px 0pc 10px;"></fa-icon>
+      {{names.AMBROMARK}}
+    </span>
+
+    <mat-divider style="width: 200px; margin-top: 10px; background-color: black;"></mat-divider>
+  </div>
+
+
+</div>
+
+<mat-menu #socials>
+  <div style="background-color: var(--blue-main-color);">
+    <button mat-raised-button class="social-button">
+    <fa-icon [icon]="fb" size="lg"></fa-icon>
+  </button>
+  <button mat-raised-button class="social-button" style="margin-left: 0px;">
+    <fa-icon [icon]="ig" size="lg"></fa-icon>
+  </button>
+  </div>
+</mat-menu>

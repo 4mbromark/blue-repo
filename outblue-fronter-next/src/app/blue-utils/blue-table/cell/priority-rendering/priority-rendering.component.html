@@ -1,0 +1,17 @@
+<span *ngIf="!saving" class="record-simple-selector" (click)="triggerMenu($event)" [matTooltip]="labels.ROW_CHANGEPRIORITY | translate"
+  matTooltipPosition="right">
+  <span *ngIf="priority" class="chip" [style]="'background-color:' + priority.color + ';'">
+    <fa-icon [icon]="priority.icon" size="sm" style="color: white; margin-right: 5px;"></fa-icon>
+    {{ value | translate }}
+  </span>
+  <fa-icon icon="angle-down" size="lg" style="color: gainsboro; margin: 0px 5px;"></fa-icon>
+  <span #trigger="matMenuTrigger" [matMenuTriggerFor]="priorities"></span>
+</span>
+
+<span *ngIf="saving">
+  <app-standard-spinner-cell></app-standard-spinner-cell>
+</span>
+
+<mat-menu #priorities="matMenu">
+  <app-priority-selector [priority]="priority ? priority.code : ''" (onPriorityChange)="changePriority($event);"></app-priority-selector>
+</mat-menu>

@@ -1,0 +1,12 @@
+<div *ngIf="params.value" [ngSwitch]="type">
+  <span *ngSwitchCase="tags.TABLE" class="record-main-data">
+    <fa-icon *ngIf="isProjectSelected();" icon="angle-right" size="lg" class="project-selected"
+      [matTooltip]=" labels.PROJECT_CURRENTSELECTED | translate" matTooltipPosition="left"></fa-icon>
+    {{value}}
+    <span *ngIf="isProjectLeader();" style="margin-left: 10px; color: var(--blue-main-color);"
+      [matTooltip]="labels.PROJECT_LEADERPROJECT | translate" matTooltipPosition="right">&#11044;</span>
+  </span>
+  <span *ngSwitchCase="tags.CHIP">
+    <app-standard-project-chip [project]="project" details="true" showSelected="true" showLeaderproject="true"></app-standard-project-chip>
+  </span>
+</div>

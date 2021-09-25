@@ -1,0 +1,16 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<div class="hf-column hf-flex-center hf-m10">
+  <div class="hf-row">
+    <button mat-button [class]="button.language === languageSelected ? 'language-button-selected' : 'language-button'"
+      *ngFor="let button of languageButtons" (click)="languageSelected = button.language">
+      <span class="language-code">{{button.code}}</span>
+      <span class="language-title">{{ button.title | translate }}</span>
+    </button>
+  </div>
+
+  <button mat-raised-button class="blue-green-button" [disabled]="language === languageSelected" (click)="setLanguage(languageSelected)" mat-dialog-close>
+    {{ labels.LANGUAGE_UPDATE | translate }}
+    <fa-icon style="margin-left: 5px;" icon="redo-alt" size="lg"></fa-icon>
+  </button>
+</div>

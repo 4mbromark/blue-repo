@@ -1,0 +1,14 @@
+.project-selected {
+  margin-right: 5px;
+  color: var(--blue-main-color);
+}
+
+.project-chip {
+  padding: 2px 10px;
+  cursor: pointer;
+  border: 2px solid var(--blue-main-color);
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 17px;
+  background-color: white;
+}

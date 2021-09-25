@@ -1,0 +1,21 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<div class="hf-row">
+  <div class="hf-column" style="align-items: center;">
+    <div style="width: 200px;" *ngFor="let button of preferenceButtons">
+      <button mat-button class="preference-button">
+        <span class="preference-icon">
+          <button mat-icon-button>
+            <fa-icon [icon]="button.icon" size="lg"></fa-icon>
+          </button>
+        </span>
+        <span>{{ button.title | translate }}</span>
+      </button>
+    </div>
+
+  </div>
+  <div style="margin: 10px;">
+
+  </div>
+
+</div>

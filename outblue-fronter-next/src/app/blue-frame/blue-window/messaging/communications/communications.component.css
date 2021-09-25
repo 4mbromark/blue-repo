@@ -1,0 +1,11 @@
+.communications-type {
+  color: white;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.communications-headers-align .mat-expansion-panel-header-title,
+.communications-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
