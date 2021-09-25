@@ -1,0 +1,11 @@
+<span *ngIf="value" style="margin-right: 5px;">{{ value | translate }}</span>
+<span *ngIf="enableFilter" class="header-icon" [matTooltip]="labels.HEADER_FILTER | translate"
+  matTooltipPosition="below">
+  <fa-icon icon="filter" size="sm" style="color: gainsboro"></fa-icon>
+</span>
+<span *ngIf="enableSort" class="header-icon" (click)="sort();" [matTooltip]="labels.HEADER_ORDER | translate"
+  matTooltipPosition="below">
+  <fa-icon *ngIf="params.column.getSort()" [icon]="params.column.getSort() === 'asc' ? 'arrow-down' : 'arrow-up'"
+    size="sm"></fa-icon>
+  <fa-icon *ngIf="!params.column.getSort()" icon="sort" size="sm" style="color: gainsboro"></fa-icon>
+</span>

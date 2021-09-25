@@ -1,0 +1,13 @@
+<div class="blue-selector-menu">
+  <div *ngFor="let p of priorities">
+    <button mat-button class="hf-w100 hf-column hf-noradius" [disabled]="p.code === priority"
+      [style.backgroundColor]="p.code === priority ? 'var(--blue-support-color)' : ''" (click)="setPriority(p.code);">
+      <span class="chip" [style.backgroundColor]="p.color" style="width: 250px; min-width: 250px;">
+        <fa-icon [icon]="p.icon" size="sm" style="color: white; margin-right: 5px;"></fa-icon>
+        {{ p.title | translate }}
+      </span>
+      <span style="margin: 5px;">{{ p.description | translate }}</span>
+    </button>
+    <mat-divider class="hf-w100"></mat-divider>
+  </div>
+</div>

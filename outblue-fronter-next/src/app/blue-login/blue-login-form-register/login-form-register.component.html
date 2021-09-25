@@ -1,0 +1,65 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<app-standard-product-bar></app-standard-product-bar>
+
+<div style="margin: 20px; margin-bottom: 100px;">
+  <div class="hf-row">
+    <div class="hf-column hf-flex-center">
+      <fa-icon class="register-icon" icon="user-circle" size="2x"></fa-icon>
+    </div>
+    <div class="hf-column">
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="name" [placeholder]="labels.REGISTRATION_NAME | translate" type="text" required>
+        </mat-form-field>
+      </div>
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="surname" [placeholder]="labels.REGISTRATION_SURNAME | translate" type="text" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="hf-row">
+    <div class="hf-column hf-flex-center">
+      <fa-icon class="register-icon" icon="envelope" size="2x"></fa-icon>
+    </div>
+    <div class="hf-column">
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="mail" [placeholder]="labels.REGISTRATION_MAIL | translate" type="text" required>
+        </mat-form-field>
+      </div>
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="username" [placeholder]="labels.REGISTRATION_USERNAME | translate" type="text" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hf-column hf-flex-center" style="margin-left: 100px;">
+      <fa-icon class="register-icon" icon="key" size="2x"></fa-icon>
+    </div>
+    <div class="hf-column">
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="password" [placeholder]="labels.REGISTRATION_PASSWORD | translate" type="password" required>
+        </mat-form-field>
+      </div>
+      <div class="hf-row">
+        <mat-form-field class="register-form" floatLabel="never">
+          <input matInput [(formControl)]="passwordConfirm" [placeholder]="labels.REGISTRATION_PASSWORDCONFIRM | translate" type="password" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-standard-licence-bar></app-standard-licence-bar>
+
+<div class="hf-flex-right">
+  <button mat-raised-button class="blue-green-button" [disabled]="!canRegister()" mat-dialog-close>
+    {{ labels.REGISTRATION_SEND | translate }}
+    <fa-icon style="margin-left: 5px;" icon="paper-plane" size="lg"></fa-icon>
+  </button>
+</div>
+

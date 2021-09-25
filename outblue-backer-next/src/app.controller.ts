@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { All, Controller, Get, Res } from '@nestjs/common';
+import { Response } from "express";
+import * as path from "path";
+import { Public } from './app/blue-controller/jwt/jwt-public';
 
-@Controller()
+@Controller('/*')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Public()
+  @All()
+  redirectToAngular(@Res() res: Response) {
+    res.sendFile(path.resolve('../outblue-fronter-next/dist/outblue-fronter-next/index.html'));
   }
 }

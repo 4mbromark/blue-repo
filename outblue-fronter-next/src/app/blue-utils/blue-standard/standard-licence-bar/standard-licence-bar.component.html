@@ -1,0 +1,41 @@
+<mat-toolbar class="hf-noselect licence-bar mat-elevation-z3"
+  [style]="'background-color: ' + status.backcolor + ';'">
+  <div class="hf-column status-icon" [style]="'color: ' + status.color + ';'">
+    <fa-icon [icon]="status.icon" size="2x"></fa-icon>
+  </div>
+
+  <div class="hf-column hf-m20" style="margin-top:30px;">
+    <span style="font-size: small; margin-bottom: -10px;">{{ licence[0].code.toUpperCase() }}</span>
+    <span style="font-size: larger;">{{ licence[0].title | translate }}</span>
+    <div class="hf-row">
+      <mat-form-field style="margin-right: 15px; font-size: medium; width: 250px;">
+        <input matInput type="text" [(formControl)]="form" (input)="setStatusToWaiting();">
+      </mat-form-field>
+      <button mat-raised-button class="licence-button mat-elevation-z0"
+        [matTooltip]="labels.LICENCE_NEWTRIAL_TOOLTIP | translate" [disabled]="licence[0].code && licence[0].serial"
+        (click)="generateTrialLicence();">
+        {{ labels.LICENCE_NEWTRIAL | translate}}
+        <fa-icon style="margin-left: 5px" icon="receipt" size="lg"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="hf-w100 hf-flex-right hf-column" style="align-items: flex-end;">
+    <span class="licence-status">
+      <span [matTooltip]="(labels.LICENCE_STATUS_TOOLTIP | translate) + (status.title | translate).toUpperCase()"
+        matTooltipPosition="left">
+        {{ status.title | translate }}
+      </span>
+    </span>
+    <div class="hf-row">
+      <button mat-raised-button class="info-button mat-elevation-z0" [disabled]="isLicenceMissing()" [matTooltip]="labels.LICENCE_INFO_TOOLTIP | translate">
+        <fa-icon icon="info-circle" size="lg"></fa-icon>
+      </button>
+      <button mat-raised-button class="contract-button mat-elevation-z0" [disabled]="isLicenceMissing()"
+        [matTooltip]="labels.LICENCE_CONTRACT_TOOLTIP | translate">
+        {{ labels.LICENCE_CONTRACT | translate }}
+        <fa-icon style="margin-left: 5px;" icon="download" size="lg"></fa-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

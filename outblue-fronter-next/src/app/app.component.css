@@ -1,0 +1,38 @@
+.background-image {
+  height: auto;
+  width: 100%;
+}
+.background-image::after {
+  content: "";
+  background: url("./../assets/wallpaper/blue-wall-2.png");
+  background-size: cover;
+  top: -150px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  opacity: 50%;
+  z-index: -1;
+}
+
+.topbar, .content, .content-fullpage {
+  position: absolute;
+  width: 100%;
+}
+.topbar {
+  top: 0px;
+  z-index: 10;
+}
+.content, .content-fullpage {
+  bottom: 0px;
+}
+.content {
+  top: 50px;
+}
+.content-fullpage {
+  top: 0px;
+}
+
+.sidenav {
+  transition: linear 0.3s;
+}

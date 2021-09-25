@@ -1,0 +1,8 @@
+<mat-toolbar class="hf-noselect dialog-standard-titlebar mat-elevation-z2">
+  <fa-icon class="dialog-standard-titlebar-icon" [icon]="icon" size="lg"></fa-icon>
+  {{ title | translate }}
+  <span class="hf-spacer"></span>
+  <button mat-icon-button (click)="close();">
+    <fa-icon icon="times" size="lg"></fa-icon>
+  </button>
+</mat-toolbar>

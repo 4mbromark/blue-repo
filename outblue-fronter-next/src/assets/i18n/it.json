@@ -1,0 +1,413 @@
+{
+  "page": {
+    "title": {
+      "standard": "High Five Outblue",
+      "customized": "Outblue di {{name}}"
+    }
+  },
+  "login": {
+    "message": {
+      "alice": "Che bello rivederti, <b>Alice</b>!",
+      "standard": "Accedi a <b>Outblue</b>",
+      "simple": "Bentornato/a, <b>{{name}}</b>!"
+    },
+    "form": {
+      "tooltip": "Accedi",
+      "username": "Nome utente / email",
+      "password": {
+        "text": "Password",
+        "show": "Mostra password",
+        "hide": "Nascondi password"
+      }
+    },
+    "error": {
+      "title": "Impossibile effettuare l'accesso",
+      "unauthorized": "Credenziali errate.",
+      "notfound": "Nome utente o email non registrati.",
+      "unknow": "Errore nel login. Contattare l'amministratore."
+    },
+    "registration": {
+      "button": {
+        "text": "Registrati",
+        "tooltip": "Registrati a Outblue"
+      },
+      "dialog": {
+        "title": "Registrazione a Outblue",
+        "name": "Nome",
+        "surname": "Cognome",
+        "mail": "Indirizzo email",
+        "username": "Nome utente",
+        "password": "Password",
+        "passwordconfirm": "Conferma password",
+        "send": "Invia email di conferma"
+      }
+    }
+  },
+  "topbar": {
+    "switch": {
+      "title": {
+        "noprojects": "NESSUN PROGETTO",
+        "allprojects": "TUTTI I PROGETTI"
+      },
+      "context": {
+        "openpanel": {
+          "text": "Apri pannello",
+          "tooltip": "Apri il pannello del Progetto {{project}}"
+        },
+        "closepanel": {
+          "text": "Chiudi pannello",
+          "tooltip": "Chiudi il pannello del Progetto"
+        },
+        "administration": {
+          "text": "Amministrazione",
+          "tooltip": "Amministrazione di Outblue"
+        },
+        "projectlist": {
+          "text": "Progetti",
+          "tooltip": "Registro dei Progetti"
+        },
+        "copyname": {
+          "text": "Copia nome",
+          "tooltip": "Copia il nome del Progetto negli appunti"
+        },
+        "allprojects": {
+          "text": "Tutti i Progetti",
+          "tooltip": "Mostra tutti i Progetti"
+        },
+        "leaderprojects": {
+          "text": "Capoprogetti",
+          "tooltip": "Visualizza tutti i Capoprogetti"
+        },
+        "superprojects": {
+          "text": "Superprogetti",
+          "tooltip": "Visualizza i Superprogetti di {{project}}"
+        },
+        "subprojects": {
+          "text": "Sottoprogetti",
+          "tooltip": "Visualizza i Sottoprogetti di {{project}}"
+        },
+        "recents": {
+          "text": "Progetti recenti",
+          "tooltip": "Visualizza i Progetti aperti di recente"
+        },
+        "settings": {
+          "text": "Impostazioni",
+          "tooltip": "Impostazioni dep Progetti {{project}}"
+        },
+        "newproject": {
+          "text": "Nuovo Progetto",
+          "tooltip": "Crea un nuovo Progetto"
+        },
+        "manageprojects": {
+          "text": "Gestisci Progetti",
+          "tooltip": "Gestisci tutti i Progetti"
+        },
+        "gotoproject": "Passa al Progetto {{project}}"
+      }
+    },
+    "usermenu": {
+      "button": {
+        "account": "Account",
+        "messaging": "Notifiche",
+        "messagingextended": "Centro Notifiche e Comunicazioni",
+        "language": "Lingua",
+        "preferences": "Preferenze",
+        "services": "Servizi",
+        "guide": "Guida",
+        "license": "Licenza",
+        "settings": "Opzioni",
+        "info": "Informazioni",
+        "logout": "Esci"
+      }
+    }
+  },
+  "sidebar": {
+    "button": {
+      "admin": {
+        "short": "Gestione",
+        "complete": "Amministrazione del Progetto"
+      },
+      "projects": {
+        "short": "Progetti",
+        "complete": "Progetti e sottoprogetti"
+      },
+      "tasks": {
+        "short": "Attività",
+        "complete": "Elenco delle attività"
+      }
+    },
+    "tool": {
+      "new": {
+        "short": "Nuovo",
+        "complete": "Aggiungi un nuovo Progetto o attività"
+      },
+      "newundo": {
+        "short": "",
+        "complete": "Annulla"
+      },
+      "newproject": {
+        "short": "Nuovo Progetto",
+        "complete": "Aggiungi un nuovo Progetto"
+      },
+      "newtask": {
+        "short": "Nuova attività",
+        "complete": "Aggiungi una nuova attività"
+      },
+      "search": {
+        "short": "Cerca",
+        "complete": "Esegui una ricerca"
+      },
+      "filter": {
+        "short": "Filtra",
+        "complete": "Applica dei filtri"
+      },
+      "reload": {
+        "short": "Ricarica",
+        "complete": "Ricarica i dati"
+      },
+      "extend": {
+        "short": "Estendi",
+        "complete": "Estendi la barra di navigazione"
+      },
+      "reduce": {
+        "short": "Riduci",
+        "complete": "Riduci la barra di navigazione"
+      }
+    }
+  },
+  "window": {
+    "administration": {
+      "title": "Pannello amministrativo di Outblue"
+    },
+    "projects": {
+      "title": "Registro dei Progetti di {{name}}"
+    },
+    "messaging": {
+      "notifications": {
+        "title": "Notifiche"
+      },
+      "communications": {
+        "title": "Comunicazioni"
+      },
+      "assistance": {
+        "title": "Assistenza"
+      }
+    },
+    "language": {
+      "button": {
+        "italian": "Italiano",
+        "english": "Inglese"
+      },
+      "update": "Aggiorna lingua"
+    },
+    "form": {
+      "newproject": {
+        "title": "Crea un nuovo Progetto",
+        "name": "Nome Progetto",
+        "nameerror": "Nome Progetto mancante",
+        "codename": "Nome abbreviato",
+        "extendedname": "Nome esteso",
+        "customname": "Nome personalizzato",
+        "superproject": "Superprogetto",
+        "insert": "Inserisci Progetto",
+        "error": "Impossibile completare l'inserimento. Verificare i dati o contattare un amministratore",
+        "errorduplicate": "Non è possibile inserire un Progetto con lo stesso nome di uno già esistente"
+      },
+
+      "newtask": {
+        "title": "Crea una nuova attività",
+        "name": "Nome attività",
+        "nameerror": "Nome attività mancante",
+        "description": "Descrizione",
+        "project": "Progetto",
+        "insert": "Inserisci attività",
+        "error": "Impossibile completare l'inserimento. Verificare i dati o contattare un amministratore"
+      },
+      "next": "Avanti",
+      "back": "Indietro",
+      "general": "Generali",
+      "details": "Dettagli ed informazioni",
+      "recap": "Riepilogo ed inserimento"
+    }
+  },
+  "license": {
+    "bar": {
+      "info": {
+        "tooltip": "Maggiori informazioni sulla licenza in uso"
+      },
+      "contract": {
+        "text": "Contratto",
+        "tooltip": "Scarica il contratto di utilizzo"
+      },
+      "newtrial": {
+        "text": "Nuova licenza",
+        "tooltip": "Genera una licenza di prova gratuita"
+      }
+    },
+    "state": {
+      "nolicense": {
+        "text": "",
+        "description": "Nessuna licenza inserita"
+      },
+      "limitedtrial": {
+        "text": "",
+        "description": "Licenza di prova gratuita a durata limitata"
+      },
+      "extendedtrial": {
+        "text": "",
+        "description": "Licenza di prova gratuita a durata estesa"
+      },
+      "limitedbeta": {
+        "text": "",
+        "description": "Licenza per beta tester gratuita a durata limitata"
+      },
+      "extendedbeta": {
+        "text": "",
+        "description": "Licenza per beta tester gratuita a durata estesa"
+      },
+      "unlimitedbeta": {
+        "text": "",
+        "description": "Licenza per beta tester gratuita a durata indeterminata"
+      },
+      "monthlyrenewal": {
+        "text": "",
+        "description": "Licenza completa a rinnovo mensile"
+      },
+      "annualrenewal": {
+        "text": "",
+        "description": "Licenza completa a rinnovo annuale"
+      },
+      "promotionalrenewal": {
+        "text": "",
+        "description": "Licenza completa a rinnovo personalizzato"
+      },
+      "lifetime": {
+        "text": "",
+        "description": "Licenza completa a vita"
+      },
+      "lifetimepromotional": {
+        "text": "",
+        "description": "Licenza completa a vita personalizzata"
+      },
+      "lifetimefree": {
+        "text": "",
+        "description": "Licenza completa a vita gratuita"
+      }
+    },
+    "status": {
+      "none": "Mancante",
+      "waiting": "In attesa",
+      "active": "Attiva",
+      "expiring": "In scadenza",
+      "expired": "Scaduta",
+      "tooltip": "Stato licenza: "
+    }
+  },
+  "table": {
+    "overlay": {
+      "noprojects": "Non ci sono ancora Progetti  :(",
+      "notasks": "Nessuna attività per il Progetto selezionato"
+    },
+    "header": {
+      "project": "Progetto",
+      "task": "Attività",
+      "status": "Stato",
+      "priority": "Priorità",
+      "percentage": "Completamento",
+      "superproject": "Superprogetto",
+      "startdate": "Data inizio",
+      "enddate": "Data fine",
+      "insertdate": "Data creazione",
+      "tools": {
+        "filter": "Filtra dati",
+        "order": "Ordina dati"
+      }
+    },
+    "row": {
+      "selector": {
+        "changecolor": "Cambia colore",
+        "changepriority": "Cambia priorità"
+      }
+    }
+  },
+  "project": {
+    "status": {
+      "created": {
+        "text": "Creato",
+        "description": "Progetto creato correttamente"
+      },
+      "approval": {
+        "text": "In approvazione",
+        "description": "Progetto in attesa dell'approvazione dei revisori"
+      },
+      "accepted": {
+        "text": "Accettato",
+        "description": "Progetto accettato dai revisori"
+      },
+      "refused": {
+        "text": "Rifiutato",
+        "description": "Progetto rifiutato dai revisori"
+      },
+      "ready": {
+        "text": "Pronto",
+        "description": "Progetto pronto a partire"
+      },
+      "active": {
+        "text": "Attivo",
+        "description": "Progetto attivo"
+      },
+      "waiting": {
+        "text": "In attesa",
+        "description": "Progetto in attesa di un altro Progetto"
+      },
+      "suspended": {
+        "text": "Sospeso",
+        "description": "Progetto sospeso"
+      },
+      "deleted": {
+        "text": "Eliminato",
+        "description": "Progetto elimianto"
+      },
+      "transferred": {
+        "text": "Trasferito",
+        "description": "Progetto trasferito in un altro Progetto"
+      },
+      "completed": {
+        "text": "Completato",
+        "description": "Progetto completato"
+      }
+    },
+    "setproject": {
+      "text": "Seleziona Progetto",
+      "tooltip": "Imposta il progetto nel selettore principale"
+    },
+    "leaderproject": "Capoprogetto",
+    "currentselected": "Attualmente selezionato"
+  },
+  "priority": {
+    "none": {
+      "text": "Nessuna",
+      "description": ""
+    },
+    "higher": {
+      "text": "Urgente",
+      "description": ""
+    },
+    "high": {
+      "text": "Alta",
+      "description": ""
+    },
+    "medium": {
+      "text": "Media",
+      "description": ""
+    },
+    "low": {
+      "text": "Bassa",
+      "description": ""
+    },
+    "lower": {
+      "text": "Futile",
+      "description": ""
+    }
+  }
+}

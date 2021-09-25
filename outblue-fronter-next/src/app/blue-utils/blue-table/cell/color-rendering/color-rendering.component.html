@@ -1,0 +1,13 @@
+<span *ngIf="!saving" class="record-simple-selector" (click)="triggerMenu($event)" [matTooltip]="labels.ROW_CHANGECOLOR | translate " matTooltipPosition="right">
+  <fa-icon *ngIf="value" icon="circle" size="lg" [style.color]="value"></fa-icon>
+  <fa-icon icon="angle-down" size="lg" style="color: gainsboro; margin: 0px 5px;"></fa-icon>
+  <span #trigger="matMenuTrigger" [matMenuTriggerFor]="colors"></span>
+</span>
+
+<span *ngIf="saving">
+  <app-standard-spinner-cell></app-standard-spinner-cell>
+</span>
+
+<mat-menu #colors="matMenu">
+  <app-color-selector [color]="value" (onColorChange)="changeColor($event);"></app-color-selector>
+</mat-menu>

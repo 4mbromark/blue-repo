@@ -1,0 +1,72 @@
+.button, .selected-button {
+  width: 100%;
+  min-width: unset !important;
+  text-align: left;
+  padding: 5px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.button:hover {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+.selected-button {
+  color: var(--blue-main-color);
+}
+
+.selected-outbox {
+  border-right: 2px solid var(--blue-main-color);
+  background-color: rgb(200, 230, 255);
+  /*border-radius: 5px;*/
+}
+
+.icon {
+  margin-right:20px;
+  margin-left:6px;
+}
+.icon-not-extended {
+  margin-left:5px;
+}
+.selected-icon {
+  color: var(--blue-main-color);
+}
+
+.selected-thing {
+  padding: 5px;
+}
+.selected-thing-not {
+  padding: 5px;
+  color: white;
+}
+
+.leftbar-bottom-line {
+  width: 100%;
+  padding: 0px 8px !important;
+  min-width: unset !important;
+  border-radius: 0px;
+  text-align: right;
+}
+.leftbar-bottom-line:hover {
+  color: black;
+  background-color: white;
+}
+
+.project-button {
+  width: 100% !important;
+  text-align: left;
+  padding: 0px 5px;
+  font-size: medium;
+  color: dimgrey;
+  border-radius: 0px !important;
+}
+.project-button:hover:enabled {
+  color: black;
+  background-color: var(--blue-support-color);
+}
+
+.project-icon {
+  margin-right: 10px;
+}
+
+

@@ -1,0 +1,15 @@
+<app-standard-toolbar [title]="title" [icon]="icon"></app-standard-toolbar>
+
+<mat-tab-group class="hf-noselect" mat-align-tabs="center">
+  <mat-tab *ngFor="let button of messagingButtons">
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="button.icon" size="2x" style="padding-right: 10px;"></fa-icon>
+      {{ button.title | translate }}
+    </ng-template>
+    <div class="hf-m10">
+      <section *ngIf="button.tag == tags.MESSAGING_COMMUNICATIONS">
+        <app-communications></app-communications>
+      </section>
+    </div>
+  </mat-tab>
+</mat-tab-group>
